@@ -18,12 +18,12 @@
                 "color": "bg-purple-500"
             },
             {
-                "name": "Firebase",
-                "color": "bg-yellow-500"
+                "name": "Android Studio",
+                "color": "bg-green-500"
             },
             {
-                "name": "MVVM",
-                "color": "bg-blue-400"
+                "name": "Sqlite",
+                "color": "bg-indigo-500"
             }
         ]
     },
@@ -47,12 +47,20 @@
                 "color": "bg-purple-500"
             },
             {
-                "name": "Android",
+                "name": "Android Studio",
                 "color": "bg-green-500"
+            },
+            {
+                "name": "API",
+                "color": "bg-gray-600"
             },
             {
                 "name": "Gamification",
                 "color": "bg-orange-500"
+            },
+            {
+                "name": "Bangkit Academy",
+                "color": "bg-red-500"
             }
         ]
     },
@@ -75,12 +83,32 @@
                 "color": "bg-purple-500"
             },
             {
-                "name": "Android",
+                "name": "Android Studio",
                 "color": "bg-green-500"
             },
             {
-                "name": "API Integration",
-                "color": "bg-indigo-500"
+                "name": "Retrofit",
+                "color": "bg-yellow-600"
+            },
+            {
+                "name": "MVVM",
+                "color": "bg-blue-400"
+            },
+            {
+                "name": "View Model",
+                "color": "bg-blue-500"
+            },
+            {
+                "name": "LiveData",
+                "color": "bg-cyan-500"
+            },
+            {
+                "name": "Datastore Preferences",
+                "color": "bg-teal-500"
+            },
+            {
+                "name": "Bangkit Academy",
+                "color": "bg-red-500"
             }
         ]
     },
@@ -99,12 +127,20 @@
         ],
         "techStack": [
             {
-                "name": "Kotlin",
-                "color": "bg-purple-500"
+                "name": "Flutter",
+                "color": "bg-blue-500"
             },
             {
-                "name": "Firebase",
-                "color": "bg-yellow-500"
+                "name": "Dart",
+                "color": "bg-cyan-500"
+            },
+            {
+                "name": "Android Studio",
+                "color": "bg-green-500"
+            },
+            {
+                "name": "Dicoding",
+                "color": "bg-gray-800"
             }
         ]
     },
@@ -125,6 +161,14 @@
             {
                 "name": "Dart",
                 "color": "bg-cyan-500"
+            },
+            {
+                "name": "Android Studio",
+                "color": "bg-green-500"
+            },
+            {
+                "name": "Dicoding",
+                "color": "bg-gray-800"
             }
         ]
     },
@@ -145,6 +189,10 @@
             {
                 "name": "Flutter",
                 "color": "bg-blue-500"
+            },
+            {
+                "name": "Dart",
+                "color": "bg-cyan-500"
             },
             {
                 "name": "Android Studio",
@@ -182,6 +230,10 @@
             {
                 "name": "UI/UX",
                 "color": "bg-pink-500"
+            },
+            {
+                "name": "Gamification",
+                "color": "bg-orange-500"
             }
         ]
     }
