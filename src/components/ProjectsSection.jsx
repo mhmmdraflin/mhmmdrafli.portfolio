@@ -22,6 +22,12 @@ const ProjectItem = ({ project, index }) => {
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
 
+    // State for the "rotation" of the phone slots.
+    // 0: Standard (Left[1], Center[0], Right[2])
+    // +1: Rotate Left (Left[2], Center[1], Right[0])
+    // -1: Rotate Right
+    const [rotationOffset, setRotationOffset] = useState(0);
+
     // Helpers
     const getProjectImages = (project) => {
         if (!project.images) return null;
@@ -38,32 +44,50 @@ const ProjectItem = ({ project, index }) => {
     const isMulti = Array.isArray(projectImages);
     const imagesList = isMulti ? projectImages : [projectImages];
 
-    // Dynamic Image Assignment based on currentIdx
-    const getVisibleImages = () => {
-        if (!isMulti) return [imagesList[0]];
-        const center = imagesList[currentImageIdx];
-        const left = imagesList[(currentImageIdx + 1) % imagesList.length];
-        const right = imagesList[(currentImageIdx + 2) % imagesList.length]; // For 3 images, this loops perfectly
-        // For >3 images, logic might need adjustment, but for portfolio typically 3-4 images.
-        // Assuming typical 3 images: [0, 1, 2]. 
-        // Idx 0: Center=0, Left=1, Right=2 (Wait, typical carousel left is prev, right is next)
-        // Let's adjust for visual "Next" flow.
-        // If swiping Left (Next): Right phone moves to Center.
-        // Let's stick to standard array indexing visually.
+    // Determine which image goes to which slot based on rotationOffset
+    // We strictly map 3 images to 3 slots for simplicity in this portfolio context.
+    // Ensure we have exactly 3 images for the logic to be clean (dup if needed)
+    const normalizedImages = isMulti && imagesList.length === 2 ? [...imagesList, imagesList[0]] : imagesList;
+    const workingImages = isMulti ? normalizedImages : [imagesList[0]];
 
-        const prevIdx = (currentImageIdx - 1 + imagesList.length) % imagesList.length;
-        const nextIdx = (currentImageIdx + 1) % imagesList.length;
+    // Indices for the 3 physical phones
+    // We have 3 "slots". We rotate who is in the "Center" slot.
+    // If rotationOffset = 0: Image 0 is Center.
+    // If rotationOffset = 1: Image 1 is Center.
+    // ...
+    const getSlotClass = (imageIndex) => {
+        // Calculate "visual position relative to center"
+        // relativeIndex 0 = Center
+        // relativeIndex -1 (or 2) = Left
+        // relativeIndex 1 = Right
 
-        // Visual Layout: Left Phone (Prev), Center Phone (Current), Right Phone (Next)
-        // This matches user mental model better.
-        return {
-            left: imagesList[prevIdx],
-            center: imagesList[currentImageIdx],
-            right: imagesList[nextIdx]
-        };
+        // Adjust imageIndex by rotationOffset to see where it stands
+        // Example: Image 0, Offset 0 -> Diff 0 -> Center
+        // Image 1, Offset 0 -> Diff 1 -> Right
+        // Image 2, Offset 0 -> Diff 2 -> Left (visually)
+
+        // However, we want strict slots: 
+        // Slot 0 (Center), Slot 1 (Left), Slot 2 (Right) might be easier?
+        // No, we want the *Images* to be the permanent components (PhoneMockups with specific images) 
+        // and we change their *Classes* to move them around.
+
+        // Effective Index after rotation
+        const count = workingImages.length;
+        const effectivePos = (imageIndex - rotationOffset) % count;
+        const normalizedPos = effectivePos < 0 ? effectivePos + count : effectivePos;
+
+        // normalizedPos == 0 -> Center
+        // normalizedPos == 1 -> Right
+        // normalizedPos == count-1 -> Left
+
+        if (normalizedPos === 0) {
+            return "absolute z-30 transition-all duration-500 shadow-2xl drop-shadow-2xl animate-float scale-100 opacity-100 translate-x-0"; // Center
+        } else if (normalizedPos === 1) {
+            return getRightPhoneClasses(); // Right
+        } else {
+            return getLeftPhoneClasses(); // Left
+        }
     };
-
-    const visibleImages = getVisibleImages();
 
     // Swipe Logic
     const minSwipeDistance = 50;
@@ -79,10 +103,10 @@ const ProjectItem = ({ project, index }) => {
         const isRightSwipe = distance < -minSwipeDistance; // User swipes right, wants Prev
 
         if (isLeftSwipe) {
-            setCurrentImageIdx((prev) => (prev + 1) % imagesList.length);
+            setRotationOffset((prev) => prev + 1);
         }
         if (isRightSwipe) {
-            setCurrentImageIdx((prev) => (prev - 1 + imagesList.length) % imagesList.length);
+            setRotationOffset((prev) => prev - 1);
         }
     };
 
@@ -100,18 +124,12 @@ const ProjectItem = ({ project, index }) => {
                 >
                     {isMulti ? (
                         <>
-                            {/* Left Phone (Prev) */}
-                            <div className={`${getLeftPhoneClasses()} transition-all duration-500 ease-in-out`}>
-                                <PhoneMockup project={{ ...project, image: visibleImages.left }} />
-                            </div>
-                            {/* Right Phone (Next) */}
-                            <div className={`${getRightPhoneClasses()} transition-all duration-500 ease-in-out`}>
-                                <PhoneMockup project={{ ...project, image: visibleImages.right }} />
-                            </div>
-                            {/* Center Phone (Current) */}
-                            <div className="absolute z-30 transition-all duration-500 shadow-2xl drop-shadow-2xl animate-float">
-                                <PhoneMockup project={{ ...project, image: visibleImages.center }} />
-                            </div>
+                            {/* Render permanent phones for each image, animate their positions */}
+                            {workingImages.slice(0, 3).map((img, idx) => (
+                                <div key={idx} className={`${getSlotClass(idx)} transition-all duration-500 ease-in-out`}>
+                                    <PhoneMockup project={{ ...project, image: img }} />
+                                </div>
+                            ))}
 
                             {/* Mobile Instruction Hint */}
                             <div className="absolute -bottom-8 md:hidden text-gray-400 text-xs tracking-widest uppercase animate-pulse flex items-center gap-2">

@@ -27,9 +27,9 @@ export default function CVModal({ isOpen, onClose }) {
             ></div>
 
             {/* Modal Content */}
-            <div className="relative bg-white rounded-2xl w-full max-w-4xl h-[85vh] flex flex-col shadow-2xl animate-fade-in-up">
+            <div className="relative bg-white rounded-2xl w-full max-w-4xl h-[90vh] md:h-[85vh] flex flex-col shadow-2xl animate-fade-in-up mx-2 md:mx-0">
                 {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-100">
+                <div className="flex items-center justify-between p-4 border-b border-gray-100 shrink-0">
                     <h3 className="text-lg font-bold text-[#1D1D1F]">Curriculum Vitae</h3>
                     <button
                         onClick={onClose}
