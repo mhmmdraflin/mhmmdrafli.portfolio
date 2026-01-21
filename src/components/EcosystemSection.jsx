@@ -30,7 +30,7 @@ export default function EcosystemSection() {
                         {tools.map((tool) => (
                             <div
                                 key={tool.name}
-                                className={`flex flex-col items-center justify-center p-5 rounded-2xl ${tool.color_class} border border-white/80 hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-default group`}
+                                className={`flex flex-col items-center justify-center p-5 rounded-2xl ${tool.color_class} border border-white/80 hover:scale-105 hover:shadow-lg active:scale-95 active:border-[#007AFF]/50 transition-all duration-300 cursor-pointer group`}
                             >
                                 <img
                                     src={getAssetPath(tool.icon_url?.startsWith('http') ? tool.icon_url : `assets/images/${tool.icon_url}`)}

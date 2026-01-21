@@ -15,7 +15,7 @@ function TimelineItem({ item }) {
                 </span>
             </div>
 
-            <div className="flex-1 timeline-card rounded-xl p-5">
+            <div className="flex-1 timeline-card rounded-xl p-5 hover:shadow-md active:scale-[0.98] active:bg-blue-50/30 transition-all duration-200 cursor-pointer">
                 <div className="flex items-start gap-4">
                     {/* Logo */}
                     {logoSrc && (

@@ -57,7 +57,7 @@ export default function CertificatesSection() {
                         ref={cardRef}
                         onMouseMove={handleMouseMove}
                         onMouseLeave={handleMouseLeave}
-                        className="relative w-full max-w-2xl bg-white rounded-3xl p-2 shadow-2xl transition-all duration-200 ease-out transform-gpu group cursor-pointer border border-[#007AFF]/10"
+                        className="relative w-full max-w-2xl bg-white rounded-3xl p-2 shadow-2xl transition-all duration-200 ease-out transform-gpu group cursor-pointer border border-[#007AFF]/10 active:scale-[0.98]"
                         style={{
                             transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(1, 1, 1)`,
                         }}
