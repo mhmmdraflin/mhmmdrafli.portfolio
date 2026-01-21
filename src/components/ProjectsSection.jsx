@@ -34,6 +34,10 @@ const ProjectItem = ({ project, index }) => {
         return Array.isArray(project.images) ? project.images.map(prependPath) : prependPath(project.images);
     };
 
+    const projectImages = getProjectImages(project) || [];
+    const isMulti = Array.isArray(projectImages);
+    const imagesList = isMulti ? projectImages : [projectImages];
+
     // Dynamic Image Assignment based on currentIdx
     const getVisibleImages = () => {
         if (!isMulti) return [imagesList[0]];
