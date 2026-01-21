@@ -83,7 +83,15 @@ export default function ProjectsSection({ onViewCaseStudy }) {
                                 {/* Content Side */}
                                 <div className="flex-1 text-center md:text-left">
                                     <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
-                                        <span className="material-symbols-outlined text-[#007AFF] text-3xl">{project.icon}</span>
+                                        {project.icon && project.icon.includes('.') ? (
+                                            <img
+                                                src={getAssetPath(`assets/images/${project.icon}`)}
+                                                alt={project.title}
+                                                className="w-8 h-8 object-contain"
+                                            />
+                                        ) : (
+                                            <span className="material-symbols-outlined text-[#007AFF] text-3xl">{project.icon}</span>
+                                        )}
                                         <span className="text-xs font-bold tracking-widest text-[#86868B] uppercase border border-gray-200 px-2 py-1 rounded bg-white">
                                             {project.year}
                                         </span>

@@ -33,7 +33,7 @@
         "subtitle": "Nutrition Tracker",
         "association": "Associated with Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
         "year": "2025",
-        "icon": "monitor_weight",
+        "icon": "catloris-logo.jpg",
         "description": "A gamified calorie-tracking Android application. Helps users effectively meet their calorie and macronutrient goals through interactive challenges.",
         "display_mode": "multi",
         "images": [
@@ -51,7 +51,7 @@
                 "color": "bg-green-500"
             },
             {
-                "name": "API",
+                "name": "API Integration",
                 "color": "bg-gray-600"
             },
             {
@@ -85,6 +85,10 @@
             {
                 "name": "Android Studio",
                 "color": "bg-green-500"
+            },
+            {
+                "name": "API Integration",
+                "color": "bg-indigo-600"
             },
             {
                 "name": "Retrofit",
