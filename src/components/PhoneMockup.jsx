@@ -1,4 +1,4 @@
-import profileImage from '../assets/images/profile.jpg';
+import { getAssetPath } from '../utils/assets';
 
 export default function PhoneMockup({ project }) {
     return (
@@ -27,7 +27,7 @@ export default function PhoneMockup({ project }) {
                         <div
                             className="size-8 rounded-full bg-gray-600 bg-cover bg-center"
                             style={{
-                                backgroundImage: `url(${profileImage})`
+                                backgroundImage: `url(${getAssetPath('assets/images/profile.jpg')})`
                             }}
                         />
                     </div>

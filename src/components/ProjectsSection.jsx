@@ -1,21 +1,20 @@
 import projectsData from '../data/projects.json';
 import PhoneMockup from './PhoneMockup';
+import { getAssetPath } from '../utils/assets';
 
 export default function ProjectsSection({ onViewCaseStudy }) {
     const projects = projectsData;
-
 
     // Helper to process project image paths
     const getProjectImages = (project) => {
         if (!project.images) return null;
 
-        // Helper to prepend path
         const prependPath = (img) => {
             if (!img) return null;
             if (img.startsWith('http')) return img;
-            // Remove /assets/images/ prefix if it's already there to avoid dupes (just in case DB has full path)
-            const cleanImg = img.replace(/^\/?assets\/images\//, '');
-            return `/assets/images/${cleanImg}`;
+            // Remove potential leading path if present in JSON (though we know it's just filename)
+            const cleanImg = img.replace(/^(\/?assets\/images\/)/, '');
+            return getAssetPath(`assets/images/${cleanImg}`);
         };
 
         if (Array.isArray(project.images)) {
@@ -25,11 +24,9 @@ export default function ProjectsSection({ onViewCaseStudy }) {
         }
     };
 
-    if (loading) return <div className="py-20 text-center text-[#007AFF]">Loading Projects...</div>;
-
     if (projects.length === 0) return (
         <div className="py-20 text-center text-red-400">
-            <p>No projects found. Please check database connection.</p>
+            <p>No projects found.</p>
         </div>
     );
 

@@ -1,8 +1,15 @@
 import profileData from '../data/profile.json';
+import { getAssetPath } from '../utils/assets';
 
 export default function HomePage({ onOpenCV }) {
     const profile = profileData;
 
+    // Fallback if profile data is missing
+    if (!profile) return (
+        <div className="min-h-screen flex flex-col items-center justify-center text-red-500 gap-4">
+            <p className="text-xl font-bold">Failed to load profile data.</p>
+        </div>
+    );
 
     return (
         <section id="home" className="min-h-screen flex flex-col justify-center items-center relative z-10 pt-24 pb-16 px-6">
@@ -14,7 +21,7 @@ export default function HomePage({ onOpenCV }) {
                             <div
                                 className="w-full h-full rounded-full bg-cover bg-center border-4 border-white"
                                 style={{
-                                    backgroundImage: `url(/assets/images/${profile.avatar_url})`
+                                    backgroundImage: `url(${getAssetPath(`assets/images/${profile.avatar_url}`)})`
                                 }}
                             />
                         </div>

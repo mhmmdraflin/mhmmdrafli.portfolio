@@ -1,11 +1,9 @@
-
-//     education: [...], // Static data removed
-//     experience: [...]  // Static data removed
-// };
+import journeyData from '../data/journey.json';
+import { getAssetPath } from '../utils/assets';
 
 function TimelineItem({ item }) {
     // Helper to resolve logo URL
-    const logoSrc = item.logo_url ? `/assets/images/${item.logo_url}` : null;
+    const logoSrc = item.logo_url ? getAssetPath(`assets/images/${item.logo_url}`) : null;
 
     return (
         <div className="group timeline-item relative flex flex-col md:flex-row gap-4 md:gap-8 mb-6 pl-16 md:pl-0">
@@ -36,7 +34,6 @@ function TimelineItem({ item }) {
                             {item.is_current ? (
                                 <span className="text-[#007AFF] text-[10px] uppercase font-bold bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">Current</span>
                             ) : null}
-                            {/* Handling boolean from DB (0/1) or boolean */}
                         </div>
 
                         {item.association && (
@@ -78,11 +75,14 @@ function TimelineSection({ title, items }) {
     );
 }
 
-import journeyData from '../data/journey.json';
-
 export default function JourneySection() {
     const { education, experience } = journeyData;
 
+    if (education.length === 0 && experience.length === 0) return (
+        <div className="py-20 text-center text-red-400">
+            <p>Journey data not available.</p>
+        </div>
+    );
 
     return (
         <section id="journey" className="py-20 px-6 relative z-10">

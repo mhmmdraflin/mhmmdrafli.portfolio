@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import certificatesData from '../data/certificates.json';
+import { getAssetPath } from '../utils/assets';
 
 export default function CertificatesSection() {
     const cardRef = useRef(null);
@@ -11,10 +12,30 @@ export default function CertificatesSection() {
 
     if (!certificate) return null;
 
-
     const issuerLines = typeof certificate.issuer_lines === 'string'
         ? JSON.parse(certificate.issuer_lines)
         : certificate.issuer_lines;
+
+    const handleMouseMove = (e) => {
+        if (!cardRef.current) return;
+
+        const rect = cardRef.current.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        const rotateY = ((mouseX - width / 2) / width) * 20;
+        const rotateX = ((height / 2 - mouseY) / height) * 20;
+
+        setRotate({ x: rotateX, y: rotateY });
+        setOpacity(1);
+    };
+
+    const handleMouseLeave = () => {
+        setRotate({ x: 0, y: 0 });
+        setOpacity(0);
+    };
 
     return (
         <section id="certificates" className="py-20 px-6 relative z-10">
@@ -49,7 +70,7 @@ export default function CertificatesSection() {
 
                         <div className="relative overflow-hidden rounded-2xl bg-gray-50 aspect-[1.414/1]">
                             <img
-                                src={`/assets/images/${certificate.image_url}`}
+                                src={getAssetPath(`assets/images/${certificate.image_url}`)}
                                 alt={certificate.title}
                                 className="w-full h-full object-cover"
                             />

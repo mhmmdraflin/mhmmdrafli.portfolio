@@ -1,15 +1,14 @@
 import toolsData from '../data/skills.json';
+import { getAssetPath } from '../utils/assets';
 
 export default function EcosystemSection() {
     const tools = toolsData;
 
-    // Helper to resolve icon source
-    const getIconSrc = (iconUrl) => {
-        if (!iconUrl) return null;
-        if (iconUrl.startsWith('http')) return iconUrl;
-        return `/assets/images/${iconUrl}`;
-    };
-
+    if (tools.length === 0) return (
+        <div className="py-20 text-center text-red-400">
+            <p>Skills data not available.</p>
+        </div>
+    );
 
     return (
         <section id="ecosystem" className="py-20 px-6 relative z-10">
@@ -34,7 +33,7 @@ export default function EcosystemSection() {
                                 className={`flex flex-col items-center justify-center p-5 rounded-2xl ${tool.color_class} border border-white/80 hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-default group`}
                             >
                                 <img
-                                    src={getIconSrc(tool.icon_url)}
+                                    src={getAssetPath(tool.icon_url?.startsWith('http') ? tool.icon_url : `assets/images/${tool.icon_url}`)}
                                     alt={tool.name}
                                     className={`w-12 h-12 mb-3 group-hover:scale-110 transition-transform ${tool.img_class || ''}`}
                                 />
