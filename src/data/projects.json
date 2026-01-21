@@ -31,6 +31,7 @@
         "id": 4,
         "title": "CatLoris",
         "subtitle": "Nutrition Tracker",
+        "association": "Associated with Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
         "year": "2025",
         "icon": "monitor_weight",
         "description": "A gamified calorie-tracking Android application. Helps users effectively meet their calorie and macronutrient goals through interactive challenges.",
@@ -90,9 +91,11 @@
         "year": "2026",
         "icon": "travel_explore",
         "description": "A tourism guide application for exploring Bandung with integrated maps, local recommendations, and user reviews.",
-        "display_mode": "single",
+        "display_mode": "multi",
         "images": [
-            "wisata-bandung.png"
+            "wisata-bandung.png",
+            "wisata-bandung-2.png",
+            "wisata-bandung-3.png"
         ],
         "techStack": [
             {
