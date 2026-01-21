@@ -19,7 +19,7 @@ export default function CVModal({ isOpen, onClose }) {
     const cvUrl = cvFile || '#';
 
     return (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-0 md:p-4">
             {/* Backdrop */}
             <div
                 className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
@@ -27,9 +27,9 @@ export default function CVModal({ isOpen, onClose }) {
             ></div>
 
             {/* Modal Content */}
-            <div className="relative bg-white rounded-2xl w-full max-w-4xl h-[90vh] md:h-[85vh] flex flex-col shadow-2xl animate-fade-in-up mx-2 md:mx-0">
+            <div className="relative bg-white md:rounded-2xl w-full max-w-4xl h-full md:h-[85vh] flex flex-col shadow-2xl animate-fade-in-up">
                 {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-100 shrink-0">
+                <div className="flex items-center justify-between p-4 border-b border-gray-100 shrink-0 bg-white md:rounded-t-2xl z-10">
                     <h3 className="text-lg font-bold text-[#1D1D1F]">Curriculum Vitae</h3>
                     <button
                         onClick={onClose}
@@ -40,10 +40,10 @@ export default function CVModal({ isOpen, onClose }) {
                 </div>
 
                 {/* Body (PDF Preview) */}
-                <div className="flex-1 bg-gray-50 overflow-hidden relative">
+                <div className="flex-1 bg-gray-50 overflow-y-auto overscroll-y-contain relative -webkit-overflow-scrolling-touch">
                     <iframe
                         src={cvUrl}
-                        className="w-full h-full border-none"
+                        className="w-full min-h-full h-full border-none md:rounded-none"
                         title="CV Preview"
                     >
                         <p className="text-center p-10 text-gray-500">
@@ -54,7 +54,7 @@ export default function CVModal({ isOpen, onClose }) {
                 </div>
 
                 {/* Footer (Actions) */}
-                <div className="p-4 border-t border-gray-100 flex justify-end gap-3 bg-white rounded-b-2xl">
+                <div className="p-4 border-t border-gray-100 flex justify-end gap-3 bg-white md:rounded-b-2xl shrink-0 z-10">
                     <button
                         onClick={onClose}
                         className="px-6 py-2.5 text-sm font-semibold text-gray-600 hover:bg-gray-100 rounded-xl transition-all"
