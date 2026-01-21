@@ -34,7 +34,7 @@
         "association": "Associated with Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
         "year": "2025",
         "icon": "catloris-logo.jpg",
-        "description": "A gamified calorie-tracking Android application. Helps users effectively meet their calorie and macronutrient goals through interactive challenges.",
+        "description": "Built CatLoris, a gamified Android app, combining high-fidelity UI slicing with interactive challenges to create an engaging calorie and macro tracking experience.",
         "display_mode": "multi",
         "images": [
             "catloris-1.png",

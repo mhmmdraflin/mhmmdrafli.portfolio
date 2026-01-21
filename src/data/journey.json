@@ -54,7 +54,7 @@
             "organization": "UBHINUS dh.STIKI",
             "period": "Mar 2025 — Jul 2025",
             "is_current": false,
-            "description": "Assisted in teaching Advanced Web Programming, a course focused on mastering Laravel and Livewire to build transactional web applications. Provided technical guidance from installation and configuration to developing interactive components without JavaScript, while also supporting students in backend integration, performance optimization, and building scalable, component-based web systems.",
+            "description": "Mentored students in building scalable Laravel/Livewire applications, covering setup, development, and optimization.",
             "logo_url": "ubhinus-dh-stiki-logo.jpg",
             "tags": [
                 "Laravel",
@@ -69,7 +69,7 @@
             "organization": "UBHINUS dh.STIKI",
             "period": "Sep 2024 — Feb 2025",
             "is_current": false,
-            "description": "Assisted in teaching Web Programming I, a course covering the fundamentals of web development including HTML, CSS, and PHP. Supported students during lectures and lab sessions by troubleshooting coding issues, guiding them in understanding core concepts, and helping improve their problem-solving skills in web development.",
+            "description": "Guided students in web development basics (HTML, CSS, PHP) and hands-on code troubleshooting.",
             "logo_url": "ubhinus-dh-stiki-logo.jpg",
             "tags": [
                 "HTML",
@@ -85,7 +85,7 @@
             "organization": "CatLoris: Gamified Nutrition Tracker App",
             "period": "Oct 2024 — Dec 2024",
             "is_current": false,
-            "description": "As the Mobile Developer for CatLoris, I executed the end-to-end development of this gamified calorie-tracking Android application, from designing and slicing high-fidelity UI components to implementing core functionalities. By integrating interactive elements like challenges and rewards, I transformed daily nutrition management into an engaging experience, ensuring seamless feature performance to help users effectively meet their calorie and macronutrient goals.",
+            "description": "Built CatLoris, a gamified Android app, combining high-fidelity UI slicing with interactive challenges to create an engaging calorie and macro tracking experience.",
             "association": "Associated with Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
             "logo_url": "catloris-logo.jpg",
             "tags": [
