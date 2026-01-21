@@ -61,10 +61,10 @@ export default function ProjectsSection({ onViewCaseStudy }) {
     );
 
     return (
-        <section id="projects" className="py-20 px-6 relative z-10" >
+        <section id="projects" className="py-12 md:py-20 px-6 relative z-10" >
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
-                <div className="text-center mb-20 animate-fade-in-up">
+                <div className="text-center mb-12 md:mb-20 animate-fade-in-up">
                     <span className="text-[#007AFF] text-xs font-bold tracking-[0.2em] uppercase">Featured Work</span>
                     <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1D1D1F] mt-2">
                         My Projects
@@ -75,7 +75,7 @@ export default function ProjectsSection({ onViewCaseStudy }) {
                 </div>
 
                 {/* Projects Stack */}
-                <div className="space-y-32">
+                <div className="space-y-16 md:space-y-32">
                     {projects.map((project, index) => {
                         const isEven = index % 2 === 0;
                         const projectImages = getProjectImages(project);
@@ -84,12 +84,12 @@ export default function ProjectsSection({ onViewCaseStudy }) {
                         return (
                             <div
                                 key={project.id}
-                                className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-20 group`}
+                                className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-20 group`}
                             >
                                 {/* Phone Mockup Side */}
                                 <div className="flex-1 w-full max-w-md md:max-w-none flex justify-center perspective-[2000px]">
                                     {isMulti ? (
-                                        <div className="relative w-full h-[600px] flex items-center justify-center perspective-[1200px] group/phones transform scale-[0.65] md:scale-100 transition-transform duration-500">
+                                        <div className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center perspective-[1200px] group/phones transform scale-[0.65] md:scale-100 transition-transform duration-500">
                                             {/* Left Phone */}
                                             <div className={getLeftPhoneClasses()}>
                                                 <PhoneMockup project={{ ...project, image: projectImages[1] }} />
