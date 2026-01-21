@@ -1,3 +1,4 @@
+```
 import { useRef, useState } from 'react';
 import certificatesData from '../data/certificates.json';
 import { getAssetPath } from '../utils/assets';
@@ -6,6 +7,7 @@ export default function CertificatesSection() {
     const cardRef = useRef(null);
     const [rotate, setRotate] = useState({ x: 0, y: 0 });
     const [opacity, setOpacity] = useState(0);
+    const [isHovering, setIsHovering] = useState(false);
 
     // Use the first certificate as the main one
     const certificate = certificatesData.length > 0 ? certificatesData[0] : null;
@@ -18,6 +20,7 @@ export default function CertificatesSection() {
 
     const handleMouseMove = (e) => {
         if (!cardRef.current) return;
+        setIsHovering(true);
 
         const rect = cardRef.current.getBoundingClientRect();
         const width = rect.width;
@@ -35,10 +38,12 @@ export default function CertificatesSection() {
     const handleMouseLeave = () => {
         setRotate({ x: 0, y: 0 });
         setOpacity(0);
+        setIsHovering(false);
     };
 
     const handleTouchMove = (e) => {
         if (!cardRef.current) return;
+        setIsHovering(true);
         // Prevent default only if needed, but might block scrolling. 
         // Let's rely on user intention.
 
@@ -59,6 +64,17 @@ export default function CertificatesSection() {
     const handleTouchEnd = () => {
         setRotate({ x: 0, y: 0 });
         setOpacity(0);
+        // Do NOT set isHovering to false immediately on touch end for mobile.
+        // This allows the user to read the text after swiping/tapping (Sticky Hover).
+        // We can optionally set a timeout or just let it stay until they tap elsewhere (if we listened to window clicks).
+        // For now, keeping it visible is safer for "Why can't I see the text?".
+        // To hide, they can tap again? Or we can just leave it. 
+        // Let's create a toggle on Click as well for better control.
+    };
+
+    const handleClick = () => {
+        // Toggle visibility on click/tap
+        setIsHovering(prev => !prev);
     };
 
     return (
@@ -81,29 +97,30 @@ export default function CertificatesSection() {
                         ref={cardRef}
                         onMouseMove={handleMouseMove}
                         onMouseLeave={handleMouseLeave}
-                        onTouchStart={() => setOpacity(1)}
+                        onTouchStart={() => setIsHovering(true)}
                         onTouchMove={handleTouchMove}
                         onTouchEnd={handleTouchEnd}
+                        onClick={handleClick}
                         className="relative w-full max-w-2xl bg-white rounded-3xl p-2 shadow-2xl transition-all duration-200 ease-out transform-gpu group cursor-pointer border border-[#007AFF]/10 active:scale-[0.98]"
                         style={{
-                            transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(1, 1, 1)`,
+                            transform: `perspective(1000px) rotateX(${ rotate.x }deg) rotateY(${ rotate.y }deg) scale3d(1, 1, 1)`,
                         }}
                     >
                         {/* Glare Effect */}
                         <div
-                            className="absolute inset-0 w-full h-full rounded-3xl pointer-events-none z-50 mix-blend-overlay opacity-0 transition-opacity duration-200 bg-gradient-to-tr from-transparent via-white/40 to-transparent"
+                            className="absolute inset-0 w-full h-full rounded-3xl pointer-events-none z-50 mix-blend-overlay transition-opacity duration-200 bg-gradient-to-tr from-transparent via-white/40 to-transparent"
                             style={{ opacity: opacity }}
                         />
 
                         <div className="relative overflow-hidden rounded-2xl bg-gray-50 aspect-[1.414/1]">
                             <img
-                                src={getAssetPath(`assets/images/${certificate.image_url}`)}
+                                src={getAssetPath(`assets / images / ${ certificate.image_url } `)}
                                 alt={certificate.title}
                                 className="w-full h-full object-cover"
                             />
 
-                            {/* Overlay Content on Hover */}
-                            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-8 text-center backdrop-blur-sm">
+                            {/* Overlay Content: Visible on Hover state or specific Mobile state */}
+                            <div className={`absolute inset - 0 bg - black / 60 transition - opacity duration - 300 flex flex - col items - center justify - center text - white p - 8 text - center backdrop - blur - sm ${ isHovering ? 'opacity-100' : 'opacity-0' } `}>
                                 <span className="material-symbols-outlined text-4xl mb-3 text-[#007AFF]">verified</span>
                                 <h3 className="text-2xl font-bold mb-2">{certificate.title}</h3>
                                 <p className="text-lg font-medium text-white/90">{certificate.path_name}</p>
