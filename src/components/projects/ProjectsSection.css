@@ -1,0 +1,136 @@
+.projects-section {
+    background: var(--bg-primary);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+    transition: transform var(--duration-base) var(--spring),
+        box-shadow var(--duration-base) var(--ease-out);
+    animation: fade-in-up var(--duration-slow) var(--ease-out) both;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Device Mockup */
+.device-mockup {
+    width: 180px;
+}
+
+.device-frame {
+    position: relative;
+    background: #1D1D1F;
+    border-radius: 28px;
+    padding: 10px;
+    box-shadow: var(--shadow-xl);
+}
+
+.device-notch {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 24px;
+    background: #1D1D1F;
+    border-radius: 0 0 12px 12px;
+    z-index: 10;
+}
+
+.device-screen {
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 9/19.5;
+}
+
+.project-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Project Info */
+.project-info {
+    text-align: center;
+    width: 100%;
+}
+
+.project-title {
+    font-size: var(--text-title3);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.project-subtitle {
+    font-size: var(--text-footnote);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.tech-badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+}
+
+.tech-badge {
+    font-size: var(--text-caption);
+    font-weight: var(--weight-medium);
+    color: var(--accent-blue);
+    background: rgba(0, 122, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+.project-role {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    font-size: var(--text-footnote);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.role-icon {
+    font-size: 0.875rem;
+}
+
+.btn-sm {
+    padding: 10px 20px;
+    font-size: var(--text-footnote);
+}
+
+.project-btn {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .device-mockup {
+        width: 160px;
+    }
+}

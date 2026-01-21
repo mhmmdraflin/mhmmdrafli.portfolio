@@ -1,0 +1,40 @@
+.cta-buttons {
+    padding: var(--space-lg) var(--space-md);
+    animation-delay: 500ms;
+    animation-fill-mode: both;
+}
+
+.cta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.btn-lg {
+    width: 100%;
+    padding: 16px 28px;
+    font-size: var(--text-body);
+}
+
+.btn-arrow {
+    transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+@media (min-width: 480px) {
+    .cta-container {
+        flex-direction: row;
+        max-width: none;
+        justify-content: center;
+    }
+
+    .btn-lg {
+        width: auto;
+    }
+}

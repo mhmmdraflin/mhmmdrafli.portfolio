@@ -1,0 +1,56 @@
+.social-pills {
+    padding: var(--space-lg) var(--space-md);
+    animation-delay: 400ms;
+    animation-fill-mode: both;
+}
+
+.pills-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 10px 18px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all var(--duration-fast) var(--spring);
+}
+
+.pill:hover {
+    background: var(--bg-tertiary);
+    transform: scale(1.05);
+}
+
+.pill:active {
+    transform: scale(0.98);
+}
+
+.pill-icon {
+    font-size: 1.1rem;
+}
+
+.pill-label {
+    font-size: var(--text-footnote);
+    font-weight: var(--weight-medium);
+    color: var(--text-primary);
+}
+
+@media (max-width: 480px) {
+    .pill {
+        padding: 8px 14px;
+    }
+
+    .pill-label {
+        display: none;
+    }
+
+    .pill-icon {
+        font-size: 1.25rem;
+    }
+}
