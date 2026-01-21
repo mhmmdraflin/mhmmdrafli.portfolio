@@ -1,0 +1,53 @@
+[
+    {
+        "name": "Kotlin",
+        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+        "color_class": "bg-purple-100"
+    },
+    {
+        "name": "Java",
+        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+        "color_class": "bg-red-100"
+    },
+    {
+        "name": "Swift",
+        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
+        "color_class": "bg-orange-100"
+    },
+    {
+        "name": "SwiftUI",
+        "icon_url": "swiftui-logo.jpg",
+        "color_class": "bg-blue-100",
+        "img_class": "mix-blend-multiply rounded-[10px] object-cover"
+    },
+    {
+        "name": "Figma",
+        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+        "color_class": "bg-pink-100"
+    },
+    {
+        "name": "Laravel",
+        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+        "color_class": "bg-red-100"
+    },
+    {
+        "name": "PHP",
+        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+        "color_class": "bg-indigo-100"
+    },
+    {
+        "name": "HTML5",
+        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+        "color_class": "bg-orange-100"
+    },
+    {
+        "name": "CSS3",
+        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+        "color_class": "bg-blue-100"
+    },
+    {
+        "name": "MySQL",
+        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+        "color_class": "bg-cyan-100"
+    }
+]

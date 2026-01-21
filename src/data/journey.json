@@ -1,0 +1,99 @@
+{
+    "education": [
+        {
+            "id": 1,
+            "type": "education",
+            "title": "Informatics",
+            "organization": "UBHINUS dh.STIKI",
+            "period": "2022 — 2026",
+            "is_current": true,
+            "description": "Currently pursuing Bachelor degree in Informatics, focusing on Mobile Application Development",
+            "logo_url": "ubhinus-logo.jpg"
+        },
+        {
+            "id": 2,
+            "type": "education",
+            "title": "Mobile Development",
+            "organization": "Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
+            "period": "Sep 2024 — Dec 2024",
+            "is_current": false,
+            "description": "Specialized in Android Development (Kotlin) and Clean Architecture, collaborating with ML and Cloud teams on a Capstone Project.",
+            "logo_url": "bangkit-logo.jpg"
+        },
+        {
+            "id": 3,
+            "type": "education",
+            "title": "Saintek",
+            "organization": "MAN 2 Kutai Kartanegara",
+            "period": "Apr 2019 — Mei 2022",
+            "is_current": false,
+            "description": "High school education with focus on Science and Technology (Saintek).",
+            "logo_url": "man2kukar-logo.jpg"
+        }
+    ],
+    "experience": [
+        {
+            "id": 4,
+            "type": "experience",
+            "title": "Laboratory Teaching Assistant Advanced Database",
+            "organization": "UBHINUS dh.STIKI",
+            "period": "Aug 2025 — Jan 2026",
+            "is_current": false,
+            "description": "Teaching advanced data management techniques including complex query structures (CTE/Window Functions) as well as best practices in SQL database optimization and performance analysis.",
+            "logo_url": "ubhinus-dh-stiki-logo.jpg",
+            "tags": [
+                "Database",
+                "Teaching",
+                "Part-time"
+            ]
+        },
+        {
+            "id": 5,
+            "type": "experience",
+            "title": "Laboratory Teaching Assistant Advanced Web Programming",
+            "organization": "UBHINUS dh.STIKI",
+            "period": "Mar 2025 — Jul 2025",
+            "is_current": false,
+            "description": "Assisted in teaching Advanced Web Programming, a course focused on mastering Laravel and Livewire to build transactional web applications. Provided technical guidance from installation and configuration to developing interactive components without JavaScript, while also supporting students in backend integration, performance optimization, and building scalable, component-based web systems.",
+            "logo_url": "ubhinus-dh-stiki-logo.jpg",
+            "tags": [
+                "Laravel",
+                "Livewire",
+                "Web Development"
+            ]
+        },
+        {
+            "id": 6,
+            "type": "experience",
+            "title": "Laboratory Teaching Assistant Web Programming",
+            "organization": "UBHINUS dh.STIKI",
+            "period": "Sep 2024 — Feb 2025",
+            "is_current": false,
+            "description": "Assisted in teaching Web Programming I, a course covering the fundamentals of web development including HTML, CSS, and PHP. Supported students during lectures and lab sessions by troubleshooting coding issues, guiding them in understanding core concepts, and helping improve their problem-solving skills in web development.",
+            "logo_url": "ubhinus-dh-stiki-logo.jpg",
+            "tags": [
+                "HTML",
+                "CSS",
+                "PHP",
+                "Teaching"
+            ]
+        },
+        {
+            "id": 7,
+            "type": "experience",
+            "title": "Mobile Developer",
+            "organization": "CatLoris: Gamified Nutrition Tracker App",
+            "period": "Oct 2024 — Dec 2024",
+            "is_current": false,
+            "description": "As the Mobile Developer for CatLoris, I executed the end-to-end development of this gamified calorie-tracking Android application, from designing and slicing high-fidelity UI components to implementing core functionalities. By integrating interactive elements like challenges and rewards, I transformed daily nutrition management into an engaging experience, ensuring seamless feature performance to help users effectively meet their calorie and macronutrient goals.",
+            "association": "Associated with Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
+            "logo_url": "catloris-logo.jpg",
+            "tags": [
+                "Kotlin",
+                "Android",
+                "Gamification",
+                "UI/UX"
+            ]
+        }
+    ]
+}

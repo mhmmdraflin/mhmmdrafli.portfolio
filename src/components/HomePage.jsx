@@ -1,32 +1,8 @@
-import { useState, useEffect } from 'react';
-// import profileImage from '../assets/images/profile.jpg'; // Deprecated in favor of API
+import profileData from '../data/profile.json';
 
 export default function HomePage({ onOpenCV }) {
-    const [profile, setProfile] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const profile = profileData;
 
-    useEffect(() => {
-        fetch('http://localhost:5001/api/profile')
-            .then(res => res.json())
-            .then(data => {
-                setProfile(data);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error('Failed to fetch profile:', err);
-                setLoading(false);
-            });
-    }, []);
-
-    if (loading) return <div className="min-h-screen flex items-center justify-center text-[#007AFF]">Loading Profile...</div>;
-
-    // Fallback if API fails or returns empty
-    if (!profile) return (
-        <div className="min-h-screen flex flex-col items-center justify-center text-red-500 gap-4">
-            <p className="text-xl font-bold">Failed to load profile data.</p>
-            <p className="text-sm text-gray-500">Please ensure the backend server is running on port 5001 and database is imported.</p>
-        </div>
-    );
 
     return (
         <section id="home" className="min-h-screen flex flex-col justify-center items-center relative z-10 pt-24 pb-16 px-6">

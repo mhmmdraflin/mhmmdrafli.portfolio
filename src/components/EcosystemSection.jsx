@@ -1,22 +1,7 @@
-import { useState, useEffect } from 'react';
-// import swiftUiLogo from '../assets/images/swiftui-logo.jpg'; // Deprecated
+import toolsData from '../data/skills.json';
 
 export default function EcosystemSection() {
-    const [tools, setTools] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        fetch('http://localhost:5001/api/skills')
-            .then(res => res.json())
-            .then(data => {
-                setTools(data);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error('Failed to fetch skills:', err);
-                setLoading(false);
-            });
-    }, []);
+    const tools = toolsData;
 
     // Helper to resolve icon source
     const getIconSrc = (iconUrl) => {
@@ -25,13 +10,6 @@ export default function EcosystemSection() {
         return `/assets/images/${iconUrl}`;
     };
 
-    if (loading) return <div className="py-20 text-center text-[#007AFF]">Loading Skills...</div>;
-
-    if (tools.length === 0) return (
-        <div className="py-20 text-center text-red-400">
-            <p>Skills data not available.</p>
-        </div>
-    );
 
     return (
         <section id="ecosystem" className="py-20 px-6 relative z-10">

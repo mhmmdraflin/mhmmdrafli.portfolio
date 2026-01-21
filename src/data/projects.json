@@ -1,0 +1,133 @@
+[
+    {
+        "id": 7,
+        "title": "Sehatin",
+        "subtitle": "Featured App",
+        "year": "2026",
+        "icon": "health_and_safety",
+        "description": "Built for my 8th-semester Final Year Project, Sehatin is an Android-based gamified app that motivates teenagers to maintain a healthy lifestyle by transforming exercise and diet into exciting game challenges with rewards like points, badges, and virtual character collections.",
+        "display_mode": "multi",
+        "status": "In Progress",
+        "images": [
+            "sehatin-1.png",
+            "sehatin-2.png",
+            "sehatin-3.png"
+        ],
+        "techStack": [
+            {
+                "name": "Kotlin",
+                "color": "bg-purple-500"
+            },
+            {
+                "name": "Android Studio",
+                "color": "bg-green-500"
+            },
+            {
+                "name": "UI/UX",
+                "color": "bg-pink-500"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Tiket Pendakian",
+        "subtitle": "Featured App",
+        "year": "2026",
+        "icon": "hiking",
+        "description": "A comprehensive mountain hiking ticketing system built with Android Studio during my Dicoding course.",
+        "display_mode": "multi",
+        "images": [
+            "tiket-pendakian-1.png",
+            "tiket-pendakian-2.png",
+            "tiket-pendakian-3.png"
+        ],
+        "techStack": [
+            {
+                "name": "Flutter",
+                "color": "bg-blue-500"
+            },
+            {
+                "name": "Android Studio",
+                "color": "bg-green-500"
+            },
+            {
+                "name": "Dicoding",
+                "color": "bg-gray-800"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "title": "Sehatin (Legacy)",
+        "subtitle": "Prototype",
+        "year": "2023",
+        "icon": "monitor_heart",
+        "description": "A comprehensive health tracking application designed to monitor daily wellness activities with precision. Featuring real-time heart rate analysis and personalized fitness plans.",
+        "display_mode": "single",
+        "images": [
+            "sehatin-1.png"
+        ],
+        "techStack": [
+            {
+                "name": "Flutter",
+                "color": "bg-blue-500"
+            },
+            {
+                "name": "Laravel",
+                "color": "bg-red-500"
+            },
+            {
+                "name": "MySQL",
+                "color": "bg-orange-500"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Wisata Bandung",
+        "subtitle": "Featured App",
+        "year": "2023",
+        "icon": "travel_explore",
+        "description": "A tourism guide application for exploring Bandung with integrated maps, local recommendations, and user reviews for an immersive travel experience.",
+        "display_mode": "single",
+        "images": [
+            "wisata-bandung.png"
+        ],
+        "techStack": [
+            {
+                "name": "Kotlin",
+                "color": "bg-purple-500"
+            },
+            {
+                "name": "Firebase",
+                "color": "bg-yellow-500"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "E-Commerce App",
+        "subtitle": "Featured App",
+        "year": "2024",
+        "icon": "shopping_bag",
+        "description": "A full-featured marketplace application with payment gateway integration, real-time order tracking, and seamless shopping experience.",
+        "display_mode": "single",
+        "images": [
+            "catloris-1.png"
+        ],
+        "techStack": [
+            {
+                "name": "Flutter",
+                "color": "bg-blue-500"
+            },
+            {
+                "name": "PHP",
+                "color": "bg-indigo-500"
+            },
+            {
+                "name": "MySQL",
+                "color": "bg-orange-500"
+            }
+        ]
+    }
+]

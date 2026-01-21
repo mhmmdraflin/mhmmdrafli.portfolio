@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "title": "Bangkit Academy 2024 Batch 2",
+        "issuer_lines": [
+            "Google",
+            "GoTo",
+            "Traveloka"
+        ],
+        "path_name": "Mobile Development Path",
+        "specialization": "Specializing in Android Development",
+        "image_url": "certificate-bangkit.jpg"
+    }
+]

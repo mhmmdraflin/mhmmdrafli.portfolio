@@ -1,22 +1,9 @@
-import { useState, useEffect } from 'react';
+import projectsData from '../data/projects.json';
 import PhoneMockup from './PhoneMockup';
 
 export default function ProjectsSection({ onViewCaseStudy }) {
-    const [projects, setProjects] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const projects = projectsData;
 
-    useEffect(() => {
-        fetch('http://localhost:5001/api/projects')
-            .then(res => res.json())
-            .then(data => {
-                setProjects(data);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error('Failed to fetch projects:', err);
-                setLoading(false);
-            });
-    }, []);
 
     // Helper to process project image paths
     const getProjectImages = (project) => {

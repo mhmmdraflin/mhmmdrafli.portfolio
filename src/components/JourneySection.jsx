@@ -78,34 +78,11 @@ function TimelineSection({ title, items }) {
     );
 }
 
-import { useState, useEffect } from 'react';
+import journeyData from '../data/journey.json';
 
 export default function JourneySection() {
-    const [education, setEducation] = useState([]);
-    const [experience, setExperience] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const { education, experience } = journeyData;
 
-    useEffect(() => {
-        fetch('http://localhost:5001/api/journey')
-            .then(res => res.json())
-            .then(data => {
-                setEducation(data.education);
-                setExperience(data.experience);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error('Failed to fetch journey:', err);
-                setLoading(false);
-            });
-    }, []);
-
-    if (loading) return <div className="py-20 text-center text-[#007AFF]">Loading Journey...</div>;
-
-    if (education.length === 0 && experience.length === 0) return (
-        <div className="py-20 text-center text-red-400">
-            <p>Journey data not available.</p>
-        </div>
-    );
 
     return (
         <section id="journey" className="py-20 px-6 relative z-10">

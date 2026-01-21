@@ -1,57 +1,16 @@
-import { useRef, useState, useEffect } from 'react';
-// import certificateBangkit from '../assets/images/certificate-bangkit.jpg'; // Deprecated
+import { useRef, useState } from 'react';
+import certificatesData from '../data/certificates.json';
 
 export default function CertificatesSection() {
     const cardRef = useRef(null);
     const [rotate, setRotate] = useState({ x: 0, y: 0 });
     const [opacity, setOpacity] = useState(0);
-    const [certificate, setCertificate] = useState(null);
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        fetch('http://localhost:5001/api/certificates')
-            .then(res => res.json())
-            .then(data => {
-                // Assuming we only show the main/first certificate for now as per design
-                if (data && data.length > 0) {
-                    setCertificate(data[0]);
-                }
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error('Failed to fetch certificates:', err);
-                setLoading(false);
-            });
-    }, []);
+    // Use the first certificate as the main one
+    const certificate = certificatesData.length > 0 ? certificatesData[0] : null;
 
-    const handleMouseMove = (e) => {
-        if (!cardRef.current) return;
+    if (!certificate) return null;
 
-        const rect = cardRef.current.getBoundingClientRect();
-        const width = rect.width;
-        const height = rect.height;
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
-
-        const rotateY = ((mouseX - width / 2) / width) * 20;
-        const rotateX = ((height / 2 - mouseY) / height) * 20;
-
-        setRotate({ x: rotateX, y: rotateY });
-        setOpacity(1);
-    };
-
-    const handleMouseLeave = () => {
-        setRotate({ x: 0, y: 0 });
-        setOpacity(0);
-    };
-
-    if (loading) return <div className="py-20 text-center text-[#007AFF]">Loading Certificates...</div>;
-
-    if (!certificate) return (
-        <div className="py-20 text-center text-red-400">
-            <p>Certificate data not available.</p>
-        </div>
-    );
 
     const issuerLines = typeof certificate.issuer_lines === 'string'
         ? JSON.parse(certificate.issuer_lines)
