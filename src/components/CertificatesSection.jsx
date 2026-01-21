@@ -37,8 +37,32 @@ export default function CertificatesSection() {
         setOpacity(0);
     };
 
+    const handleTouchMove = (e) => {
+        if (!cardRef.current) return;
+        // Prevent default only if needed, but might block scrolling. 
+        // Let's rely on user intention.
+
+        const rect = cardRef.current.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const touch = e.touches[0];
+        const touchX = touch.clientX - rect.left;
+        const touchY = touch.clientY - rect.top;
+
+        const rotateY = ((touchX - width / 2) / width) * 20;
+        const rotateX = ((height / 2 - touchY) / height) * 20;
+
+        setRotate({ x: rotateX, y: rotateY });
+        setOpacity(1);
+    };
+
+    const handleTouchEnd = () => {
+        setRotate({ x: 0, y: 0 });
+        setOpacity(0);
+    };
+
     return (
-        <section id="certificates" className="py-20 px-6 relative z-10">
+        <section id="certificates" className="py-20 px-6 relative z-10 w-full overflow-hidden">
             <div className="max-w-4xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-16">
@@ -52,11 +76,14 @@ export default function CertificatesSection() {
                 </div>
 
                 {/* 3D Certificate Card */}
-                <div className="flex justify-center perspective-1000">
+                <div className="flex justify-center perspective-1000 w-full">
                     <div
                         ref={cardRef}
                         onMouseMove={handleMouseMove}
                         onMouseLeave={handleMouseLeave}
+                        onTouchStart={() => setOpacity(1)}
+                        onTouchMove={handleTouchMove}
+                        onTouchEnd={handleTouchEnd}
                         className="relative w-full max-w-2xl bg-white rounded-3xl p-2 shadow-2xl transition-all duration-200 ease-out transform-gpu group cursor-pointer border border-[#007AFF]/10 active:scale-[0.98]"
                         style={{
                             transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(1, 1, 1)`,
