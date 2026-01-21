@@ -59,23 +59,27 @@ export default function ProjectsSection({ onViewCaseStudy }) {
                                 {/* Phone Mockup Side */}
                                 <div className="flex-1 w-full max-w-md md:max-w-none flex justify-center perspective-[2000px]">
                                     {isMulti ? (
-                                        <div className="relative w-full h-[600px] flex items-center justify-center perspective-[1200px] group/phones">
+                                        <div className="relative w-full h-[600px] flex items-center justify-center perspective-[1200px] group/phones transform scale-[0.65] md:scale-100 transition-transform duration-500">
                                             {/* Left Phone */}
-                                            <div className="absolute z-10 transform scale-[0.85] -translate-x-24 md:-translate-x-32 translate-y-8 -rotate-y-[25deg] rotate-z-[-5deg] transition-all duration-700 ease-out group-hover/phones:-translate-x-32 md:group-hover/phones:-translate-x-40 group-hover/phones:rotate-y-[-15deg] group-hover/phones:scale-90 hover:!z-20">
+                                            <div className="absolute z-10 transform -translate-x-16 md:-translate-x-32 translate-y-8 -rotate-y-[25deg] rotate-z-[-5deg] transition-all duration-700 ease-out group-hover/phones:-translate-x-24 md:group-hover/phones:-translate-x-40 group-hover/phones:rotate-y-[-15deg] group-hover/phones:scale-90 hover:!z-20">
                                                 <PhoneMockup project={{ ...project, image: projectImages[1] }} />
                                             </div>
                                             {/* Right Phone */}
-                                            <div className="absolute z-10 transform scale-[0.85] translate-x-24 md:translate-x-32 translate-y-8 rotate-y-[25deg] rotate-z-[5deg] transition-all duration-700 ease-out group-hover/phones:translate-x-32 md:group-hover/phones:translate-x-40 group-hover/phones:rotate-y-[15deg] group-hover/phones:scale-90 hover:!z-20">
+                                            <div className="absolute z-10 transform translate-x-16 md:translate-x-32 translate-y-8 rotate-y-[25deg] rotate-z-[5deg] transition-all duration-700 ease-out group-hover/phones:translate-x-24 md:group-hover/phones:translate-x-40 group-hover/phones:rotate-y-[15deg] group-hover/phones:scale-90 hover:!z-20">
                                                 <PhoneMockup project={{ ...project, image: projectImages[2] }} />
                                             </div>
                                             {/* Center Phone */}
-                                            <div className="absolute z-30 transform scale-100 transition-all duration-500 animate-float shadow-2xl drop-shadow-2xl">
-                                                <PhoneMockup project={{ ...project, image: projectImages[0] }} />
+                                            <div className="absolute z-30 transition-all duration-500 shadow-2xl drop-shadow-2xl">
+                                                <div className="animate-float">
+                                                    <PhoneMockup project={{ ...project, image: projectImages[0] }} />
+                                                </div>
                                             </div>
                                         </div>
                                     ) : (
-                                        <div className="group-hover:scale-105 transition-transform duration-700 ease-out">
-                                            <PhoneMockup project={{ ...project, image: projectImages }} />
+                                        <div className="group-hover:scale-105 transition-transform duration-700 ease-out transform scale-[0.8] md:scale-100">
+                                            <div className="animate-float">
+                                                <PhoneMockup project={{ ...project, image: projectImages }} />
+                                            </div>
                                         </div>
                                     )}
                                 </div>
