@@ -5,7 +5,7 @@
         "subtitle": "Featured App",
         "year": "2026",
         "icon": "health_and_safety",
-        "description": "Built for my 8th-semester Final Year Project, Sehatin is an Android-based gamified app that motivates teenagers to maintain a healthy lifestyle by transforming exercise and diet into exciting game challenges with rewards like points, badges, and virtual character collections.",
+        "description": "Built for my 8th-semester Final Year Project, Sehatin is an Android-based gamified app that motivates teenagers to maintain a healthy lifestyle by transforming exercise and diet into exciting game challenges.",
         "display_mode": "multi",
         "status": "In Progress",
         "images": [
@@ -34,7 +34,7 @@
         "subtitle": "Featured App",
         "year": "2026",
         "icon": "hiking",
-        "description": "A comprehensive mountain hiking ticketing system built with Android Studio during my Dicoding course.",
+        "description": "A comprehensive mountain hiking ticketing system built with Android Studio during my Dicoding course. Simplifies booking and management for climbers.",
         "display_mode": "multi",
         "images": [
             "tiket-pendakian-1.png",
@@ -57,15 +57,121 @@
         ]
     },
     {
-        "id": 3,
-        "title": "E-Commerce App",
-        "subtitle": "Featured App",
+        "id": 5,
+        "title": "SportZone",
+        "subtitle": "Sports Venue Booking",
+        "year": "2025",
+        "icon": "sports_soccer",
+        "description": "A dynamic platform for booking sports venues and finding teammates. Features real-time availability checking and social connection for sports enthusiasts.",
+        "display_mode": "multi",
+        "images": [
+            "sportzone-1.png",
+            "sportzone-2.png",
+            "sportzone-3.png"
+        ],
+        "techStack": [
+            {
+                "name": "Kotlin",
+                "color": "bg-purple-500"
+            },
+            {
+                "name": "Firebase",
+                "color": "bg-yellow-500"
+            },
+            {
+                "name": "MVVM",
+                "color": "bg-blue-400"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "CatLoris",
+        "subtitle": "Nutrition Tracker",
         "year": "2024",
-        "icon": "shopping_bag",
-        "description": "A full-featured marketplace application with payment gateway integration, real-time order tracking, and seamless shopping experience.",
+        "icon": "monitor_weight",
+        "description": "A gamified calorie-tracking Android application. Helps users effectively meet their calorie and macronutrient goals through interactive challenges.",
+        "display_mode": "multi",
+        "images": [
+            "catloris-1.png",
+            "catloris-2.png",
+            "catloris-3.png"
+        ],
+        "techStack": [
+            {
+                "name": "Kotlin",
+                "color": "bg-purple-500"
+            },
+            {
+                "name": "Android",
+                "color": "bg-green-500"
+            },
+            {
+                "name": "Gamification",
+                "color": "bg-orange-500"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Story App",
+        "subtitle": "Social Sharing",
+        "year": "2024",
+        "icon": "auto_stories",
+        "description": "An application where users can share their stories with images and location data. Includes authentication and smooth animation transitions.",
+        "display_mode": "multi",
+        "images": [
+            "story-app-1.png",
+            "story-app-2.png",
+            "story-app-3.png"
+        ],
+        "techStack": [
+            {
+                "name": "Kotlin",
+                "color": "bg-purple-500"
+            },
+            {
+                "name": "Android",
+                "color": "bg-green-500"
+            },
+            {
+                "name": "API Integration",
+                "color": "bg-indigo-500"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Wisata Bandung",
+        "subtitle": "Travel Guide",
+        "year": "2023",
+        "icon": "travel_explore",
+        "description": "A tourism guide application for exploring Bandung with integrated maps, local recommendations, and user reviews.",
         "display_mode": "single",
         "images": [
-            "catloris-1.png"
+            "wisata-bandung.png"
+        ],
+        "techStack": [
+            {
+                "name": "Kotlin",
+                "color": "bg-purple-500"
+            },
+            {
+                "name": "Firebase",
+                "color": "bg-yellow-500"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "title": "MyTravel",
+        "subtitle": "Travel Companion",
+        "year": "2023",
+        "icon": "flight_takeoff",
+        "description": "A simple and elegant travel destination app, helping users discover new places and plan their trips efficiently.",
+        "display_mode": "single",
+        "images": [
+            "my-travel.png"
         ],
         "techStack": [
             {
@@ -73,12 +179,8 @@
                 "color": "bg-blue-500"
             },
             {
-                "name": "PHP",
-                "color": "bg-indigo-500"
-            },
-            {
-                "name": "MySQL",
-                "color": "bg-orange-500"
+                "name": "Dart",
+                "color": "bg-cyan-500"
             }
         ]
     }
