@@ -74,8 +74,8 @@ export default function ProjectsSection({ onViewCaseStudy }) {
                     </p>
                 </div>
 
-                {/* Projects Stack */}
-                <div className="space-y-16 md:space-y-32">
+                {/* Projects Stack / Carousel */}
+                <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-6 px-6 md:block md:space-y-32 md:pb-0 md:gap-0 md:overflow-visible hide-scrollbar">
                     {projects.map((project, index) => {
                         const isEven = index % 2 === 0;
                         const projectImages = getProjectImages(project);
@@ -84,7 +84,7 @@ export default function ProjectsSection({ onViewCaseStudy }) {
                         return (
                             <div
                                 key={project.id}
-                                className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-20 group`}
+                                className={`min-w-[85vw] snap-center flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-20 group md:min-w-0`}
                             >
                                 {/* Phone Mockup Side */}
                                 <div className="flex-1 w-full max-w-md md:max-w-none flex justify-center perspective-[2000px]">
