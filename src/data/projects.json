@@ -116,9 +116,7 @@
         "icon": "flight_takeoff",
         "description": "A simple and elegant travel destination app, helping users discover new places and plan their trips efficiently.",
         "display_mode": "single",
-        "images": [
-            "my-travel.png"
-        ],
+        "images": "my-travel.png",
         "techStack": [
             {
                 "name": "Flutter",
