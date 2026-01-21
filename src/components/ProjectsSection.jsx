@@ -34,28 +34,45 @@ const ProjectItem = ({ project, index }) => {
         return Array.isArray(project.images) ? project.images.map(prependPath) : prependPath(project.images);
     };
 
-    const projectImages = getProjectImages(project) || [];
-    const isMulti = Array.isArray(projectImages);
-    const imagesList = isMulti ? projectImages : [projectImages];
-    const displayImage = imagesList[currentImageIdx];
+    // Dynamic Image Assignment based on currentIdx
+    const getVisibleImages = () => {
+        if (!isMulti) return [imagesList[0]];
+        const center = imagesList[currentImageIdx];
+        const left = imagesList[(currentImageIdx + 1) % imagesList.length];
+        const right = imagesList[(currentImageIdx + 2) % imagesList.length]; // For 3 images, this loops perfectly
+        // For >3 images, logic might need adjustment, but for portfolio typically 3-4 images.
+        // Assuming typical 3 images: [0, 1, 2]. 
+        // Idx 0: Center=0, Left=1, Right=2 (Wait, typical carousel left is prev, right is next)
+        // Let's adjust for visual "Next" flow.
+        // If swiping Left (Next): Right phone moves to Center.
+        // Let's stick to standard array indexing visually.
+
+        const prevIdx = (currentImageIdx - 1 + imagesList.length) % imagesList.length;
+        const nextIdx = (currentImageIdx + 1) % imagesList.length;
+
+        // Visual Layout: Left Phone (Prev), Center Phone (Current), Right Phone (Next)
+        // This matches user mental model better.
+        return {
+            left: imagesList[prevIdx],
+            center: imagesList[currentImageIdx],
+            right: imagesList[nextIdx]
+        };
+    };
+
+    const visibleImages = getVisibleImages();
 
     // Swipe Logic
     const minSwipeDistance = 50;
-
     const onTouchStart = (e) => {
         setTouchEnd(null);
         setTouchStart(e.targetTouches[0].clientX);
     };
-
-    const onTouchMove = (e) => {
-        setTouchEnd(e.targetTouches[0].clientX);
-    };
-
+    const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
     const onTouchEnd = () => {
         if (!touchStart || !touchEnd) return;
         const distance = touchStart - touchEnd;
-        const isLeftSwipe = distance > minSwipeDistance;
-        const isRightSwipe = distance < -minSwipeDistance;
+        const isLeftSwipe = distance > minSwipeDistance; // User swipes left, wants Next
+        const isRightSwipe = distance < -minSwipeDistance; // User swipes right, wants Prev
 
         if (isLeftSwipe) {
             setCurrentImageIdx((prev) => (prev + 1) % imagesList.length);
@@ -69,50 +86,33 @@ const ProjectItem = ({ project, index }) => {
         <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-20 group`}>
             {/* Phone Mockup Side */}
             <div className="flex-1 w-full max-w-md md:max-w-none flex justify-center perspective-[2000px]">
-                {/* Mobile View: Single Swipeable Phone */}
-                <div
-                    className="md:hidden relative w-full h-[450px] flex items-center justify-center"
-                    onTouchStart={onTouchStart}
-                    onTouchMove={onTouchMove}
-                    onTouchEnd={onTouchEnd}
-                >
-                    <div className="relative animate-float transition-all duration-300 transform scale-[0.75]">
-                        <PhoneMockup project={{ ...project, image: displayImage }} />
-                        {/* Swipe Indicators */}
-                        {isMulti && (
-                            <div className="absolute -bottom-12 left-0 right-0 flex justify-center gap-2">
-                                {imagesList.map((_, idx) => (
-                                    <div
-                                        key={idx}
-                                        className={`w-2 h-2 rounded-full transition-all ${idx === currentImageIdx ? 'bg-[#007AFF] w-4' : 'bg-gray-300'}`}
-                                    />
-                                ))}
-                            </div>
-                        )}
-                        {/* Swipe Hint */}
-                        {isMulti && (
-                            <div className="absolute top-1/2 -right-4 translate-x-full text-gray-400 animate-pulse">
-                                <span className="material-symbols-outlined">chevron_right</span>
-                            </div>
-                        )}
-                    </div>
-                </div>
 
-                {/* Desktop View: 3D Multi Phones */}
-                <div className="hidden md:flex relative w-full h-[600px] items-center justify-center perspective-[1200px] group/phones">
+                {/* Unified 3D Responsive View */}
+                <div
+                    className="relative w-full h-[450px] md:h-[600px] flex items-center justify-center perspective-[1200px] group/phones transform md:scale-100 scale-[0.6] transition-transform duration-500"
+                    onTouchStart={isMulti ? onTouchStart : undefined}
+                    onTouchMove={isMulti ? onTouchMove : undefined}
+                    onTouchEnd={isMulti ? onTouchEnd : undefined}
+                >
                     {isMulti ? (
                         <>
-                            {/* Left Phone */}
-                            <div className={getLeftPhoneClasses()}>
-                                <PhoneMockup project={{ ...project, image: imagesList[1] || imagesList[0] }} />
+                            {/* Left Phone (Prev) */}
+                            <div className={`${getLeftPhoneClasses()} transition-all duration-500 ease-in-out`}>
+                                <PhoneMockup project={{ ...project, image: visibleImages.left }} />
                             </div>
-                            {/* Right Phone */}
-                            <div className={getRightPhoneClasses()}>
-                                <PhoneMockup project={{ ...project, image: imagesList[2] || imagesList[0] }} />
+                            {/* Right Phone (Next) */}
+                            <div className={`${getRightPhoneClasses()} transition-all duration-500 ease-in-out`}>
+                                <PhoneMockup project={{ ...project, image: visibleImages.right }} />
                             </div>
-                            {/* Center Phone */}
+                            {/* Center Phone (Current) */}
                             <div className="absolute z-30 transition-all duration-500 shadow-2xl drop-shadow-2xl animate-float">
-                                <PhoneMockup project={{ ...project, image: imagesList[0] }} />
+                                <PhoneMockup project={{ ...project, image: visibleImages.center }} />
+                            </div>
+
+                            {/* Mobile Instruction Hint */}
+                            <div className="absolute -bottom-8 md:hidden text-gray-400 text-xs tracking-widest uppercase animate-pulse flex items-center gap-2">
+                                <span className="material-symbols-outlined text-sm">swipe</span>
+                                Swipe to Rotate
                             </div>
                         </>
                     ) : (
