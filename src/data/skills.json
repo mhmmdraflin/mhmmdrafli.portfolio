@@ -1,8 +1,9 @@
 [
     {
         "name": "Kotlin",
-        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
-        "color_class": "bg-purple-100"
+        "icon_url": "kotlin-logo.jpg",
+        "color_class": "bg-purple-100",
+        "img_class": "object-cover"
     },
     {
         "name": "Java",
@@ -18,7 +19,7 @@
         "name": "SwiftUI",
         "icon_url": "swiftui-logo.jpg",
         "color_class": "bg-blue-100",
-        "img_class": "mix-blend-multiply rounded-[10px] object-cover"
+        "img_class": "mix-blend-multiply rounded-[10px] object-cover scale-[1.3]"
     },
     {
         "name": "Figma",
