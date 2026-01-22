@@ -41,7 +41,7 @@ function TimelineItem({ item }) {
                             </h4>
                         )}
 
-                        <p className="text-xs md:text-sm leading-relaxed text-[#86868B]">{item.description}</p>
+                        <p className="text-xs md:text-sm leading-relaxed text-[#86868B] text-justify">{item.description}</p>
 
                         {item.tags && (
                             <div className="flex flex-wrap gap-1.5 mt-3">
