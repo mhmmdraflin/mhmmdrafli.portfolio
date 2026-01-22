@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import journeyData from '../data/journey.json';
 import { getAssetPath } from '../utils/assets';
 
@@ -51,8 +52,8 @@ function JourneyModal({ item, onClose }) {
 
     const logoSrc = item.logo_url ? getAssetPath(`assets/images/${item.logo_url}`) : null;
 
-    return (
-        <div className={`fixed inset-0 z-[60] flex items-end md:items-center justify-center pointer-events-none`}>
+    return createPortal(
+        <div className={`fixed inset-0 z-[999] flex items-end md:items-center justify-center pointer-events-none`}>
             {/* Backdrop */}
             <div
                 className={`absolute inset-0 bg-black/40 backdrop-blur-md transition-opacity duration-300 pointer-events-auto touch-none ${isVisible ? 'opacity-100' : 'opacity-0'}`}
@@ -128,7 +129,8 @@ function JourneyModal({ item, onClose }) {
                     <span className="material-symbols-outlined text-xl">close</span>
                 </button>
             </div>
-        </div>
+        </div>,
+        document.body
     );
 }
 
