@@ -1,12 +1,116 @@
+import { useState, useEffect } from 'react';
 import journeyData from '../data/journey.json';
 import { getAssetPath } from '../utils/assets';
 
-function TimelineItem({ item }) {
+function JourneyModal({ item, onClose }) {
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        if (item) {
+            setIsVisible(true);
+            document.body.style.overflow = 'hidden';
+        } else {
+            setIsVisible(false);
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [item]);
+
+    const handleClose = () => {
+        setIsVisible(false);
+        setTimeout(onClose, 300); // Wait for animation
+    };
+
+    if (!item) return null;
+
+    const logoSrc = item.logo_url ? getAssetPath(`assets/images/${item.logo_url}`) : null;
+
+    return (
+        <div className={`fixed inset-0 z-[60] flex items-end md:items-center justify-center pointer-events-none`}>
+            {/* Backdrop */}
+            <div
+                className={`absolute inset-0 bg-black/40 backdrop-blur-md transition-opacity duration-300 pointer-events-auto ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                onClick={handleClose}
+            ></div>
+
+            {/* Modal Content - Apple Style Sheet */}
+            <div
+                className={`w-full md:w-[600px] md:rounded-[2rem] rounded-t-[2rem] bg-white/90 backdrop-blur-2xl shadow-2xl transform transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-auto max-h-[90vh] flex flex-col ${isVisible ? 'translate-y-0 scale-100' : 'translate-y-full md:translate-y-10 md:scale-95 md:opacity-0'}`}
+            >
+                {/* Drag Handle (Mobile) */}
+                <div className="w-full flex justify-center pt-3 pb-1 md:hidden" onClick={handleClose}>
+                    <div className="w-12 h-1.5 rounded-full bg-gray-300/80"></div>
+                </div>
+
+                {/* Header with Logo */}
+                <div className="p-6 md:p-8 flex flex-col items-center text-center border-b border-gray-100/50">
+                    {logoSrc && (
+                        <div className="w-20 h-20 rounded-[1.5rem] bg-white shadow-lg shadow-black/5 flex items-center justify-center mb-4 overflow-hidden border border-gray-100">
+                            <img src={logoSrc} alt={item.organization} className="w-14 h-14 object-contain" />
+                        </div>
+                    )}
+                    <h2 className="text-2xl font-bold text-[#1D1D1F] tracking-tight">{item.organization}</h2>
+                    <p className="text-[#86868B] font-medium text-sm mt-1">{item.title}</p>
+
+                    <div className="mt-4 flex items-center gap-2">
+                        <span className={`inline-block py-1.5 px-4 rounded-full text-xs font-semibold font-mono bg-gray-100 text-[#1D1D1F]/70 border border-gray-200/50`}>
+                            {item.period}
+                        </span>
+                        {item.is_current && (
+                            <span className="text-[#007AFF] text-[10px] uppercase font-bold bg-blue-50 px-2 py-1 rounded-full border border-blue-100">Current</span>
+                        )}
+                    </div>
+                </div>
+
+                {/* Scrollable Content */}
+                <div className="p-6 md:p-8 overflow-y-auto overscroll-contain">
+                    <h3 className="text-sm font-bold text-[#86868B] uppercase tracking-wider mb-3">Description</h3>
+                    <p className="text-[#1D1D1F] leading-relaxed text-[15px] font-normal mb-8 text-left">
+                        {item.description}
+                    </p>
+
+                    {item.tags && (
+                        <>
+                            <h3 className="text-sm font-bold text-[#86868B] uppercase tracking-wider mb-3">Skills & Technologies</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {(typeof item.tags === 'string' ? JSON.parse(item.tags) : item.tags).map((tag) => (
+                                    <span key={tag} className="text-[13px] font-medium px-3 py-1.5 rounded-lg bg-gray-100/80 text-[#1D1D1F] border border-gray-200/50 shadow-sm">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </>
+                    )}
+                </div>
+
+                {/* Footer/Close (Mainly for desktop accessibility or clarity) */}
+                <div className="p-4 border-t border-gray-100/50 flex justify-center md:hidden">
+                    <button
+                        onClick={handleClose}
+                        className="w-full bg-[#007AFF] text-white font-bold py-3.5 rounded-2xl active:scale-95 transition-transform shadow-lg shadow-blue-500/30"
+                    >
+                        Close
+                    </button>
+                </div>
+                <button
+                    onClick={handleClose}
+                    className="absolute top-4 right-4 p-2 rounded-full bg-gray-100/50 hover:bg-gray-200/50 text-[#1D1D1F] transition-colors hidden md:flex"
+                >
+                    <span className="material-symbols-outlined text-xl">close</span>
+                </button>
+            </div>
+        </div>
+    );
+}
+
+function TimelineItem({ item, onClick }) {
     // Helper to resolve logo URL
     const logoSrc = item.logo_url ? getAssetPath(`assets/images/${item.logo_url}`) : null;
 
     return (
-        <div className="group timeline-item relative flex flex-col md:flex-row gap-3 md:gap-8 mb-8 md:mb-6 pl-8 md:pl-0">
+        <div onClick={() => onClick(item)} className="group timeline-item relative flex flex-col md:flex-row gap-3 md:gap-8 mb-8 md:mb-6 pl-8 md:pl-0">
 
             <div className="md:w-28 md:text-right pt-2 md:pt-4 flex-shrink-0">
                 <span className={`inline-block py-1 px-3 rounded-full border shadow-sm text-[10px] md:text-xs font-semibold font-mono ${item.periodStyle || 'bg-white border-gray-200/80 text-[#86868B] group-hover:bg-[#007AFF]/5 group-hover:border-[#007AFF]/20 group-hover:text-[#007AFF] transition-all duration-300'}`}>
@@ -41,15 +145,24 @@ function TimelineItem({ item }) {
                             </h4>
                         )}
 
-                        <p className="text-xs md:text-sm leading-relaxed text-[#86868B] text-left">{item.description}</p>
+                        <p className="text-xs md:text-sm leading-relaxed text-[#86868B] text-left line-clamp-3">{item.description}</p>
+                        <div className="md:hidden mt-2 flex items-center gap-1 text-[#007AFF] text-xs font-medium">
+                            <span>View Details</span>
+                            <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                        </div>
 
                         {item.tags && (
                             <div className="flex flex-wrap gap-1.5 mt-3">
-                                {(typeof item.tags === 'string' ? JSON.parse(item.tags) : item.tags).map((tag) => (
+                                {(typeof item.tags === 'string' ? JSON.parse(item.tags) : item.tags).slice(0, 3).map((tag) => (
                                     <span key={tag} className="text-[10px] md:text-[11px] font-medium px-2 py-0.5 rounded-md bg-gray-100 text-[#1D1D1F]/70 border border-gray-200">
                                         {tag}
                                     </span>
                                 ))}
+                                {(typeof item.tags === 'string' ? JSON.parse(item.tags) : item.tags).length > 3 && (
+                                    <span className="text-[10px] md:text-[11px] font-medium px-2 py-0.5 rounded-md bg-gray-50 text-[#86868B] border border-gray-100">
+                                        +{(typeof item.tags === 'string' ? JSON.parse(item.tags) : item.tags).length - 3}
+                                    </span>
+                                )}
                             </div>
                         )}
                     </div>
@@ -59,7 +172,7 @@ function TimelineItem({ item }) {
     );
 }
 
-function TimelineSection({ title, items }) {
+function TimelineSection({ title, items, onItemClick }) {
     return (
         <div className="mb-8 relative">
             <div className="mb-4 pl-10 md:pl-14">
@@ -68,7 +181,7 @@ function TimelineSection({ title, items }) {
                 </span>
             </div>
             {items.map((item) => (
-                <TimelineItem key={item.id} item={item} />
+                <TimelineItem key={item.id} item={item} onClick={onItemClick} />
             ))}
         </div>
     );
@@ -76,6 +189,11 @@ function TimelineSection({ title, items }) {
 
 export default function JourneySection() {
     const { education, experience } = journeyData;
+    const [selectedItem, setSelectedItem] = useState(null);
+
+    const handleItemClick = (item) => {
+        setSelectedItem(item);
+    };
 
     if (education.length === 0 && experience.length === 0) return (
         <div className="py-20 text-center text-red-400">
@@ -101,10 +219,13 @@ export default function JourneySection() {
                 <div className="glass-card rounded-3xl p-6 md:p-10 relative">
                     <div className="absolute left-[23px] md:left-[27px] top-16 bottom-16 w-[2px] bg-gradient-to-b from-black/5 via-[#1D1D1F]/20 to-black/5 rounded-full"></div>
 
-                    <TimelineSection title="Education" items={education} />
-                    <TimelineSection title="Experience" items={experience} />
+                    <TimelineSection title="Education" items={education} onItemClick={handleItemClick} />
+                    <TimelineSection title="Experience" items={experience} onItemClick={handleItemClick} />
                 </div>
             </div>
+
+            {/* Detail Modal */}
+            <JourneyModal item={selectedItem} onClose={() => setSelectedItem(null)} />
         </section>
     );
 }
