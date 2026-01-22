@@ -12,42 +12,18 @@ function JourneyModal({ item, isOpen, onClose }) {
     useEffect(() => {
         if (isOpen) {
             setIsVisible(true);
-            // Capture current scroll position immediately
-            scrollRef.current = window.scrollY;
-
-            // Apply locks
-            document.documentElement.style.overflow = 'hidden';
+            // Simple robust lock: just overflow hidden on body
+            // We avoid position:fixed to prevent scroll jump/reset issues on mobile
             document.body.style.overflow = 'hidden';
-            document.body.style.position = 'fixed';
-            document.body.style.top = `-${scrollRef.current}px`;
-            document.body.style.width = '100%';
         } else {
             setIsVisible(false);
-
-            // Check if we are actually locked before unlocking to avoid unnecessary resets on mount
-            if (document.body.style.position === 'fixed') {
-                // STRICT CLEANUP
-                // Remove all lock styles first
-                document.documentElement.style.removeProperty('overflow');
-                document.body.style.removeProperty('overflow');
-                document.body.style.removeProperty('position');
-                document.body.style.removeProperty('top');
-                document.body.style.removeProperty('width');
-
-                // Restore scroll position from ref with RAF to ensure layout is updated first
-                requestAnimationFrame(() => {
-                    window.scrollTo(0, scrollRef.current);
-                });
-            }
+            // Simple unlock
+            document.body.style.overflow = '';
         }
 
         return () => {
-            // Basic safety cleanup just in case component unmounts while open
-            document.documentElement.style.removeProperty('overflow');
-            document.body.style.removeProperty('overflow');
-            document.body.style.removeProperty('position');
-            document.body.style.removeProperty('top');
-            document.body.style.removeProperty('width');
+            // Safety cleanup
+            document.body.style.overflow = '';
         };
     }, [isOpen]);
 
