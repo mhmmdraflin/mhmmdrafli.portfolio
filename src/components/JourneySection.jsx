@@ -3,11 +3,11 @@ import { createPortal } from 'react-dom';
 import journeyData from '../data/journey.json';
 import { getAssetPath } from '../utils/assets';
 
-function JourneyModal({ item, onClose }) {
+function JourneyModal({ item, isOpen, onClose }) {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        if (item) {
+        if (isOpen) {
             setIsVisible(true);
             // Robust body scroll lock for iOS
             const scrollY = window.scrollY;
@@ -30,25 +30,19 @@ function JourneyModal({ item, onClose }) {
             }
         }
         return () => {
-            // Cleanup on unmount
-            const scrollY = document.body.style.top;
-            document.documentElement.style.overflow = '';
-            document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            if (scrollY) {
-                window.scrollTo(0, parseInt(scrollY || '0') * -1);
-            }
+            // Cleanup handled by state change, but safe to have basic reset on unmount
+            // Note: In persistent mode, unmount might not happen often
         };
-    }, [item]);
+    }, [isOpen]);
 
     const handleClose = () => {
         setIsVisible(false);
-        setTimeout(onClose, 300); // Wait for animation
+        // Delay calling onClose to allow animation to finish
+        // The parent will then likely set isOpen false, or we call onClose which sets isOpen false
+        setTimeout(onClose, 300);
     };
 
-    if (!item) return null;
+    if (!item && !isOpen) return null;
 
     const logoSrc = item.logo_url ? getAssetPath(`assets/images/${item.logo_url}`) : null;
 
@@ -219,9 +213,18 @@ function TimelineSection({ title, items, onItemClick }) {
 export default function JourneySection() {
     const { education, experience } = journeyData;
     const [selectedItem, setSelectedItem] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleItemClick = (item) => {
         setSelectedItem(item);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        // Optional: Clear item after animation?
+        // Actually keeping it is better for "kedip" prevention during exit.
+        // But we can clear it when opening new one? No need.
     };
 
     if (education.length === 0 && experience.length === 0) return (
@@ -253,8 +256,12 @@ export default function JourneySection() {
                 </div>
             </div>
 
-            {/* Detail Modal */}
-            <JourneyModal item={selectedItem} onClose={() => setSelectedItem(null)} />
+            {/* Detail Modal - Always mounted, controlled by isOpen */}
+            <JourneyModal
+                item={selectedItem}
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+            />
         </section>
     );
 }
