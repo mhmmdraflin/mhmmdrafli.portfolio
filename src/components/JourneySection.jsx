@@ -39,14 +39,14 @@ function JourneyModal({ item, isOpen, onClose }) {
         <div className={`fixed inset-0 z-[999] flex items-end md:items-center justify-center pointer-events-none`}>
             {/* Backdrop */}
             <div
-                className={`absolute inset-0 bg-black/40 backdrop-blur-md transition-opacity duration-300 pointer-events-auto touch-none ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                className={`absolute inset-0 bg-black/40 backdrop-blur-md transition-opacity duration-300 touch-none ${isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                 onClick={handleClose}
                 onTouchMove={(e) => e.preventDefault()}
             ></div>
 
             {/* Modal Content - Apple Style Sheet */}
             <div
-                className={`w-full md:w-[600px] md:rounded-[2rem] rounded-t-[2rem] bg-white shadow-2xl transform transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-auto max-h-[90vh] flex flex-col ${isVisible ? 'translate-y-0 scale-100' : 'translate-y-full md:translate-y-10 md:scale-95 md:opacity-0'}`}
+                className={`w-full md:w-[600px] md:rounded-[2rem] rounded-t-[2rem] bg-white shadow-2xl transform transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] max-h-[90vh] flex flex-col ${isVisible ? 'translate-y-0 scale-100 pointer-events-auto' : 'translate-y-full md:translate-y-10 md:scale-95 md:opacity-0 pointer-events-none'}`}
                 // Stop propagation to prevent clicks/touches bubbling to backdrop or body logic if any
                 onClick={(e) => e.stopPropagation()}
             >
