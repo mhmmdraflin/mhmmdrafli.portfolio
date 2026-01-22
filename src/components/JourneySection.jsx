@@ -10,6 +10,8 @@ function JourneyModal({ item, onClose }) {
             setIsVisible(true);
             // Robust body scroll lock for iOS
             const scrollY = window.scrollY;
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
             document.body.style.position = 'fixed';
             document.body.style.top = `-${scrollY}px`;
             document.body.style.width = '100%';
@@ -17,6 +19,8 @@ function JourneyModal({ item, onClose }) {
             setIsVisible(false);
             // Restore scroll position
             const scrollY = document.body.style.top;
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
             document.body.style.position = '';
             document.body.style.top = '';
             document.body.style.width = '';
@@ -27,6 +31,8 @@ function JourneyModal({ item, onClose }) {
         return () => {
             // Cleanup on unmount
             const scrollY = document.body.style.top;
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
             document.body.style.position = '';
             document.body.style.top = '';
             document.body.style.width = '';
@@ -57,6 +63,8 @@ function JourneyModal({ item, onClose }) {
             {/* Modal Content - Apple Style Sheet */}
             <div
                 className={`w-full md:w-[600px] md:rounded-[2rem] rounded-t-[2rem] bg-white shadow-2xl transform transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-auto max-h-[90vh] flex flex-col ${isVisible ? 'translate-y-0 scale-100' : 'translate-y-full md:translate-y-10 md:scale-95 md:opacity-0'}`}
+                // Stop propagation to prevent clicks/touches bubbling to backdrop or body logic if any
+                onClick={(e) => e.stopPropagation()}
             >
                 {/* Drag Handle (Mobile) */}
                 <div className="w-full flex justify-center pt-3 pb-1 md:hidden" onClick={handleClose}>
