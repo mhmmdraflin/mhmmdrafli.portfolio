@@ -24,27 +24,30 @@ function JourneyModal({ item, isOpen, onClose }) {
         } else {
             setIsVisible(false);
 
-            // STRICT CLEANUP
-            // Remove all lock styles first
-            document.documentElement.style.overflow = '';
-            document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
+            // Check if we are actually locked before unlocking to avoid unnecessary resets on mount
+            if (document.body.style.position === 'fixed') {
+                // STRICT CLEANUP
+                // Remove all lock styles first
+                document.documentElement.style.removeProperty('overflow');
+                document.body.style.removeProperty('overflow');
+                document.body.style.removeProperty('position');
+                document.body.style.removeProperty('top');
+                document.body.style.removeProperty('width');
 
-            // Restore scroll position from ref
-            window.scrollTo(0, scrollRef.current);
+                // Restore scroll position from ref with RAF to ensure layout is updated first
+                requestAnimationFrame(() => {
+                    window.scrollTo(0, scrollRef.current);
+                });
+            }
         }
 
-        // No cleanup function needed here because the 'else' block handles restoration when isOpen becomes false.
-        // The modal component is persistent now, so unmount cleanup is less critical but good to have if user navigates away.
         return () => {
             // Basic safety cleanup just in case component unmounts while open
-            document.documentElement.style.overflow = '';
-            document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
+            document.documentElement.style.removeProperty('overflow');
+            document.body.style.removeProperty('overflow');
+            document.body.style.removeProperty('position');
+            document.body.style.removeProperty('top');
+            document.body.style.removeProperty('width');
         };
     }, [isOpen]);
 
