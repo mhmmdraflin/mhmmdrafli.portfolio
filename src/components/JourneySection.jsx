@@ -2,22 +2,37 @@ import { useState, useEffect } from 'react';
 import journeyData from '../data/journey.json';
 import { getAssetPath } from '../utils/assets';
 
-import { createPortal } from 'react-dom';
-
 function JourneyModal({ item, onClose }) {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         if (item) {
             setIsVisible(true);
-            document.body.style.overflow = 'hidden';
+            // Robust body scroll lock for iOS
+            const scrollY = window.scrollY;
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = '100%';
         } else {
             setIsVisible(false);
-            document.body.style.overflow = 'unset';
-            // Also ensure we remove other potential locks
+            // Restore scroll position
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            if (scrollY) {
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            }
         }
         return () => {
-            document.body.style.overflow = 'unset';
+            // Cleanup on unmount
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            if (scrollY) {
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            }
         };
     }, [item]);
 
@@ -30,18 +45,18 @@ function JourneyModal({ item, onClose }) {
 
     const logoSrc = item.logo_url ? getAssetPath(`assets/images/${item.logo_url}`) : null;
 
-    const modalContent = (
-        <div className={`fixed inset-0 z-[9999] flex items-end md:items-center justify-center pointer-events-none`}>
+    return (
+        <div className={`fixed inset-0 z-[60] flex items-end md:items-center justify-center pointer-events-none`}>
             {/* Backdrop */}
             <div
-                className={`absolute inset-0 bg-black/50 backdrop-blur-xl transition-opacity duration-300 pointer-events-auto touch-none ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                className={`absolute inset-0 bg-black/40 backdrop-blur-md transition-opacity duration-300 pointer-events-auto touch-none ${isVisible ? 'opacity-100' : 'opacity-0'}`}
                 onClick={handleClose}
                 onTouchMove={(e) => e.preventDefault()}
             ></div>
 
             {/* Modal Content - Apple Style Sheet */}
             <div
-                className={`w-full md:w-[600px] md:rounded-[2rem] rounded-t-[2rem] bg-white/90 backdrop-blur-2xl shadow-2xl transform transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-auto max-h-[90vh] flex flex-col ${isVisible ? 'translate-y-0 scale-100' : 'translate-y-full md:translate-y-10 md:scale-95 md:opacity-0'}`}
+                className={`w-full md:w-[600px] md:rounded-[2rem] rounded-t-[2rem] bg-white shadow-2xl transform transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-auto max-h-[90vh] flex flex-col ${isVisible ? 'translate-y-0 scale-100' : 'translate-y-full md:translate-y-10 md:scale-95 md:opacity-0'}`}
             >
                 {/* Drag Handle (Mobile) */}
                 <div className="w-full flex justify-center pt-3 pb-1 md:hidden" onClick={handleClose}>
@@ -71,7 +86,7 @@ function JourneyModal({ item, onClose }) {
                 {/* Scrollable Content */}
                 <div className="p-6 md:p-8 overflow-y-auto overscroll-contain">
                     <h3 className="text-sm font-bold text-[#86868B] uppercase tracking-wider mb-3">Description</h3>
-                    <p className="text-[#1D1D1F] leading-relaxed text-[15px] font-normal mb-8 text-left text-justify">
+                    <p className="text-[#1D1D1F] leading-relaxed text-[15px] font-normal mb-8 text-left">
                         {item.description}
                     </p>
 
@@ -107,8 +122,6 @@ function JourneyModal({ item, onClose }) {
             </div>
         </div>
     );
-
-    return createPortal(modalContent, document.body);
 }
 
 function TimelineItem({ item, onClick }) {
