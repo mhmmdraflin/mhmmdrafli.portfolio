@@ -31,8 +31,9 @@ function JourneyModal({ item, onClose }) {
         <div className={`fixed inset-0 z-[60] flex items-end md:items-center justify-center pointer-events-none`}>
             {/* Backdrop */}
             <div
-                className={`absolute inset-0 bg-black/40 backdrop-blur-md transition-opacity duration-300 pointer-events-auto ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                className={`absolute inset-0 bg-black/40 backdrop-blur-md transition-opacity duration-300 pointer-events-auto touch-none ${isVisible ? 'opacity-100' : 'opacity-0'}`}
                 onClick={handleClose}
+                onTouchMove={(e) => e.preventDefault()}
             ></div>
 
             {/* Modal Content - Apple Style Sheet */}
