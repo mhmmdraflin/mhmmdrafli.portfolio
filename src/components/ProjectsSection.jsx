@@ -137,7 +137,14 @@ const ProjectItem = ({ project, index }) => {
                     <span className="text-xs font-bold tracking-widest text-[#86868B] uppercase border border-gray-200 px-2 py-1 rounded bg-white">
                         {project.year}
                     </span>
-                    {project.status && (
+                    {project.status === 'In Progress' ? (
+                        <div className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full shadow-lg shadow-orange-500/20 animate-pulse md:animate-none">
+                            <span className="material-symbols-outlined text-[10px] text-white font-bold animate-spin">sync</span>
+                            <span className="text-[10px] font-bold tracking-widest text-white uppercase">
+                                {project.status}
+                            </span>
+                        </div>
+                    ) : project.status && (
                         <span className="text-xs font-bold tracking-widest text-amber-500 uppercase border border-amber-200 px-2 py-1 rounded bg-amber-50/50">
                             {project.status}
                         </span>
