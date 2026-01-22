@@ -19,13 +19,12 @@ const getRightPhoneClasses = (isMobileExpanded) => {
 const ProjectItem = ({ project, index }) => {
     const isEven = index % 2 === 0;
     const [currentImageIdx, setCurrentImageIdx] = useState(0);
-    const [touchStart, setTouchStart] = useState(null);
-    const [touchEnd, setTouchEnd] = useState(null);
+
+    // Swipe refs
+    const touchStartX = React.useRef(null);
+    const touchEndX = React.useRef(null);
 
     // State for the "rotation" of the phone slots.
-    // 0: Standard (Left[1], Center[0], Right[2])
-    // +1: Rotate Left (Left[2], Center[1], Right[0])
-    // -1: Rotate Right
     const [rotationOffset, setRotationOffset] = useState(0);
 
     // Helpers
@@ -45,40 +44,13 @@ const ProjectItem = ({ project, index }) => {
     const imagesList = isMulti ? projectImages : [projectImages];
 
     // Determine which image goes to which slot based on rotationOffset
-    // We strictly map 3 images to 3 slots for simplicity in this portfolio context.
-    // Ensure we have exactly 3 images for the logic to be clean (dup if needed)
     const normalizedImages = isMulti && imagesList.length === 2 ? [...imagesList, imagesList[0]] : imagesList;
     const workingImages = isMulti ? normalizedImages : [imagesList[0]];
 
-    // Indices for the 3 physical phones
-    // We have 3 "slots". We rotate who is in the "Center" slot.
-    // If rotationOffset = 0: Image 0 is Center.
-    // If rotationOffset = 1: Image 1 is Center.
-    // ...
     const getSlotClass = (imageIndex) => {
-        // Calculate "visual position relative to center"
-        // relativeIndex 0 = Center
-        // relativeIndex -1 (or 2) = Left
-        // relativeIndex 1 = Right
-
-        // Adjust imageIndex by rotationOffset to see where it stands
-        // Example: Image 0, Offset 0 -> Diff 0 -> Center
-        // Image 1, Offset 0 -> Diff 1 -> Right
-        // Image 2, Offset 0 -> Diff 2 -> Left (visually)
-
-        // However, we want strict slots: 
-        // Slot 0 (Center), Slot 1 (Left), Slot 2 (Right) might be easier?
-        // No, we want the *Images* to be the permanent components (PhoneMockups with specific images) 
-        // and we change their *Classes* to move them around.
-
-        // Effective Index after rotation
         const count = workingImages.length;
         const effectivePos = (imageIndex - rotationOffset) % count;
         const normalizedPos = effectivePos < 0 ? effectivePos + count : effectivePos;
-
-        // normalizedPos == 0 -> Center
-        // normalizedPos == 1 -> Right
-        // normalizedPos == count-1 -> Left
 
         if (normalizedPos === 0) {
             return "absolute z-30 transition-all duration-500 shadow-2xl drop-shadow-2xl animate-float scale-100 opacity-100 translate-x-0"; // Center
@@ -89,56 +61,30 @@ const ProjectItem = ({ project, index }) => {
         }
     };
 
-    // Optimized Swipe Logic
+    // Swipe Logic
     const minSwipeDistance = 50;
-    const touchStartX = React.useRef(null);
-    const touchCurrentX = React.useRef(null);
-    const containerRef = React.useRef(null);
 
     const onTouchStart = (e) => {
+        touchEndX.current = null;
         touchStartX.current = e.targetTouches[0].clientX;
-        touchCurrentX.current = e.targetTouches[0].clientX;
-        if (containerRef.current) {
-            containerRef.current.style.transition = 'none'; // Disable transition for direct drag
-        }
     };
 
     const onTouchMove = (e) => {
-        if (!touchStartX.current) return;
-        touchCurrentX.current = e.targetTouches[0].clientX;
-        const diff = touchCurrentX.current - touchStartX.current;
-
-        // Direct transform update for 60fps tracking
-        // We apply the drag offset on top of the base scale
-        if (containerRef.current) {
-            // Limit drag visual to avoid excessive movement
-            const dampenedDiff = diff * 0.5;
-            containerRef.current.style.transform = `scale(0.6) translateX(${dampenedDiff}px)`;
-        }
+        touchEndX.current = e.targetTouches[0].clientX;
     };
 
     const onTouchEnd = () => {
-        if (!touchStartX.current || !touchCurrentX.current) return;
-        const distance = touchStartX.current - touchCurrentX.current;
+        if (!touchStartX.current || !touchEndX.current) return;
+        const distance = touchStartX.current - touchEndX.current;
         const isLeftSwipe = distance > minSwipeDistance;
         const isRightSwipe = distance < -minSwipeDistance;
 
-        // Reset styles and let React state take over for the snap animation
-        if (containerRef.current) {
-            containerRef.current.style.transition = 'transform 500ms ease-out';
-            containerRef.current.style.transform = ''; // Clear inline style to revert to class-based
-        }
-
         if (isLeftSwipe) {
-            setRotationOffset((prev) => prev - 1); // Swiping Left moves content Right logic inverted? Test. Left Swipe = Next Image usually.
-            // Original code: isLeftSwipe -> prev + 1. Let's stick to original logic direction.
             setRotationOffset((prev) => prev + 1);
-        } else if (isRightSwipe) {
+        }
+        if (isRightSwipe) {
             setRotationOffset((prev) => prev - 1);
         }
-
-        touchStartX.current = null;
-        touchCurrentX.current = null;
     };
 
     return (
@@ -148,8 +94,7 @@ const ProjectItem = ({ project, index }) => {
 
                 {/* Unified 3D Responsive View */}
                 <div
-                    ref={containerRef}
-                    className="relative w-full h-[450px] md:h-[600px] flex items-center justify-center perspective-[1200px] group/phones transform md:scale-100 scale-[0.6] transition-transform duration-500 will-change-transform" // Added will-change-transform
+                    className="relative w-full h-[450px] md:h-[600px] flex items-center justify-center perspective-[1200px] group/phones transform md:scale-100 scale-[0.85] transition-transform duration-500"
                     onTouchStart={isMulti ? onTouchStart : undefined}
                     onTouchMove={isMulti ? onTouchMove : undefined}
                     onTouchEnd={isMulti ? onTouchEnd : undefined}
