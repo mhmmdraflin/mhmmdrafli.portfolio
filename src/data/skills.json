@@ -1,7 +1,7 @@
 [
     {
         "name": "Kotlin",
-        "icon_url": "kotlin-logo.jpg",
+        "icon_url": "https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg",
         "color_class": "bg-purple-100",
         "img_class": "object-cover"
     },

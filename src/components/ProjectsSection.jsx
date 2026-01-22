@@ -89,25 +89,56 @@ const ProjectItem = ({ project, index }) => {
         }
     };
 
-    // Swipe Logic
+    // Optimized Swipe Logic
     const minSwipeDistance = 50;
+    const touchStartX = React.useRef(null);
+    const touchCurrentX = React.useRef(null);
+    const containerRef = React.useRef(null);
+
     const onTouchStart = (e) => {
-        setTouchEnd(null);
-        setTouchStart(e.targetTouches[0].clientX);
+        touchStartX.current = e.targetTouches[0].clientX;
+        touchCurrentX.current = e.targetTouches[0].clientX;
+        if (containerRef.current) {
+            containerRef.current.style.transition = 'none'; // Disable transition for direct drag
+        }
     };
-    const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+    const onTouchMove = (e) => {
+        if (!touchStartX.current) return;
+        touchCurrentX.current = e.targetTouches[0].clientX;
+        const diff = touchCurrentX.current - touchStartX.current;
+
+        // Direct transform update for 60fps tracking
+        // We apply the drag offset on top of the base scale
+        if (containerRef.current) {
+            // Limit drag visual to avoid excessive movement
+            const dampenedDiff = diff * 0.5;
+            containerRef.current.style.transform = `scale(0.6) translateX(${dampenedDiff}px)`;
+        }
+    };
+
     const onTouchEnd = () => {
-        if (!touchStart || !touchEnd) return;
-        const distance = touchStart - touchEnd;
-        const isLeftSwipe = distance > minSwipeDistance; // User swipes left, wants Next
-        const isRightSwipe = distance < -minSwipeDistance; // User swipes right, wants Prev
+        if (!touchStartX.current || !touchCurrentX.current) return;
+        const distance = touchStartX.current - touchCurrentX.current;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        // Reset styles and let React state take over for the snap animation
+        if (containerRef.current) {
+            containerRef.current.style.transition = 'transform 500ms ease-out';
+            containerRef.current.style.transform = ''; // Clear inline style to revert to class-based
+        }
 
         if (isLeftSwipe) {
+            setRotationOffset((prev) => prev - 1); // Swiping Left moves content Right logic inverted? Test. Left Swipe = Next Image usually.
+            // Original code: isLeftSwipe -> prev + 1. Let's stick to original logic direction.
             setRotationOffset((prev) => prev + 1);
-        }
-        if (isRightSwipe) {
+        } else if (isRightSwipe) {
             setRotationOffset((prev) => prev - 1);
         }
+
+        touchStartX.current = null;
+        touchCurrentX.current = null;
     };
 
     return (
@@ -117,7 +148,8 @@ const ProjectItem = ({ project, index }) => {
 
                 {/* Unified 3D Responsive View */}
                 <div
-                    className="relative w-full h-[450px] md:h-[600px] flex items-center justify-center perspective-[1200px] group/phones transform md:scale-100 scale-[0.6] transition-transform duration-500"
+                    ref={containerRef}
+                    className="relative w-full h-[450px] md:h-[600px] flex items-center justify-center perspective-[1200px] group/phones transform md:scale-100 scale-[0.6] transition-transform duration-500 will-change-transform" // Added will-change-transform
                     onTouchStart={isMulti ? onTouchStart : undefined}
                     onTouchMove={isMulti ? onTouchMove : undefined}
                     onTouchEnd={isMulti ? onTouchEnd : undefined}
