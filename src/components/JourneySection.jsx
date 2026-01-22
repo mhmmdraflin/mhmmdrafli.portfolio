@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import journeyData from '../data/journey.json';
 import { getAssetPath } from '../utils/assets';
 
+import { createPortal } from 'react-dom';
+
 function JourneyModal({ item, onClose }) {
     const [isVisible, setIsVisible] = useState(false);
 
@@ -12,6 +14,7 @@ function JourneyModal({ item, onClose }) {
         } else {
             setIsVisible(false);
             document.body.style.overflow = 'unset';
+            // Also ensure we remove other potential locks
         }
         return () => {
             document.body.style.overflow = 'unset';
@@ -27,11 +30,11 @@ function JourneyModal({ item, onClose }) {
 
     const logoSrc = item.logo_url ? getAssetPath(`assets/images/${item.logo_url}`) : null;
 
-    return (
-        <div className={`fixed inset-0 z-[60] flex items-end md:items-center justify-center pointer-events-none`}>
+    const modalContent = (
+        <div className={`fixed inset-0 z-[9999] flex items-end md:items-center justify-center pointer-events-none`}>
             {/* Backdrop */}
             <div
-                className={`absolute inset-0 bg-black/40 backdrop-blur-md transition-opacity duration-300 pointer-events-auto touch-none ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                className={`absolute inset-0 bg-black/50 backdrop-blur-xl transition-opacity duration-300 pointer-events-auto touch-none ${isVisible ? 'opacity-100' : 'opacity-0'}`}
                 onClick={handleClose}
                 onTouchMove={(e) => e.preventDefault()}
             ></div>
@@ -68,7 +71,7 @@ function JourneyModal({ item, onClose }) {
                 {/* Scrollable Content */}
                 <div className="p-6 md:p-8 overflow-y-auto overscroll-contain">
                     <h3 className="text-sm font-bold text-[#86868B] uppercase tracking-wider mb-3">Description</h3>
-                    <p className="text-[#1D1D1F] leading-relaxed text-[15px] font-normal mb-8 text-left">
+                    <p className="text-[#1D1D1F] leading-relaxed text-[15px] font-normal mb-8 text-left text-justify">
                         {item.description}
                     </p>
 
@@ -104,6 +107,8 @@ function JourneyModal({ item, onClose }) {
             </div>
         </div>
     );
+
+    return createPortal(modalContent, document.body);
 }
 
 function TimelineItem({ item, onClick }) {
