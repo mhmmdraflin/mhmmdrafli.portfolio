@@ -1,4 +1,3 @@
-```
 import { useRef, useState } from 'react';
 import certificatesData from '../data/certificates.json';
 import { getAssetPath } from '../utils/assets';
@@ -103,7 +102,7 @@ export default function CertificatesSection() {
                         onClick={handleClick}
                         className="relative w-full max-w-2xl bg-white rounded-3xl p-2 shadow-2xl transition-all duration-200 ease-out transform-gpu group cursor-pointer border border-[#007AFF]/10 active:scale-[0.98]"
                         style={{
-                            transform: `perspective(1000px) rotateX(${ rotate.x }deg) rotateY(${ rotate.y }deg) scale3d(1, 1, 1)`,
+                            transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(1, 1, 1)`,
                         }}
                     >
                         {/* Glare Effect */}
@@ -114,13 +113,13 @@ export default function CertificatesSection() {
 
                         <div className="relative overflow-hidden rounded-2xl bg-gray-50 aspect-[1.414/1]">
                             <img
-                                src={getAssetPath(`assets / images / ${ certificate.image_url } `)}
+                                src={getAssetPath(`assets / images / ${certificate.image_url} `)}
                                 alt={certificate.title}
                                 className="w-full h-full object-cover"
                             />
 
                             {/* Overlay Content: Visible on Hover state or specific Mobile state */}
-                            <div className={`absolute inset - 0 bg - black / 60 transition - opacity duration - 300 flex flex - col items - center justify - center text - white p - 8 text - center backdrop - blur - sm ${ isHovering ? 'opacity-100' : 'opacity-0' } `}>
+                            <div className={`absolute inset - 0 bg - black / 60 transition - opacity duration - 300 flex flex - col items - center justify - center text - white p - 8 text - center backdrop - blur - sm ${isHovering ? 'opacity-100' : 'opacity-0'} `}>
                                 <span className="material-symbols-outlined text-4xl mb-3 text-[#007AFF]">verified</span>
                                 <h3 className="text-2xl font-bold mb-2">{certificate.title}</h3>
                                 <p className="text-lg font-medium text-white/90">{certificate.path_name}</p>
