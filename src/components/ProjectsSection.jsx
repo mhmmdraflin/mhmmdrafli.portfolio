@@ -94,7 +94,7 @@ const ProjectItem = ({ project, index }) => {
 
                 {/* Unified 3D Responsive View */}
                 <div
-                    className="relative w-full h-[450px] md:h-[600px] flex items-center justify-center perspective-[1200px] group/phones transform md:scale-100 scale-[0.85] transition-transform duration-500"
+                    className="relative w-full h-[550px] md:h-[600px] flex items-center justify-center perspective-[1200px] group/phones transform md:scale-100 scale-[0.85] transition-transform duration-500 mb-12 md:mb-0"
                     onTouchStart={isMulti ? onTouchStart : undefined}
                     onTouchMove={isMulti ? onTouchMove : undefined}
                     onTouchEnd={isMulti ? onTouchEnd : undefined}
