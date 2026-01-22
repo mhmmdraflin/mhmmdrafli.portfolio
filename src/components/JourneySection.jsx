@@ -12,18 +12,15 @@ function JourneyModal({ item, isOpen, onClose }) {
     useEffect(() => {
         if (isOpen) {
             setIsVisible(true);
-            // Simple robust lock: just overflow hidden on body
-            // We avoid position:fixed to prevent scroll jump/reset issues on mobile
-            document.body.style.overflow = 'hidden';
+            // LOCK DISABLED TEMPORARILY: To prevent "stuck" and "jump to home" issues on mobile.
+            // document.body.style.overflow = 'hidden';
         } else {
             setIsVisible(false);
-            // Simple unlock
-            document.body.style.overflow = '';
+            // document.body.style.overflow = '';
         }
 
         return () => {
-            // Safety cleanup
-            document.body.style.overflow = '';
+            // document.body.style.overflow = '';
         };
     }, [isOpen]);
 
