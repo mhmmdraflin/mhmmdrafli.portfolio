@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import journeyData from '../data/journey.json';
 import { getAssetPath } from '../utils/assets';
@@ -6,32 +6,47 @@ import { getAssetPath } from '../utils/assets';
 function JourneyModal({ item, isOpen, onClose }) {
     const [isVisible, setIsVisible] = useState(false);
 
+    const scrollYRef = useState(0)[0]; // Using a ref-like pattern effectively or just simple ref
+
+    // We need a real ref to persist value across renders
+    const scrollRef = React.useRef(0);
+
     useEffect(() => {
         if (isOpen) {
             setIsVisible(true);
-            // Robust body scroll lock for iOS
-            const scrollY = window.scrollY;
+            // Capture current scroll position immediately
+            scrollRef.current = window.scrollY;
+
+            // Apply locks
             document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
             document.body.style.position = 'fixed';
-            document.body.style.top = `-${scrollY}px`;
+            document.body.style.top = `-${scrollRef.current}px`;
             document.body.style.width = '100%';
         } else {
             setIsVisible(false);
-            // Restore scroll position
-            const scrollY = document.body.style.top;
+
+            // STRICT CLEANUP
+            // Remove all lock styles first
             document.documentElement.style.overflow = '';
             document.body.style.overflow = '';
             document.body.style.position = '';
             document.body.style.top = '';
             document.body.style.width = '';
-            if (scrollY) {
-                window.scrollTo(0, parseInt(scrollY || '0') * -1);
-            }
+
+            // Restore scroll position from ref
+            window.scrollTo(0, scrollRef.current);
         }
+
+        // No cleanup function needed here because the 'else' block handles restoration when isOpen becomes false.
+        // The modal component is persistent now, so unmount cleanup is less critical but good to have if user navigates away.
         return () => {
-            // Cleanup handled by state change, but safe to have basic reset on unmount
-            // Note: In persistent mode, unmount might not happen often
+            // Basic safety cleanup just in case component unmounts while open
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
         };
     }, [isOpen]);
 
