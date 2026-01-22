@@ -138,7 +138,7 @@ const ProjectItem = ({ project, index }) => {
                         {project.year}
                     </span>
                     {project.status === 'In Progress' ? (
-                        <div className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full shadow-lg shadow-orange-500/20 animate-pulse md:animate-none">
+                        <div className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full shadow-lg shadow-orange-500/20 animate-pulse">
                             <span className="material-symbols-outlined text-[10px] text-white font-bold animate-spin">sync</span>
                             <span className="text-[10px] font-bold tracking-widest text-white uppercase">
                                 {project.status}
