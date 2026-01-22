@@ -6,8 +6,6 @@ import { getAssetPath } from '../utils/assets';
 function JourneyModal({ item, isOpen, onClose }) {
     const [isVisible, setIsVisible] = useState(false);
 
-    const scrollYRef = useState(0)[0]; // Using a ref-like pattern effectively or just simple ref
-
     // We need a real ref to persist value across renders
     const scrollRef = React.useRef(0);
 
