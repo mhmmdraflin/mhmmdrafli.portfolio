@@ -7,6 +7,8 @@
         "icon": "sports_soccer",
         "description": "A dynamic platform for booking sports venues and finding teammates. Features real-time availability checking and social connection for sports enthusiasts.",
         "display_mode": "multi",
+        "statusBarColor": "#1a1a2e",
+        "statusBarTheme": "dark",
         "images": [
             "sportzone-1.png",
             "sportzone-2.png",
@@ -36,6 +38,8 @@
         "icon": "catloris-logo.jpg",
         "description": "Built CatLoris, a gamified Android app, combining high-fidelity UI slicing with interactive challenges to create an engaging calorie and macro tracking experience.",
         "display_mode": "multi",
+        "statusBarColor": "#2196F3",
+        "statusBarTheme": "dark",
         "images": [
             "catloris-1.png",
             "catloris-2.png",
@@ -72,6 +76,8 @@
         "icon": "auto_stories",
         "description": "An application where users can share their stories with images and location data. Includes authentication and smooth animation transitions.",
         "display_mode": "multi",
+        "statusBarColor": "#f5f5f7",
+        "statusBarTheme": "light",
         "images": [
             "story-app-1.png",
             "story-app-2.png",
@@ -124,6 +130,8 @@
         "icon": "travel_explore",
         "description": "A tourism guide application for exploring Bandung with integrated maps, local recommendations, and user reviews.",
         "display_mode": "multi",
+        "statusBarColor": "#f5f5f7",
+        "statusBarTheme": "light",
         "images": [
             "wisata-bandung.png",
             "wisata-bandung-2.png",
@@ -155,8 +163,16 @@
         "year": "2026",
         "icon": "flight_takeoff",
         "description": "A simple and elegant travel destination app, helping users discover new places and plan their trips efficiently.",
-        "display_mode": "single",
-        "images": "my-travel.png",
+        "display_mode": "multi",
+        "statusBarColor": "#f5f5f7",
+        "statusBarTheme": "light",
+        "images": [
+            "my-travel-3.png",
+            "my-travel-2.png",
+            "my-travel-1.png",
+            "my-travel-4.png",
+            "my-travel-5.png"
+        ],
         "techStack": [
             {
                 "name": "Flutter",
@@ -184,6 +200,8 @@
         "icon": "hiking",
         "description": "A comprehensive mountain hiking ticketing system built with Android Studio during my Dicoding course. Simplifies booking and management for climbers.",
         "display_mode": "multi",
+        "statusBarColor": "#f5f5f7",
+        "statusBarTheme": "light",
         "images": [
             "tiket-pendakian-1.png",
             "tiket-pendakian-2.png",
@@ -216,6 +234,8 @@
         "icon": "health_and_safety",
         "description": "Built for my 8th-semester Final Year Project, Sehatin is an Android-based gamified app that motivates teenagers to maintain a healthy lifestyle by transforming exercise and diet into exciting game challenges.",
         "display_mode": "multi",
+        "statusBarColor": "#29B6F6",
+        "statusBarTheme": "dark",
         "status": "In Progress",
         "images": [
             "sehatin-1.png",

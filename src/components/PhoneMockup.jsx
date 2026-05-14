@@ -9,10 +9,12 @@ export default function PhoneMockup({ project }) {
             <div className="absolute top-[190px] -left-[10px] w-[3px] h-[46px] bg-gray-700 rounded-l-md"></div>
             <div className="absolute top-[140px] -right-[10px] w-[3px] h-[70px] bg-gray-700 rounded-r-md"></div>
 
-            {/* Dynamic Island Notch */}
-            <div className="absolute top-3 left-1/2 -translate-x-1/2 h-[28px] w-[90px] bg-black rounded-full z-20 flex items-center justify-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#1a1a1a]"></div>
-                <div className="w-1.5 h-1.5 rounded-full bg-[#0d0d0d]/80"></div>
+            {/* iPhone 12 Notch */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[130px] h-[28px] bg-black rounded-b-[18px] z-20 flex justify-center items-center gap-3">
+                {/* Earpiece */}
+                <div className="w-[36px] h-[4px] rounded-full bg-[#1a1a1a]"></div>
+                {/* Camera */}
+                <div className="w-[10px] h-[10px] rounded-full bg-[#0a0a0a] border border-white/5 shadow-inner"></div>
             </div>
 
             {/* Glass Reflection */}
@@ -38,10 +40,13 @@ export default function PhoneMockup({ project }) {
                 {/* Project Image Override */}
                 {project?.image && (
                     <div className="absolute inset-0 bg-[#1e2126] z-10 flex flex-col">
-                        <div className="pt-10 px-6 pb-4 bg-white/5 backdrop-blur-md border-b border-white/5 flex justify-between items-center z-20">
-                            <span className="material-symbols-outlined text-white/80">arrow_back</span>
-                            <span className="text-white font-bold text-lg">{project.title}</span>
-                            <span className="material-symbols-outlined text-white/80">more_vert</span>
+                        <div 
+                            className="pt-8 px-5 pb-3 backdrop-blur-md border-b border-white/10 flex justify-between items-center z-20"
+                            style={{ backgroundColor: '#000000' }}
+                        >
+                            <span className="material-symbols-outlined text-[1.2rem]" style={{ color: '#FFFFFF' }}>arrow_back</span>
+                            <span className="font-bold text-base" style={{ color: '#FFFFFF' }}>{project.title}</span>
+                            <span className="material-symbols-outlined text-[1.2rem]" style={{ color: '#FFFFFF' }}>more_vert</span>
                         </div>
                         <div className="flex-1 overflow-hidden relative">
                             <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
