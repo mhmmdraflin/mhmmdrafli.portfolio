@@ -37,6 +37,9 @@ export default function HomePage({ onOpenCV }) {
                     <p className="text-xl md:text-2xl font-medium text-[#007AFF]">
                         {profile.role}
                     </p>
+                    <p className="text-md md:text-lg text-[#86868B] mt-2 flex items-center justify-center gap-1">
+                        <span className="text-lg">📍</span> Malang, Jawa Timur, Indonesia
+                    </p>
                 </div>
 
                 {/* Tagline */}

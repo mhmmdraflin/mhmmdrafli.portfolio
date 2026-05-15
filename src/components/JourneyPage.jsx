@@ -219,7 +219,7 @@ export default function JourneyPage({ onBack }) {
 
                     {/* Footer */}
                     <div className="flex-none p-4 border-t border-gray-200/60 bg-gray-50/50 backdrop-blur-sm flex justify-center">
-                        <p className="text-[11px] text-[#86868B] font-medium">© 2024 Muhammad Rafli Nurfathan. Designed with passion.</p>
+                        <p className="text-[11px] text-[#86868B] font-medium">© 2026 Muhammad Rafli Nurfathan — Based in Malang, Indonesia</p>
                     </div>
                 </div>
             </main>

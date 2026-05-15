@@ -9,7 +9,7 @@ export default function ContactSection() {
                         Let's Connect
                     </h2>
                     <p className="text-[#86868B] text-sm max-w-lg mx-auto mt-3 font-medium">
-                        I'm always open to discussing new opportunities and collaborations.
+                        Available for Mobile projects and collaborations. Reach out to start a conversation.
                     </p>
                 </div>
 

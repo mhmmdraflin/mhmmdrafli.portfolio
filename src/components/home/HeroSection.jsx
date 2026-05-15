@@ -17,7 +17,7 @@ export default function HeroSection() {
 
                 <div className="hero-content animate-fade-in-up">
                     <h1 className="hero-name">Muhammad Rafli Nurfathan</h1>
-                    <p className="hero-role">Mobile Developer Enthusiast</p>
+                    <p className="hero-role">Mobile Developer</p>
                     <p className="hero-tagline">
                         Building fluid experiences with Android & Flutter
                     </p>
