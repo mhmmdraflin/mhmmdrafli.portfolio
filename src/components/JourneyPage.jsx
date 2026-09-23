@@ -7,7 +7,7 @@ const timelineData = {
             icon: 'school',
             period: '2022 — 2026',
             isCurrent: true,
-            description: 'Currently pursuing Bachelor degree in Informatics, focusing on Mobile Application Development with Kotlin and Java.',
+            description: 'Graduated with a Bachelor\'s degree in Informatics, focusing on Web and Mobile Application Development.',
             dotColor: 'border-[#007AFF]',
             periodStyle: 'bg-[#007AFF]/5 border-[#007AFF]/20 text-[#007AFF]',
         },
@@ -219,7 +219,7 @@ export default function JourneyPage({ onBack }) {
 
                     {/* Footer */}
                     <div className="flex-none p-4 border-t border-gray-200/60 bg-gray-50/50 backdrop-blur-sm flex justify-center">
-                        <p className="text-[11px] text-[#86868B] font-medium">© 2026 Muhammad Rafli Nurfathan — Based in Malang, Indonesia</p>
+                        <p className="text-[11px] text-[#86868B] font-medium">© 2026 Muhammad Rafli Nurfathan — Based in Tenggarong, Indonesia</p>
                     </div>
                 </div>
             </main>

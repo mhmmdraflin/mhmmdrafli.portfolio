@@ -38,7 +38,7 @@ export default function HomePage({ onOpenCV }) {
                         {profile.role}
                     </p>
                     <p className="text-md md:text-lg text-[#86868B] mt-2 flex items-center justify-center gap-1">
-                        <span className="text-lg">📍</span> Malang, Jawa Timur, Indonesia
+                        <span className="text-lg">📍</span> Kutai Kartanegara, Kalimantan Timur, Indonesia
                     </p>
                 </div>
 

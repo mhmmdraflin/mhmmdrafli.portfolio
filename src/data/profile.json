@@ -1,12 +1,12 @@
 {
     "name": "Muhammad Rafli Nurfathan",
-    "role": "Mobile Developer",
+    "role": "Mobile & Web Developer",
     "tagline_part1": "Muhammad Rafli Nurfathan",
-    "tagline_part2": "Mobile Developer",
-    "about_text": "Informatics student and Mobile Developer proficient in Kotlin and Java, with a growing focus on Flutter, Swift and iOS development. Dedicated to building clean, intuitive, and high-performance mobile solutions across platforms, driven by a deep curiosity for new technologies to continuously grow and improve my work.",
+    "tagline_part2": "Mobile & Web Developer",
+    "about_text": "Informatics graduate from STIKI Malang (GPA 3.71) with hands-on experience in Web and Mobile Development — building web apps with Laravel, Livewire, and PHP, and Android apps with Kotlin, Clean Architecture, and Unit Testing through Bangkit Academy 2024. Certified Web Developer (BNSP) and in Ethical Hacking Essentials (EC-Council), focused on growing a career in Software Development.",
     "avatar_url": "profile.jpg",
     "cv_url": "Muhammad Rafli Nurfathan - Resume.pdf",
     "total_projects": "5+",
-    "certificates_count": "1",
+    "certificates_count": "3",
     "tech_tools_count": "10+"
 }

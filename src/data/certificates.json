@@ -10,5 +10,29 @@
         "path_name": "Mobile Development Path",
         "specialization": "Specializing in Android Development",
         "image_url": "certificate-bangkit.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Sertifikat Kompetensi BNSP",
+        "issuer_lines": [
+            "BNSP",
+            "LSP STIKI",
+            "Software Dev"
+        ],
+        "path_name": "Web Developer",
+        "specialization": "Bidang Software Development",
+        "image_url": "certificate-lsp.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Ethical Hacking Essentials (EHE)",
+        "issuer_lines": [
+            "EC-Council",
+            "Cyber Security",
+            "Verified"
+        ],
+        "path_name": "Information Security",
+        "specialization": "EC-Council Certified • No. ECC6078932451",
+        "image_url": "certificate-eccouncil.png"
     }
 ]
