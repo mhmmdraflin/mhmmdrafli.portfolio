@@ -49,8 +49,8 @@ function HeroProfileCard() {
     const mouseY = useMotionValue(0);
 
     // Smooth spring values for 3D tilt
-    const rotateX = useSpring(5, { stiffness: 100, damping: 20 });
-    const rotateY = useSpring(-15, { stiffness: 100, damping: 20 });
+    const rotateX = useSpring(0, { stiffness: 100, damping: 20 });
+    const rotateY = useSpring(0, { stiffness: 100, damping: 20 });
 
     function handleMouseMove({ currentTarget, clientX, clientY }) {
         const { left, top, width, height } = currentTarget.getBoundingClientRect();
@@ -70,9 +70,9 @@ function HeroProfileCard() {
 
     function handleMouseLeave() {
         setIsHovered(false);
-        // Reset to initial isometric-like view
-        rotateX.set(5);
-        rotateY.set(-15);
+        // Reset to flat view
+        rotateX.set(0);
+        rotateY.set(0);
     }
     
     return (
