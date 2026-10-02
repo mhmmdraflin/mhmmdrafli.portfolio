@@ -54,7 +54,7 @@ const ProjectItem = ({ project, index, t, lang }) => {
         const normalizedPos = effectivePos < 0 ? effectivePos + count : effectivePos;
 
         if (normalizedPos === 0) {
-            return "absolute z-30 transition-all duration-500 shadow-2xl drop-shadow-2xl animate-float scale-100 opacity-100 translate-x-0"; // Center
+            return "absolute z-30 transition-all duration-500 scale-100 opacity-100 translate-x-0"; // Center
         } else if (normalizedPos === 1) {
             return getRightPhoneClasses(); // Right
         } else {
@@ -116,7 +116,7 @@ const ProjectItem = ({ project, index, t, lang }) => {
                             </div>
                         </>
                     ) : (
-                        <div className="group-hover:scale-105 transition-transform duration-700 ease-out animate-float">
+                        <div className="group-hover:scale-105 transition-transform duration-700 ease-out">
                             <PhoneMockup project={{ ...project, image: imagesList[0] }} />
                         </div>
                     )}
@@ -139,7 +139,7 @@ const ProjectItem = ({ project, index, t, lang }) => {
                         {project.year}
                     </span>
                     {project.status === 'In Progress' ? (
-                        <div className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full shadow-lg shadow-orange-500/20 animate-pulse">
+                        <div className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-md">
                             <span className="material-symbols-outlined text-[10px] text-white font-bold animate-spin">sync</span>
                             <span className="text-[10px] font-bold tracking-widest text-white uppercase">
                                 {project.status}
@@ -173,7 +173,7 @@ const ProjectItem = ({ project, index, t, lang }) => {
                     {project.techStack && project.techStack.map((tech) => (
                         <span
                             key={tech.name}
-                            className={`px-3 py-1 text-xs font-bold text-white rounded-full shadow-sm ${tech.color}`}
+                            className={`px-3 py-1 text-[10px] font-bold text-white rounded-md ${tech.color}`}
                         >
                             {tech.name}
                         </span>
@@ -189,6 +189,8 @@ export default function ProjectsSection() {
     const { lang } = useLang();
     const t = translations[lang];
 
+    const [activeTab, setActiveTab] = useState('phone');
+
     if (projects.length === 0) return (
         <div className="py-20 text-center text-red-400">
             <p>No projects found.</p>
@@ -199,7 +201,7 @@ export default function ProjectsSection() {
         <section id="projects" className="py-12 md:py-20 px-6 relative z-10" >
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
-                <div className="text-center mb-12 md:mb-20 animate-fade-in-up">
+                <div className="text-center mb-10 md:mb-14">
                     <span className="text-[#007AFF] text-xs font-bold tracking-[0.2em] uppercase">{t.projects.tagline}</span>
                     <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1D1D1F] dark:text-white mt-2 transition-colors duration-300">
                         {t.projects.heading}
@@ -209,12 +211,46 @@ export default function ProjectsSection() {
                     </p>
                 </div>
 
-                {/* Projects Stack */}
-                <div className="space-y-16 md:space-y-32">
-                    {projects.map((project, index) => (
-                        <ProjectItem key={project.id} project={project} index={index} t={t} lang={lang} />
-                    ))}
+                {/* Filter Tabs */}
+                <div className="flex justify-center items-center gap-3 mb-12 md:mb-20">
+                    <button 
+                        onClick={() => setActiveTab('phone')}
+                        className={`flex items-center gap-2 px-5 py-2.5 rounded-md font-bold text-sm transition-all duration-300 ${activeTab === 'phone' ? 'bg-[#007AFF] text-white' : 'bg-gray-100 dark:bg-white/5 text-[#86868B] hover:bg-gray-200 dark:hover:bg-white/10'}`}
+                    >
+                        <span className="material-symbols-outlined text-lg">smartphone</span>
+                        Mobile
+                    </button>
+                    <button 
+                        onClick={() => setActiveTab('laptop')}
+                        className={`flex items-center gap-2 px-5 py-2.5 rounded-md font-bold text-sm transition-all duration-300 ${activeTab === 'laptop' ? 'bg-[#007AFF] text-white' : 'bg-gray-100 dark:bg-white/5 text-[#86868B] hover:bg-gray-200 dark:hover:bg-white/10'}`}
+                    >
+                        <span className="material-symbols-outlined text-lg">laptop_mac</span>
+                        Web
+                    </button>
                 </div>
+
+                {/* Projects Content */}
+                {activeTab === 'phone' ? (
+                    <div className="space-y-16 md:space-y-32">
+                        {projects.map((project, index) => (
+                            <ProjectItem key={project.id} project={project} index={index} t={t} lang={lang} />
+                        ))}
+                    </div>
+                ) : (
+                    <div className="py-20 text-center animate-fade-in">
+                        <div className="w-24 h-24 mx-auto mb-6 bg-[#007AFF]/10 rounded-full flex items-center justify-center">
+                            <span className="material-symbols-outlined text-4xl text-[#007AFF]">construction</span>
+                        </div>
+                        <h3 className="text-2xl font-bold text-[#1D1D1F] dark:text-white mb-3">
+                            {lang === 'id' ? 'Pengembangan Web Sedang Disiapkan' : 'Web Development Projects Coming Soon'}
+                        </h3>
+                        <p className="text-[#86868B] max-w-lg mx-auto">
+                            {lang === 'id' 
+                                ? 'Saat ini, portofolio pengembangan web sedang dalam tahap penyempurnaan untuk menampilkan karya terbaik saya secara profesional. Silakan kembali lagi nanti untuk melihat pembaruannya.' 
+                                : 'My web development portfolio is currently being refined to showcase my best work professionally. Please check back later for updates.'}
+                        </p>
+                    </div>
+                )}
             </div>
         </section>
     );

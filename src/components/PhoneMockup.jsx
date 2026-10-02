@@ -41,7 +41,7 @@ export default function PhoneMockup({ project }) {
                 {project?.image && (
                     <div className="absolute inset-0 bg-[#1e2126] z-10 flex flex-col">
                         <div 
-                            className="pt-8 px-5 pb-3 backdrop-blur-md border-b border-white/10 flex justify-between items-center z-20"
+                            className="pt-8 px-5 pb-3 bg-black border-b border-white/10 flex justify-between items-center z-20"
                             style={{ backgroundColor: '#000000' }}
                         >
                             <span className="material-symbols-outlined text-[1.2rem]" style={{ color: '#FFFFFF' }}>arrow_back</span>
@@ -57,7 +57,7 @@ export default function PhoneMockup({ project }) {
                 {!project?.image && (
                     <div className="px-4 space-y-4">
                         {/* Heart Rate */}
-                        <div className="bg-white/10 p-4 rounded-2xl backdrop-blur-md border border-white/5">
+                        <div className="bg-[#1C1C1E] p-4 rounded-2xl border border-white/5">
                             <div className="flex justify-between items-start mb-2">
                                 <div className="p-2 bg-red-500/20 rounded-lg text-red-400">
                                     <span className="material-symbols-outlined text-sm">favorite</span>
@@ -70,13 +70,13 @@ export default function PhoneMockup({ project }) {
 
                         {/* Water & Calories */}
                         <div className="flex gap-4">
-                            <div className="flex-1 bg-white/10 p-4 rounded-2xl backdrop-blur-md border border-white/5">
+                            <div className="flex-1 bg-[#1C1C1E] p-4 rounded-2xl border border-white/5">
                                 <div className="mb-2 p-2 bg-blue-500/20 w-fit rounded-lg text-blue-400">
                                     <span className="material-symbols-outlined text-sm">water_drop</span>
                                 </div>
                                 <div className="text-xl font-bold text-white">1.2L</div>
                             </div>
-                            <div className="flex-1 bg-white/10 p-4 rounded-2xl backdrop-blur-md border border-white/5">
+                            <div className="flex-1 bg-[#1C1C1E] p-4 rounded-2xl border border-white/5">
                                 <div className="mb-2 p-2 bg-orange-500/20 w-fit rounded-lg text-orange-400">
                                     <span className="material-symbols-outlined text-sm">local_fire_department</span>
                                 </div>

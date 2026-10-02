@@ -147,7 +147,7 @@ function TimelineItem({ item }) {
 function TimelineSection({ title, items }) {
     return (
         <div className="mb-12 relative">
-            <div className="sticky top-0 bg-[#F5F5F7]/95 backdrop-blur-xl z-20 py-2 mb-6 border-b border-gray-200/60 inline-block pr-6 rounded-r-lg shadow-sm">
+            <div className="sticky top-0 bg-[#F5F5F7] z-20 py-2 mb-6 border-b border-gray-200/60 inline-block pr-6 rounded-r-lg shadow-sm">
                 <span className="text-xs font-bold tracking-[0.15em] text-[#86868B] uppercase pl-12 md:pl-16">
                     {title}
                 </span>
@@ -167,7 +167,7 @@ export default function JourneyPage({ onBack }) {
             <div className="fixed bottom-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-indigo-300/20 rounded-full blur-[120px] pointer-events-none opacity-50 z-0 mix-blend-multiply"></div>
 
             {/* Header */}
-            <header className="glass-nav z-50 sticky top-0 w-full px-8 py-4 flex items-center justify-between bg-white/70 backdrop-blur-[20px] border-b border-black/[0.06]">
+            <header className="z-50 sticky top-0 w-full px-8 py-4 flex items-center justify-between bg-white border-b border-black/[0.06]">
                 <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#007AFF] to-blue-600 flex items-center justify-center text-xs font-bold shadow-md text-white ring-2 ring-white">
                         MR
@@ -175,7 +175,7 @@ export default function JourneyPage({ onBack }) {
                     <h1 className="text-sm font-bold tracking-tight text-[#1D1D1F]">Muhammad Rafli</h1>
                 </div>
 
-                <nav className="hidden md:flex items-center gap-1 p-1 bg-gray-100/50 rounded-full border border-gray-200/50 backdrop-blur-md">
+                <nav className="hidden md:flex items-center gap-1 p-1 bg-gray-100 rounded-full border border-gray-200/50">
                     <button onClick={onBack} className="px-5 py-1.5 text-xs font-medium text-[#86868B] hover:text-[#1D1D1F] transition-colors rounded-full hover:bg-white/60">Home</button>
                     <span className="px-5 py-1.5 text-xs font-bold text-white bg-[#1D1D1F] shadow-sm rounded-full">Journey</span>
                     <button onClick={onBack} className="px-5 py-1.5 text-xs font-medium text-[#86868B] hover:text-[#1D1D1F] transition-colors rounded-full hover:bg-white/60">Projects</button>
@@ -189,7 +189,7 @@ export default function JourneyPage({ onBack }) {
 
             {/* Main Content */}
             <main className="flex-1 w-full max-w-7xl mx-auto p-4 md:p-8 lg:p-12 z-10 flex flex-col items-center justify-center h-full overflow-hidden">
-                <div className="glass-panel w-full h-full max-h-[85vh] rounded-3xl flex flex-col relative overflow-hidden bg-white/65 backdrop-blur-[40px] border border-white/80 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1),0_0_0_1px_rgba(0,0,0,0.02)]">
+                <div className="w-full h-full max-h-[85vh] rounded-3xl flex flex-col relative overflow-hidden bg-white border border-gray-200 shadow-sm">
 
                     {/* Header */}
                     <div className="flex-none pt-10 px-8 md:px-12 pb-6 border-b border-gray-200/60 bg-white/30">
@@ -218,7 +218,7 @@ export default function JourneyPage({ onBack }) {
                     </div>
 
                     {/* Footer */}
-                    <div className="flex-none p-4 border-t border-gray-200/60 bg-gray-50/50 backdrop-blur-sm flex justify-center">
+                    <div className="flex-none p-4 border-t border-gray-200/60 bg-gray-50 flex justify-center">
                         <p className="text-[11px] text-[#86868B] font-medium">© 2026 Muhammad Rafli Nurfathan — Based in Tenggarong, Indonesia</p>
                     </div>
                 </div>

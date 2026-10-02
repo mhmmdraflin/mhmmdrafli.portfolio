@@ -30,7 +30,7 @@ export default function EcosystemSection() {
                 </div>
 
                 {/* Tools Marquee */}
-                <div className="glass-card dark:!bg-white/10 dark:!border-white/20 rounded-3xl py-8 md:py-10 overflow-hidden relative transition-colors duration-300">
+                <div className="bg-white dark:bg-[#0B1121] border border-gray-200 dark:border-white/10 rounded-md py-8 md:py-10 overflow-hidden relative transition-colors duration-300 shadow-sm">
                     {/* Fade Edges */}
                     <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white/90 dark:from-[#0B1121]/90 to-transparent z-10 pointer-events-none"></div>
                     <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white/90 dark:from-[#0B1121]/90 to-transparent z-10 pointer-events-none"></div>
@@ -45,7 +45,7 @@ export default function EcosystemSection() {
                                 <div
                                     key={`${tool.name}-${index}`}
                                     title={tool.name}
-                                    className={`flex flex-col items-center justify-center p-5 rounded-2xl ${tool.color_class} dark:!bg-white/20 border border-white/80 dark:!border-white/30 hover:scale-105 hover:shadow-lg active:scale-95 active:border-[#007AFF]/50 transition-all duration-300 cursor-pointer group min-w-[120px]`}
+                                    className={`flex flex-col items-center justify-center p-5 rounded-md ${tool.color_class} dark:!bg-white/5 border border-gray-200/50 dark:!border-white/10 hover:-translate-y-1 active:translate-y-0 active:border-[#007AFF] transition-all duration-200 cursor-pointer group min-w-[120px]`}
                                 >
                                     <img
                                         src={getAssetPath(tool.icon_url?.startsWith('http') ? tool.icon_url : `assets/images/${tool.icon_url}`)}

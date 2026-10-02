@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import certificatesData from '../data/certificates.json';
+import dicodingCertificates from '../data/dicoding_certificates.json';
 import { getAssetPath } from '../utils/assets';
 import { useLang } from '../context/LanguageContext';
 import translations from '../i18n/translations';
@@ -61,7 +62,11 @@ function CertificateCard({ certificate, onSelect, lang }) {
     };
 
     return (
-        <div className="flex justify-center perspective-1000 w-full h-full">
+        <button 
+            type="button"
+            onClick={() => onSelect(certificate)}
+            className="flex justify-center perspective-1000 w-full h-full text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#007AFF]/50 rounded-md"
+        >
             <div
                 ref={cardRef}
                 onMouseMove={handleMouseMove}
@@ -69,20 +74,19 @@ function CertificateCard({ certificate, onSelect, lang }) {
                 onTouchStart={() => setIsHovering(true)}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
-                onClick={() => onSelect(certificate)}
-                className="relative w-full bg-white dark:!bg-white/10 rounded-3xl p-3 shadow-xl hover:shadow-2xl transition-all duration-300 ease-out transform-gpu group cursor-pointer border border-[#007AFF]/10 dark:!border-white/20 active:scale-[0.98] flex flex-col justify-between"
+                className="relative w-full bg-white dark:!bg-white/10 rounded-md p-3 shadow-xl hover:shadow-2xl transition-all duration-300 ease-out transform-gpu group border border-[#007AFF]/10 dark:!border-white/20 active:scale-[0.98] flex flex-col justify-between"
                 style={{
                     transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(1, 1, 1)`,
                 }}
             >
                 {/* Glare Effect */}
                 <div
-                    className="absolute inset-0 w-full h-full rounded-3xl pointer-events-none z-30 mix-blend-overlay transition-opacity duration-200 bg-gradient-to-tr from-transparent via-white/40 to-transparent"
+                    className="absolute inset-0 w-full h-full rounded-md pointer-events-none z-30 mix-blend-overlay transition-opacity duration-200 bg-gradient-to-tr from-transparent via-white/40 to-transparent"
                     style={{ opacity }}
                 />
 
                 {/* Certificate Image Frame */}
-                <div className="relative overflow-hidden rounded-2xl bg-[#0F172A]/[0.03] dark:bg-[#000000]/20 aspect-[1.38/1] flex items-center justify-center p-2 border border-gray-100 dark:border-white/10">
+                <div className="relative overflow-hidden rounded-md bg-[#0F172A]/[0.03] dark:bg-[#000000]/20 aspect-[1.38/1] flex items-center justify-center p-2 border border-gray-100 dark:border-white/10">
                     <img
                         src={getAssetPath(`assets/images/${certificate.image_url}`)}
                         alt={certificate.title}
@@ -91,7 +95,7 @@ function CertificateCard({ certificate, onSelect, lang }) {
 
                     {/* Overlay Content: Visible on Hover state */}
                     <div
-                        className={`absolute inset-0 bg-black/65 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-5 text-center backdrop-blur-sm ${
+                        className={`absolute inset-0 bg-black/90 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-5 text-center ${
                             isHovering ? 'opacity-100' : 'opacity-0'
                         }`}
                     >
@@ -132,7 +136,7 @@ function CertificateCard({ certificate, onSelect, lang }) {
                     </p>
                 </div>
             </div>
-        </div>
+        </button>
     );
 }
 
@@ -198,16 +202,46 @@ export default function CertificatesSection() {
                         />
                     ))}
                 </div>
+
+                {/* Smaller Competency Certificates Section */}
+                <div className="mt-24 text-center">
+                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-[#1D1D1F] dark:text-white mb-2">
+                        {t.certificates.competencyHeading}
+                    </h3>
+                    <p className="text-[#86868B] text-sm max-w-lg mx-auto mb-10 font-medium">
+                        {t.certificates.competencySubtitle}
+                    </p>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+                        {dicodingCertificates.map((cert) => (
+                            <a 
+                                key={cert.id} 
+                                href={cert.credential_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-md p-4 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center text-center group cursor-pointer"
+                            >
+                                <div className="w-12 h-12 rounded-full bg-[#0F172A]/[0.03] dark:bg-black/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                                    <span className="material-symbols-outlined text-[#007AFF] text-2xl">workspace_premium</span>
+                                </div>
+                                <h4 className="text-sm font-bold text-[#1D1D1F] dark:text-white line-clamp-2 mb-1" title={cert.title}>
+                                    {cert.title}
+                                </h4>
+                                <p className="text-xs text-[#86868B] font-medium">{cert.issuer}</p>
+                                <p className="text-[10px] text-[#007AFF] mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Verifikasi ↗</p>
+                            </a>
+                        ))}
+                    </div>
+                </div>
             </div>
 
             {/* Lightbox Modal */}
             {selectedCert && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/80 backdrop-blur-md animate-fade-in"
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/90 animate-fade-in"
                     onClick={() => setSelectedCert(null)}
                 >
                     <div
-                        className="relative max-w-4xl w-full bg-white dark:bg-[#0B1121] dark:border dark:border-white/20 rounded-3xl p-4 md:p-6 shadow-2xl flex flex-col max-h-[92vh] overflow-hidden"
+                        className="relative max-w-4xl w-full bg-white dark:bg-[#0B1121] dark:border dark:border-white/20 rounded-md p-4 md:p-6 shadow-2xl flex flex-col max-h-[92vh] overflow-hidden"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Header Modal */}

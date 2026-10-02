@@ -47,7 +47,7 @@ export default function ProjectDetail({ onBack }) {
     return (
         <div className="bg-[#F2F2F7] text-[#1D1D1F] font-display antialiased min-h-screen">
             {/* Navigation */}
-            <nav className="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-[20px] border-b border-black/5">
+            <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
                 <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
                     <button
                         onClick={onBack}

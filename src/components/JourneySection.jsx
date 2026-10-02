@@ -42,7 +42,7 @@ function JourneyModal({ item, isOpen, onClose, t, lang }) {
         <div className={`fixed inset-0 z-[999] flex items-end md:items-center justify-center pointer-events-none`}>
             {/* Backdrop */}
             <div
-                className={`absolute inset-0 bg-black/40 backdrop-blur-md transition-opacity duration-300 touch-none ${isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                className={`absolute inset-0 bg-black/70 transition-opacity duration-300 touch-none ${isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                 onClick={handleClose}
                 onTouchMove={(e) => e.preventDefault()}
             ></div>
