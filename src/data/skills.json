@@ -11,15 +11,14 @@
         "color_class": "bg-red-100"
     },
     {
-        "name": "Swift",
-        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
-        "color_class": "bg-orange-100"
+        "name": "Dart",
+        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+        "color_class": "bg-cyan-100"
     },
     {
-        "name": "SwiftUI",
-        "icon_url": "swiftui-logo.jpg",
-        "color_class": "bg-blue-100",
-        "img_class": "mix-blend-multiply rounded-[10px] object-cover scale-[1.3]"
+        "name": "Flutter",
+        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+        "color_class": "bg-blue-100"
     },
     {
         "name": "Figma",
@@ -50,5 +49,41 @@
         "name": "MySQL",
         "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
         "color_class": "bg-cyan-100"
+    },
+    {
+        "name": "OpenAI",
+        "icon_url": "openai-logo.png",
+        "color_class": "bg-gray-100",
+        "img_class": "object-contain"
+    },
+    {
+        "name": "Claude",
+        "icon_url": "https://cdn.simpleicons.org/claude/D97757",
+        "color_class": "bg-orange-50"
+    },
+    {
+        "name": "Gemini",
+        "icon_url": "https://cdn.simpleicons.org/googlegemini/8E75B2",
+        "color_class": "bg-purple-50"
+    },
+    {
+        "name": "Git",
+        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+        "color_class": "bg-red-50"
+    },
+    {
+        "name": "GitHub",
+        "icon_url": "https://cdn.simpleicons.org/github/000000",
+        "color_class": "bg-gray-100"
+    },
+    {
+        "name": "SQLite",
+        "icon_url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
+        "color_class": "bg-blue-50"
+    },
+    {
+        "name": "Livewire",
+        "icon_url": "https://cdn.simpleicons.org/livewire/4E56A6",
+        "color_class": "bg-pink-50"
     }
 ]

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 
 const screenshots = [
     {
@@ -30,13 +29,21 @@ const techStack = [
     { name: 'REST API', icon: 'cloud_sync', color: 'text-emerald-500' },
 ];
 
-const responsibilities = [
-    { icon: 'terminal', text: 'Designed efficient database schemas in MySQL' },
-    { icon: 'api', text: 'Developed 20+ REST API endpoints using Laravel' },
-    { icon: 'lock', text: 'Implemented JWT authentication for secure sessions' },
-];
+// Dynamic responsibilities handled in component
+
+import { useLang } from '../context/LanguageContext';
+import translations from '../i18n/translations';
 
 export default function ProjectDetail({ onBack }) {
+    const { lang } = useLang();
+    const t = translations[lang];
+
+    const responsibilities = [
+        { icon: 'terminal', text: t.projectDetail.resp1 },
+        { icon: 'api', text: t.projectDetail.resp2 },
+        { icon: 'lock', text: t.projectDetail.resp3 },
+    ];
+
     return (
         <div className="bg-[#F2F2F7] text-[#1D1D1F] font-display antialiased min-h-screen">
             {/* Navigation */}
@@ -63,7 +70,7 @@ export default function ProjectDetail({ onBack }) {
                         <div className="flex flex-col gap-3">
                             <div className="flex items-center gap-3">
                                 <span className="px-3 py-1 rounded-full bg-blue-100 text-[#007AFF] text-xs font-bold tracking-wider uppercase border border-blue-200">
-                                    Mobile App
+                                    {t.projectDetail.mobileApp}
                                 </span>
                                 <span className="px-3 py-1 rounded-full bg-gray-200/60 text-[#86868B] text-xs font-bold tracking-wider uppercase border border-gray-200">
                                     2023
@@ -71,7 +78,7 @@ export default function ProjectDetail({ onBack }) {
                             </div>
                             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#1D1D1F]">Sehatin</h1>
                             <p className="text-xl md:text-2xl text-[#86868B] max-w-2xl font-light leading-relaxed">
-                                A comprehensive student health tracking application designed to simplify wellness management amidst busy academic schedules.
+                                {t.projectDetail.description}
                             </p>
                         </div>
                     </header>
@@ -102,10 +109,10 @@ export default function ProjectDetail({ onBack }) {
                                 <div className="p-2 rounded-full bg-red-100 text-red-500">
                                     <span className="material-symbols-outlined text-2xl">error_outline</span>
                                 </div>
-                                <h3 className="text-xs font-bold tracking-[0.2em] text-[#86868B] uppercase">The Problem</h3>
+                                <h3 className="text-xs font-bold tracking-[0.2em] text-[#86868B] uppercase">{t.projectDetail.theProblem}</h3>
                             </div>
                             <p className="text-lg text-[#1D1D1F] leading-relaxed font-normal">
-                                Students often neglect their health due to rigorous academic demands. Existing solutions are either too complex or lack specific features tailored to a student's lifestyle, leading to inconsistent health monitoring and missed medical appointments.
+                                {t.projectDetail.problemText}
                             </p>
                         </div>
 
@@ -115,10 +122,10 @@ export default function ProjectDetail({ onBack }) {
                                 <div className="p-2 rounded-full bg-blue-100 text-[#007AFF]">
                                     <span className="material-symbols-outlined text-2xl">check_circle</span>
                                 </div>
-                                <h3 className="text-xs font-bold tracking-[0.2em] text-[#86868B] uppercase">The Solution</h3>
+                                <h3 className="text-xs font-bold tracking-[0.2em] text-[#86868B] uppercase">{t.projectDetail.theSolution}</h3>
                             </div>
                             <p className="text-lg text-[#1D1D1F] leading-relaxed font-normal">
-                                Sehatin bridges this gap by providing an intuitive, student-centric interface. Key features include smart reminders synced with class schedules, a simplified symptom tracker, and quick access to campus health resources.
+                                {t.projectDetail.solutionText}
                             </p>
                         </div>
                     </div>
@@ -132,11 +139,11 @@ export default function ProjectDetail({ onBack }) {
                                     <div className="p-2 rounded-full bg-purple-100 text-purple-500">
                                         <span className="material-symbols-outlined text-2xl">person</span>
                                     </div>
-                                    <h3 className="text-xs font-bold tracking-[0.2em] text-[#86868B] uppercase">My Role</h3>
+                                    <h3 className="text-xs font-bold tracking-[0.2em] text-[#86868B] uppercase">{t.projectDetail.myRole}</h3>
                                 </div>
-                                <h4 className="text-2xl font-bold text-[#1D1D1F] mb-4">Backend & API Development</h4>
+                                <h4 className="text-2xl font-bold text-[#1D1D1F] mb-4">{t.projectDetail.roleTitle}</h4>
                                 <p className="text-[#1D1D1F]/80 leading-relaxed font-normal mb-6">
-                                    I architected the backend infrastructure, ensuring secure data handling for sensitive health information. My responsibilities included designing the database schema, building RESTful APIs for the mobile client, and implementing authentication protocols.
+                                    {t.projectDetail.roleText}
                                 </p>
                             </div>
                             <ul className="flex flex-col gap-3">
@@ -156,7 +163,7 @@ export default function ProjectDetail({ onBack }) {
                                     <div className="p-2 rounded-full bg-indigo-100 text-indigo-500">
                                         <span className="material-symbols-outlined text-2xl">code</span>
                                     </div>
-                                    <h3 className="text-xs font-bold tracking-[0.2em] text-[#86868B] uppercase">Tech Stack</h3>
+                                    <h3 className="text-xs font-bold tracking-[0.2em] text-[#86868B] uppercase">{t.projectDetail.techStack}</h3>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
                                     {techStack.map((tech) => (
@@ -182,13 +189,13 @@ export default function ProjectDetail({ onBack }) {
                             className="w-full md:w-auto px-8 py-4 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 text-[#1D1D1F] font-semibold flex items-center justify-center gap-3 transition-all group shadow-sm"
                         >
                             <span className="material-symbols-outlined group-hover:rotate-12 transition-transform text-[#86868B]">code</span>
-                            View Source Code
+                            {t.projectDetail.viewSourceCode}
                         </a>
                         <a
                             href="#"
                             className="w-full md:w-auto px-10 py-4 rounded-xl bg-[#007AFF] hover:bg-blue-600 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-[0_4px_14px_0_rgba(0,118,255,0.39)] hover:shadow-[0_6px_20px_rgba(0,118,255,0.23)] transition-all transform hover:-translate-y-1"
                         >
-                            Try Demo
+                            {t.projectDetail.tryDemo}
                             <span className="material-symbols-outlined">arrow_outward</span>
                         </a>
                     </div>

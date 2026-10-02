@@ -1,3 +1,5 @@
+import forms from '@tailwindcss/forms';
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
@@ -28,6 +30,7 @@ export default {
                 'fade-in-up': 'fadeInUp 0.6s ease-out',
                 'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                 'float': 'float 6s ease-in-out infinite',
+                'swing': 'swing 6s ease-in-out infinite',
             },
             keyframes: {
                 fadeInUp: {
@@ -37,11 +40,15 @@ export default {
                 float: {
                     '0%, 100%': { transform: 'translateY(0)' },
                     '50%': { transform: 'translateY(-20px)' },
+                },
+                swing: {
+                    '0%, 100%': { transform: 'rotate(-3deg)' },
+                    '50%': { transform: 'rotate(3deg)' },
                 }
             }
         },
     },
     plugins: [
-        require('@tailwindcss/forms'),
+        forms,
     ],
 }

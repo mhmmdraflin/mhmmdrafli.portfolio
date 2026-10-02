@@ -2,23 +2,24 @@ import React, { useState } from 'react';
 import projectsData from '../data/projects.json';
 import PhoneMockup from './PhoneMockup';
 import { getAssetPath } from '../utils/assets';
+import { useLang } from '../context/LanguageContext';
+import translations from '../i18n/translations';
 
 // Helper to get dynamic classes for mobile animation + desktop hover
-const getLeftPhoneClasses = (isMobileExpanded) => {
+const getLeftPhoneClasses = () => {
     const base = "absolute z-10 transform -translate-x-16 md:-translate-x-32 translate-y-8 -rotate-y-[25deg] rotate-z-[-5deg] transition-all duration-700 ease-out hover:!z-20";
     const desktopHover = "md:group-hover/phones:-translate-x-40 md:group-hover/phones:rotate-y-[-15deg] md:group-hover/phones:scale-90";
     return `${base} ${desktopHover}`;
 };
 
-const getRightPhoneClasses = (isMobileExpanded) => {
+const getRightPhoneClasses = () => {
     const base = "absolute z-10 transform translate-x-16 md:translate-x-32 translate-y-8 rotate-y-[25deg] rotate-z-[5deg] transition-all duration-700 ease-out hover:!z-20";
     const desktopHover = "md:group-hover/phones:translate-x-40 md:group-hover/phones:rotate-y-[15deg] md:group-hover/phones:scale-90";
     return `${base} ${desktopHover}`;
 };
 
-const ProjectItem = ({ project, index }) => {
+const ProjectItem = ({ project, index, t, lang }) => {
     const isEven = index % 2 === 0;
-    const [currentImageIdx, setCurrentImageIdx] = useState(0);
 
     // Swipe refs
     const touchStartX = React.useRef(null);
@@ -111,7 +112,7 @@ const ProjectItem = ({ project, index }) => {
                             {/* Mobile Instruction Hint */}
                             <div className="absolute -bottom-8 md:hidden text-gray-400 text-xs tracking-widest uppercase animate-pulse flex items-center gap-2">
                                 <span className="material-symbols-outlined text-sm">swipe</span>
-                                Swipe to Rotate
+                                {t.projects.swipeToRotate}
                             </div>
                         </>
                     ) : (
@@ -151,20 +152,20 @@ const ProjectItem = ({ project, index }) => {
                     )}
                 </div>
 
-                {project.association && (
+                {(project.association_id || project.association_en) && (
                     <h4 className="mt-1 text-[#86868B] text-[10px] font-bold uppercase tracking-wide max-w-xs mx-auto md:mx-0">
-                        {project.association}
+                        {lang === 'id' ? (project.association_id || project.association) : (project.association_en || project.association)}
                     </h4>
                 )}
 
                 <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
-                    <h3 className="text-3xl md:text-4xl font-extrabold text-[#1D1D1F]">
+                    <h3 className="text-3xl md:text-4xl font-extrabold text-[#1D1D1F] dark:text-white transition-colors duration-300">
                         {project.title}
                     </h3>
                 </div>
-                <p className="text-[#007AFF] font-semibold text-lg mb-4">{project.subtitle}</p>
+                <p className="text-[#007AFF] font-semibold text-lg mb-4">{lang === 'id' ? project.subtitle_id : project.subtitle_en}</p>
                 <p className="text-[#86868B] text-base leading-relaxed mb-8 max-w-md mx-auto md:mx-0">
-                    {project.description}
+                    {lang === 'id' ? project.description_id : project.description_en}
                 </p>
 
                 {/* Tech Stack */}
@@ -183,8 +184,10 @@ const ProjectItem = ({ project, index }) => {
     );
 };
 
-export default function ProjectsSection({ onViewCaseStudy }) {
+export default function ProjectsSection() {
     const projects = projectsData;
+    const { lang } = useLang();
+    const t = translations[lang];
 
     if (projects.length === 0) return (
         <div className="py-20 text-center text-red-400">
@@ -197,19 +200,19 @@ export default function ProjectsSection({ onViewCaseStudy }) {
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12 md:mb-20 animate-fade-in-up">
-                    <span className="text-[#007AFF] text-xs font-bold tracking-[0.2em] uppercase">Featured Work</span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1D1D1F] mt-2">
-                        My Projects
+                    <span className="text-[#007AFF] text-xs font-bold tracking-[0.2em] uppercase">{t.projects.tagline}</span>
+                    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1D1D1F] dark:text-white mt-2 transition-colors duration-300">
+                        {t.projects.heading}
                     </h2>
                     <p className="text-[#86868B] text-sm max-w-lg mx-auto mt-3 font-medium">
-                        A selection of mobile applications I've designed and developed.
+                        {t.projects.subtitle}
                     </p>
                 </div>
 
                 {/* Projects Stack */}
                 <div className="space-y-16 md:space-y-32">
                     {projects.map((project, index) => (
-                        <ProjectItem key={project.id} project={project} index={index} />
+                        <ProjectItem key={project.id} project={project} index={index} t={t} lang={lang} />
                     ))}
                 </div>
             </div>

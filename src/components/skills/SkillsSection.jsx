@@ -44,7 +44,7 @@ export default function SkillsSection() {
                 <p className="section-subtitle">Technologies I work with</p>
 
                 <div className="skills-grid">
-                    {skillCategories.map((category, catIndex) => (
+                    {skillCategories.map((category) => (
                         <div key={category.title} className="skill-category">
                             <div className="category-header">
                                 <span className="category-icon">{category.icon}</span>

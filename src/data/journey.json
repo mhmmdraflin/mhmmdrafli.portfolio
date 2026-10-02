@@ -3,31 +3,40 @@
         {
             "id": 1,
             "type": "education",
-            "title": "Informatics",
+            "title_en": "Informatics",
+            "title_id": "Informatika",
             "organization": "UBHINUS dh.STIKI",
-            "period": "2022 — 2026",
+            "period_en": "2022 — 2026",
+            "period_id": "2022 — 2026",
             "is_current": true,
-            "description": "Graduated with a Bachelor's degree in Informatics, focusing on Web and Mobile Application Development",
+            "description_en": "Graduated with a Bachelor's degree in Informatics, focusing on Web and Mobile Application Development.",
+            "description_id": "Lulus dengan gelar Sarjana Informatika, fokus pada Pengembangan Aplikasi Web dan Mobile.",
             "logo_url": "ubhinus-logo.jpg"
         },
         {
             "id": 2,
             "type": "education",
-            "title": "Mobile Development",
+            "title_en": "Mobile Development",
+            "title_id": "Pengembangan Mobile",
             "organization": "Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
-            "period": "Sep 2024 — Dec 2024",
+            "period_en": "Sep 2024 — Dec 2024",
+            "period_id": "Sep 2024 — Des 2024",
             "is_current": false,
-            "description": "Specialized in Android Development (Kotlin) and Clean Architecture, collaborating with ML and Cloud teams on a Capstone Project. Part of Kampus Merdeka's Studi Independen Bersertifikat (SIB) program.",
+            "description_en": "Specialized in Android Development (Kotlin) and Clean Architecture, collaborating with ML and Cloud teams on a Capstone Project. Part of Kampus Merdeka's Studi Independen Bersertifikat (SIB) program.",
+            "description_id": "Spesialisasi pada Pengembangan Android (Kotlin) dan Clean Architecture, berkolaborasi dengan tim ML dan Cloud dalam Capstone Project. Bagian dari program Studi Independen Bersertifikat (SIB) Kampus Merdeka.",
             "logo_url": "bangkit-logo.jpg"
         },
         {
             "id": 3,
             "type": "education",
-            "title": "Saintek",
+            "title_en": "Science and Technology",
+            "title_id": "Sains dan Teknologi (Saintek)",
             "organization": "MAN 2 Kutai Kartanegara",
-            "period": "Apr 2019 — Mei 2022",
+            "period_en": "Apr 2019 — May 2022",
+            "period_id": "Apr 2019 — Mei 2022",
             "is_current": false,
-            "description": "High school education with focus on Science and Technology (Saintek).",
+            "description_en": "High school education with a focus on Science and Technology.",
+            "description_id": "Pendidikan sekolah menengah atas dengan fokus pada Sains dan Teknologi.",
             "logo_url": "man2kukar-logo.jpg"
         }
     ],
@@ -35,11 +44,14 @@
         {
             "id": 4,
             "type": "experience",
-            "title": "Laboratory Teaching Assistant Advanced Database",
+            "title_en": "Laboratory Teaching Assistant Advanced Database",
+            "title_id": "Asisten Praktikum Basis Data Lanjut",
             "organization": "UBHINUS dh.STIKI",
-            "period": "Aug 2025 — Jan 2026",
+            "period_en": "Aug 2025 — Jan 2026",
+            "period_id": "Agu 2025 — Jan 2026",
             "is_current": false,
-            "description": "Teaching advanced data management techniques including complex query structures (CTE/Window Functions) as well as best practices in SQL database optimization and performance analysis.",
+            "description_en": "Teaching advanced data management techniques including complex query structures (CTE/Window Functions) as well as best practices in SQL database optimization and performance analysis.",
+            "description_id": "Mengajarkan teknik manajemen data tingkat lanjut termasuk struktur kueri kompleks (CTE/Window Functions) serta praktik terbaik dalam optimasi database SQL dan analisis kinerja.",
             "logo_url": "ubhinus-dh-stiki-logo.jpg",
             "tags": [
                 "Database",
@@ -50,11 +62,14 @@
         {
             "id": 5,
             "type": "experience",
-            "title": "Laboratory Teaching Assistant Advanced Web Programming",
+            "title_en": "Laboratory Teaching Assistant Advanced Web Programming",
+            "title_id": "Asisten Praktikum Pemrograman Web Lanjut",
             "organization": "UBHINUS dh.STIKI",
-            "period": "Mar 2025 — Jul 2025",
+            "period_en": "Mar 2025 — Jul 2025",
+            "period_id": "Mar 2025 — Jul 2025",
             "is_current": false,
-            "description": "Mentored students in building scalable Laravel/Livewire applications, covering setup, development, and optimization.",
+            "description_en": "Mentored students in building scalable Laravel/Livewire applications, covering setup, development, and optimization.",
+            "description_id": "Membimbing mahasiswa dalam membangun aplikasi Laravel/Livewire yang scalable, mencakup konfigurasi, pengembangan, dan optimasi.",
             "logo_url": "ubhinus-dh-stiki-logo.jpg",
             "tags": [
                 "Laravel",
@@ -65,11 +80,14 @@
         {
             "id": 6,
             "type": "experience",
-            "title": "Laboratory Teaching Assistant Web Programming",
+            "title_en": "Laboratory Teaching Assistant Web Programming",
+            "title_id": "Asisten Praktikum Pemrograman Web",
             "organization": "UBHINUS dh.STIKI",
-            "period": "Sep 2024 — Feb 2025",
+            "period_en": "Sep 2024 — Feb 2025",
+            "period_id": "Sep 2024 — Feb 2025",
             "is_current": false,
-            "description": "Guided students in web development basics (HTML, CSS, PHP) and hands-on code troubleshooting.",
+            "description_en": "Guided students in web development basics (HTML, CSS, PHP) and hands-on code troubleshooting.",
+            "description_id": "Memandu mahasiswa dalam dasar-dasar pengembangan web (HTML, CSS, PHP) dan pemecahan masalah kode secara langsung.",
             "logo_url": "ubhinus-dh-stiki-logo.jpg",
             "tags": [
                 "HTML",
@@ -81,18 +99,42 @@
         {
             "id": 7,
             "type": "experience",
-            "title": "Mobile Developer",
+            "title_en": "Mobile Developer",
+            "title_id": "Mobile Developer",
             "organization": "CatLoris: Gamified Nutrition Tracker App",
-            "period": "Oct 2024 — Dec 2024",
+            "period_en": "Oct 2024 — Dec 2024",
+            "period_id": "Okt 2024 — Des 2024",
             "is_current": false,
-            "description": "Built CatLoris, a gamified Android app, combining high-fidelity UI slicing with interactive challenges to create an engaging calorie and macro tracking experience.",
-            "association": "Associated with Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
+            "description_en": "Built CatLoris, a gamified Android app, combining high-fidelity UI slicing with interactive challenges to create an engaging calorie and macro tracking experience.",
+            "description_id": "Membangun CatLoris, sebuah aplikasi Android berbasis gamifikasi, yang menggabungkan slicing UI tingkat tinggi dengan tantangan interaktif untuk menciptakan pengalaman melacak kalori dan makro gizi yang menyenangkan.",
+            "association_en": "Associated with Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
+            "association_id": "Terkait dengan Bangkit Academy yang dipimpin oleh Google, Tokopedia, Gojek, & Traveloka",
             "logo_url": "catloris-logo.jpg",
             "tags": [
                 "Kotlin",
                 "Android",
                 "Gamification",
                 "UI/UX"
+            ]
+        }
+    ],
+    "achievements": [
+        {
+            "id": 8,
+            "type": "achievement",
+            "title_en": "Kutai Kartanegara Regency Government",
+            "title_id": "Pemerintah Kabupaten Kutai Kartanegara",
+            "organization": "Penerima Beasiswa Kukar Idaman Tahap I 2024",
+            "period_en": "June 2024",
+            "period_id": "Juni 2024",
+            "is_current": false,
+            "description_en": "Selected as one of the recipients of the Kukar Idaman Scholarship Phase I 2024 from the Kutai Kartanegara Regency Government, based on academic verification and validation.",
+            "description_id": "Terpilih sebagai salah satu penerima Beasiswa Kukar Idaman Tahap I Tahun 2024 dari Pemerintah Kabupaten Kutai Kartanegara, berdasarkan hasil verifikasi dan validasi akademik.",
+            "logo_url": "beasiswa-kukar.png",
+            "tags": [
+                "Beasiswa",
+                "Prestasi Akademik",
+                "Kutai Kartanegara"
             ]
         }
     ]

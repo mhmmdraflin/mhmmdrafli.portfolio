@@ -7,8 +7,10 @@
             "GoTo",
             "Traveloka"
         ],
-        "path_name": "Mobile Development Path",
-        "specialization": "Specializing in Android Development",
+        "path_name_en": "Mobile Development Path",
+        "path_name_id": "Alur Pengembangan Mobile",
+        "specialization_en": "Specializing in Android Development",
+        "specialization_id": "Spesialisasi pada Pengembangan Android",
         "image_url": "certificate-bangkit.jpg"
     },
     {
@@ -19,8 +21,10 @@
             "LSP STIKI",
             "Software Dev"
         ],
-        "path_name": "Web Developer",
-        "specialization": "Bidang Software Development",
+        "path_name_en": "Web Developer",
+        "path_name_id": "Pengembang Web",
+        "specialization_en": "Software Development Sector",
+        "specialization_id": "Bidang Pengembangan Perangkat Lunak",
         "image_url": "certificate-lsp.jpg"
     },
     {
@@ -31,8 +35,10 @@
             "Cyber Security",
             "Verified"
         ],
-        "path_name": "Information Security",
-        "specialization": "EC-Council Certified • No. ECC6078932451",
+        "path_name_en": "Information Security",
+        "path_name_id": "Keamanan Informasi",
+        "specialization_en": "EC-Council Certified • No. ECC6078932451",
+        "specialization_id": "Sertifikasi EC-Council • No. ECC6078932451",
         "image_url": "certificate-eccouncil.png"
     }
 ]

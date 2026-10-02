@@ -1,25 +1,28 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import journeyData from '../data/journey.json';
 import { getAssetPath } from '../utils/assets';
+import { useLang } from '../context/LanguageContext';
+import translations from '../i18n/translations';
 
-function JourneyModal({ item, isOpen, onClose }) {
+function JourneyModal({ item, isOpen, onClose, t, lang }) {
     const [isVisible, setIsVisible] = useState(false);
 
-    // We need a real ref to persist value across renders
-    const scrollRef = React.useRef(0);
+
 
     useEffect(() => {
+        let timeout;
         if (isOpen) {
-            setIsVisible(true);
+            timeout = setTimeout(() => setIsVisible(true), 10);
             // LOCK DISABLED TEMPORARILY: To prevent "stuck" and "jump to home" issues on mobile.
             // document.body.style.overflow = 'hidden';
         } else {
-            setIsVisible(false);
+            timeout = setTimeout(() => setIsVisible(false), 10);
             // document.body.style.overflow = '';
         }
 
         return () => {
+            clearTimeout(timeout);
             // document.body.style.overflow = '';
         };
     }, [isOpen]);
@@ -58,33 +61,36 @@ function JourneyModal({ item, isOpen, onClose }) {
                 {/* Header with Logo */}
                 <div className="p-6 md:p-8 flex flex-col items-center text-center border-b border-gray-100/50">
                     {logoSrc && (
-                        <div className="w-20 h-20 rounded-[1.5rem] bg-white shadow-lg shadow-black/5 flex items-center justify-center mb-4 overflow-hidden border border-gray-100">
-                            <img src={logoSrc} alt={item.organization} className="w-14 h-14 object-contain" />
+                        <div className="min-w-20 max-w-[200px] h-20 px-3 rounded-[1.5rem] bg-white shadow-lg shadow-black/5 flex items-center justify-center mb-4 overflow-hidden border border-gray-100">
+                            <img src={logoSrc} alt={item.organization} className="max-h-14 max-w-full object-contain" />
                         </div>
                     )}
                     <h2 className="text-2xl font-bold text-[#1D1D1F] tracking-tight">{item.organization}</h2>
-                    <p className="text-[#86868B] font-medium text-sm mt-1">{item.title}</p>
+                    <p className="text-[#86868B] font-medium text-sm mt-1">{lang === 'id' ? item.title_id : item.title_en}</p>
+                    {(item.association_id || item.association_en) && (
+                        <p className="text-[#86868B] text-xs font-semibold uppercase tracking-wider mt-1.5">{lang === 'id' ? (item.association_id || item.association) : (item.association_en || item.association)}</p>
+                    )}
 
                     <div className="mt-4 flex items-center gap-2">
                         <span className={`inline-block py-1.5 px-4 rounded-full text-xs font-semibold font-mono bg-gray-100 text-[#1D1D1F]/70 border border-gray-200/50`}>
-                            {item.period}
+                            {lang === 'id' ? item.period_id : item.period_en}
                         </span>
                         {item.is_current && (
-                            <span className="text-[#007AFF] text-[10px] uppercase font-bold bg-blue-50 px-2 py-1 rounded-full border border-blue-100">Current</span>
+                            <span className="text-[#007AFF] text-[10px] uppercase font-bold bg-blue-50 px-2 py-1 rounded-full border border-blue-100">{t.journey.current}</span>
                         )}
                     </div>
                 </div>
 
                 {/* Scrollable Content */}
                 <div className="p-6 md:p-8 overflow-y-auto overscroll-contain">
-                    <h3 className="text-sm font-bold text-[#86868B] uppercase tracking-wider mb-3">Description</h3>
+                    <h3 className="text-sm font-bold text-[#86868B] uppercase tracking-wider mb-3">{t.journey.description}</h3>
                     <p className="text-[#1D1D1F] leading-relaxed text-[15px] font-normal mb-8 text-left">
-                        {item.description}
+                        {lang === 'id' ? item.description_id : item.description_en}
                     </p>
 
                     {item.tags && (
                         <>
-                            <h3 className="text-sm font-bold text-[#86868B] uppercase tracking-wider mb-3">Skills & Technologies</h3>
+                            <h3 className="text-sm font-bold text-[#86868B] uppercase tracking-wider mb-3">{t.journey.skillsAndTech}</h3>
                             <div className="flex flex-wrap gap-2">
                                 {(typeof item.tags === 'string' ? JSON.parse(item.tags) : item.tags).map((tag) => (
                                     <span key={tag} className="text-[13px] font-medium px-3 py-1.5 rounded-lg bg-gray-100/80 text-[#1D1D1F] border border-gray-200/50 shadow-sm">
@@ -102,7 +108,7 @@ function JourneyModal({ item, isOpen, onClose }) {
                         onClick={handleClose}
                         className="w-full bg-[#007AFF] text-white font-bold py-3.5 rounded-2xl active:scale-95 transition-transform shadow-lg shadow-blue-500/30"
                     >
-                        Close
+                        {t.journey.close}
                     </button>
                 </div>
                 <button
@@ -117,7 +123,7 @@ function JourneyModal({ item, isOpen, onClose }) {
     );
 }
 
-function TimelineItem({ item, onClick }) {
+function TimelineItem({ item, onClick, t, lang }) {
     // Helper to resolve logo URL
     const logoSrc = item.logo_url ? getAssetPath(`assets/images/${item.logo_url}`) : null;
 
@@ -125,53 +131,53 @@ function TimelineItem({ item, onClick }) {
         <div onClick={() => onClick(item)} className="group timeline-item relative flex flex-col md:flex-row gap-3 md:gap-8 mb-8 md:mb-6 pl-8 md:pl-0">
 
             <div className="md:w-28 md:text-right pt-2 md:pt-4 flex-shrink-0">
-                <span className={`inline-block py-1 px-3 rounded-full border shadow-sm text-[10px] md:text-xs font-semibold font-mono ${item.periodStyle || 'bg-white border-gray-200/80 text-[#86868B] group-hover:bg-[#007AFF]/5 group-hover:border-[#007AFF]/20 group-hover:text-[#007AFF] transition-all duration-300'}`}>
-                    {item.period}
+                <span className={`inline-block py-1 px-3 rounded-full border shadow-sm text-[10px] md:text-xs font-semibold font-mono ${item.periodStyle || 'bg-white dark:bg-[#1A1A24] border-gray-200/80 dark:border-white/10 text-[#86868B] dark:text-white group-hover:bg-[#007AFF]/5 dark:group-hover:bg-[#007AFF]/20 group-hover:border-[#007AFF]/20 group-hover:text-[#007AFF] dark:group-hover:text-white transition-all duration-300'}`}>
+                    {lang === 'id' ? item.period_id : item.period_en}
                 </span>
             </div>
 
-            <div className="flex-1 timeline-card rounded-2xl p-4 md:p-5 hover:shadow-md active:scale-[0.98] active:bg-blue-50/30 transition-all duration-200 cursor-pointer border border-gray-100/50 bg-white/50 md:bg-transparent md:border-transparent">
+            <div className="flex-1 timeline-card rounded-2xl p-4 md:p-5 hover:shadow-md active:scale-[0.98] active:bg-blue-50/30 dark:active:bg-blue-900/30 transition-all duration-200 cursor-pointer border border-gray-100/50 dark:border-white/10 bg-white/50 dark:bg-white/5 md:bg-transparent md:dark:bg-transparent md:border-transparent md:dark:border-transparent">
                 <div className="flex items-start gap-3 md:gap-4">
                     {/* Logo */}
                     {logoSrc && (
-                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white border border-gray-200 shadow-sm flex items-center justify-center overflow-hidden flex-shrink-0">
-                            <img src={logoSrc} alt={item.organization} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white border border-gray-200 dark:border-white/10 shadow-sm flex items-center justify-center overflow-hidden flex-shrink-0 p-1">
+                            <img src={logoSrc} alt={item.organization} className="w-full h-full object-contain" />
                         </div>
                     )}
 
                     <div className="flex-1 min-w-0">
-                        <h3 className="text-base md:text-lg font-bold text-[#1D1D1F] mb-0.5 group-hover:text-[#007AFF] transition-colors truncate">
-                            {item.organization}
+                        <h3 className="text-base md:text-lg font-bold text-[#1D1D1F] dark:text-white mb-0.5 group-hover:text-[#007AFF] dark:group-hover:text-[#47A1FF] transition-colors truncate">
+                            {lang === 'id' ? item.title_id : item.title_en}
                         </h3>
 
-                        <div className="flex flex-wrap items-center gap-2 mb-2 text-xs md:text-sm font-medium text-[#86868B]">
-                            <span className="text-[#1D1D1F]/80">{item.title}</span>
+                        <div className="flex flex-wrap items-center gap-2 mb-2 text-xs md:text-sm font-medium text-[#86868B] dark:text-white">
+                            <span className="text-[#1D1D1F]/80 dark:text-white">{item.organization}</span>
                             {item.is_current ? (
-                                <span className="text-[#007AFF] text-[9px] uppercase font-bold bg-blue-50 px-1.5 py-0.5 rounded-full border border-blue-100 flex-shrink-0">Current</span>
+                                <span className="text-[#007AFF] text-[9px] uppercase font-bold bg-blue-50 px-1.5 py-0.5 rounded-full border border-blue-100 flex-shrink-0">{t.journey.current}</span>
                             ) : null}
                         </div>
 
-                        {item.association && (
+                        {(item.association_id || item.association_en) && (
                             <h4 className="text-[10px] md:text-xs font-semibold text-[#86868B] mb-2 uppercase tracking-wide">
-                                {item.association}
+                                {lang === 'id' ? (item.association_id || item.association) : (item.association_en || item.association)}
                             </h4>
                         )}
 
-                        <p className="text-xs md:text-sm leading-relaxed text-[#86868B] text-left line-clamp-3">{item.description}</p>
-                        <div className="md:hidden mt-2 flex items-center gap-1 text-[#007AFF] text-xs font-medium">
-                            <span>View Details</span>
+                        <p className="text-xs md:text-sm leading-relaxed text-[#86868B] dark:text-white text-left line-clamp-3">{lang === 'id' ? item.description_id : item.description_en}</p>
+                        <div className="md:hidden mt-2 flex items-center gap-1 text-[#007AFF] dark:text-[#47A1FF] text-xs font-medium">
+                            <span>{t.journey.viewDetails}</span>
                             <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                         </div>
 
                         {item.tags && (
                             <div className="flex flex-wrap gap-1.5 mt-3">
                                 {(typeof item.tags === 'string' ? JSON.parse(item.tags) : item.tags).slice(0, 3).map((tag) => (
-                                    <span key={tag} className="text-[10px] md:text-[11px] font-medium px-2 py-0.5 rounded-md bg-gray-100 text-[#1D1D1F]/70 border border-gray-200">
+                                    <span key={tag} className="text-[10px] md:text-[11px] font-medium px-2 py-0.5 rounded-md bg-gray-100 dark:bg-white/10 text-[#1D1D1F]/70 dark:text-white border border-gray-200 dark:border-white/10">
                                         {tag}
                                     </span>
                                 ))}
                                 {(typeof item.tags === 'string' ? JSON.parse(item.tags) : item.tags).length > 3 && (
-                                    <span className="text-[10px] md:text-[11px] font-medium px-2 py-0.5 rounded-md bg-gray-50 text-[#86868B] border border-gray-100">
+                                    <span className="text-[10px] md:text-[11px] font-medium px-2 py-0.5 rounded-md bg-gray-50 dark:bg-white/5 text-[#86868B] dark:text-white border border-gray-100 dark:border-white/5">
                                         +{(typeof item.tags === 'string' ? JSON.parse(item.tags) : item.tags).length - 3}
                                     </span>
                                 )}
@@ -184,25 +190,27 @@ function TimelineItem({ item, onClick }) {
     );
 }
 
-function TimelineSection({ title, items, onItemClick }) {
+function TimelineSection({ title, items, onItemClick, t, lang }) {
     return (
         <div className="mb-8 relative">
             <div className="mb-4 pl-10 md:pl-14">
-                <span className="text-xs font-bold tracking-[0.15em] text-[#86868B] uppercase">
+                <span className="text-xs font-bold tracking-[0.15em] text-[#86868B] dark:text-white uppercase">
                     {title}
                 </span>
             </div>
             {items.map((item) => (
-                <TimelineItem key={item.id} item={item} onClick={onItemClick} />
+                <TimelineItem key={item.id} item={item} onClick={onItemClick} t={t} lang={lang} />
             ))}
         </div>
     );
 }
 
 export default function JourneySection() {
-    const { education, experience } = journeyData;
+    const { education, experience, achievements = [] } = journeyData;
     const [selectedItem, setSelectedItem] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { lang } = useLang();
+    const t = translations[lang];
 
     const handleItemClick = (item) => {
         setSelectedItem(item);
@@ -216,7 +224,7 @@ export default function JourneySection() {
         // But we can clear it when opening new one? No need.
     };
 
-    if (education.length === 0 && experience.length === 0) return (
+    if (education.length === 0 && experience.length === 0 && achievements.length === 0) return (
         <div className="py-20 text-center text-red-400">
             <p>Journey data not available.</p>
         </div>
@@ -227,21 +235,24 @@ export default function JourneySection() {
             <div className="max-w-4xl mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-12">
-                    <span className="text-[#007AFF] text-xs font-bold tracking-[0.2em] uppercase">My Professional Path</span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1D1D1F] mt-2">
-                        The Journey
+                    <span className="text-[#007AFF] text-xs font-bold tracking-[0.2em] uppercase">{t.journey.tagline}</span>
+                    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1D1D1F] dark:text-white mt-2 transition-colors duration-300">
+                        {t.journey.heading}
                     </h2>
                     <p className="text-[#86868B] text-sm max-w-lg mx-auto mt-3 font-medium">
-                        A chronological timeline of my education and experience.
+                        {t.journey.subtitle}
                     </p>
                 </div>
 
                 {/* Timeline */}
-                <div className="glass-card rounded-3xl p-6 md:p-10 relative">
-                    <div className="absolute left-[23px] md:left-[27px] top-16 bottom-16 w-[2px] bg-gradient-to-b from-black/5 via-[#1D1D1F]/20 to-black/5 rounded-full"></div>
+                <div className="glass-card rounded-3xl p-6 md:p-10 relative bg-white/50 dark:bg-[#0B1121]/30 transition-colors duration-300 border-white/50 dark:border-white/10">
+                    <div className="absolute left-[23px] md:left-[27px] top-16 bottom-16 w-[2px] bg-gradient-to-b from-black/5 dark:from-white/5 via-[#1D1D1F]/20 dark:via-white/20 to-black/5 dark:to-white/5 rounded-full"></div>
 
-                    <TimelineSection title="Education" items={education} onItemClick={handleItemClick} />
-                    <TimelineSection title="Experience" items={experience} onItemClick={handleItemClick} />
+                    <TimelineSection title={t.journey.education} items={education} onItemClick={handleItemClick} t={t} lang={lang} />
+                    <TimelineSection title={t.journey.experience} items={experience} onItemClick={handleItemClick} t={t} lang={lang} />
+                    {achievements.length > 0 && (
+                        <TimelineSection title={t.journey.achievements} items={achievements} onItemClick={handleItemClick} t={t} lang={lang} />
+                    )}
                 </div>
             </div>
 
@@ -250,6 +261,8 @@ export default function JourneySection() {
                 item={selectedItem}
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}
+                t={t}
+                lang={lang}
             />
         </section>
     );
