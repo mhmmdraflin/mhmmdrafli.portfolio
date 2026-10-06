@@ -11,7 +11,7 @@ const navKeys = [
     { id: 'contact', key: 'contact' },
 ];
 
-function LanguageSwitcher() {
+export function LanguageSwitcher() {
     const { lang, setLang } = useLang();
     return (
         <div className="flex items-center p-0.5 bg-gray-100 dark:bg-[#1C1C1E] border border-gray-200 dark:border-white/10 rounded-md">
@@ -43,8 +43,13 @@ function LanguageSwitcher() {
     );
 }
 
-function ThemeToggle() {
-    const [theme, setTheme] = useState('light');
+export function ThemeToggle() {
+    const [theme, setTheme] = useState(() => {
+        if (typeof document !== 'undefined') {
+            return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+        return 'light';
+    });
     
     const toggleTheme = (newTheme) => {
         setTheme(newTheme);

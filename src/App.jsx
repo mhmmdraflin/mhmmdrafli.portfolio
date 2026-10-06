@@ -17,21 +17,26 @@ import CVModal from './components/CVModal';
 function App() {
   const [showDetail, setShowDetail] = useState(false);
   const [showCV, setShowCV] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
-  const handleViewCaseStudy = () => {
+  const handleViewCaseStudy = (project) => {
+    setSelectedProject(project);
     setShowDetail(true);
     window.scrollTo(0, 0);
   };
 
   const handleBackToMain = () => {
     setShowDetail(false);
-    window.scrollTo(0, 0);
+    setSelectedProject(null);
+    setTimeout(() => {
+      document.getElementById('projects')?.scrollIntoView();
+    }, 100);
   };
 
   if (showDetail) {
     return (
       <LanguageProvider>
-        <ProjectDetail onBack={handleBackToMain} />
+        <ProjectDetail onBack={handleBackToMain} project={selectedProject} />
       </LanguageProvider>
     );
   }

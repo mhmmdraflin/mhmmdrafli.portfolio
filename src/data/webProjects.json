@@ -1,0 +1,202 @@
+[
+    {
+        "id": 101,
+        "title": "HireMe.AI",
+        "subtitle_en": "AI-Powered Recruitment (MVP)",
+        "subtitle_id": "Platform Rekrutmen Cerdas Berbasis AI (MVP)",
+        "year": "2025",
+        "icon": "auto_awesome",
+        "status": "Beta",
+        "description_en": "A smart recruitment platform designed to optimize the job search process through Artificial Intelligence. Currently in its MVP phase, focusing heavily on automated CV screening and analysis.",
+        "description_id": "Platform rekrutmen cerdas yang dirancang untuk mengoptimalkan proses pencarian kerja melalui Artificial Intelligence. Saat ini berada pada fase MVP dengan fokus utama pada analisis dan screening CV otomatis.",
+        "display_mode": "single",
+        "image": "hireme-ai.png",
+        "liveDemo": "https://github.com/Fourmula-Team/HireMe.AI",
+        "github": "https://github.com/Fourmula-Team/HireMe.AI",
+        "problem_en": "The job market faces a gap where candidates struggle to present themselves effectively and companies struggle to screen them efficiently. Traditional recruitment processes often overlook potential due to rigid filtering.",
+        "problem_id": "Pasar kerja menghadapi kesenjangan di mana kandidat kesulitan menampilkan diri secara efektif dan perusahaan kesulitan menyaring mereka secara efisien. Proses rekrutmen tradisional sering mengabaikan potensi karena penyaringan yang kaku.",
+        "solution_en": "Our core vision is to bridge the gap between Gen Z job seekers and companies with a data-driven approach. As an MVP, we are establishing the foundation by offering intelligent CV processing, ensuring profiles match industry standards and roles automatically.",
+        "solution_id": "Visi utama kami adalah menjembatani kesenjangan antara pencari kerja Gen Z dan perusahaan dengan pendekatan berbasis data. Sebagai MVP, kami membangun pondasi melalui pemrosesan CV cerdas, memastikan profil cocok dengan standar dan peran industri secara otomatis.",
+        "roleTitle_en": "Fullstack & AI Developer",
+        "roleTitle_id": "Fullstack & AI Developer",
+        "roleText_en": "As a Fullstack Developer in the Fourmula team, I actively shaped the core features of the MVP, ensuring a seamless flow from the Next.js frontend to the Laravel backend and Python AI models.",
+        "roleText_id": "Sebagai Fullstack Developer di tim Fourmula (bersama Marcello Ilham, Ignasius Tio Rahayaan, dan Gilbert Jeremy Nathanael), saya secara aktif membentuk fitur-fitur inti MVP, memastikan alur yang mulus dari frontend Next.js ke backend Laravel dan model AI Python.",
+        "responsibilities_en": [
+            { "icon": "document_scanner", "text": "CV Features: Built logic for CV screening, ensuring data processing flows from frontend to analytics modules." },
+            { "icon": "security", "text": "Auth Architecture: Designed and implemented role-based auth via Laravel 12 APIs with middleware protection." },
+            { "icon": "design_services", "text": "UI/UX Implementation: Translated designs into React/Next.js and Tailwind, integrating visual feedback systems." }
+        ],
+        "responsibilities_id": [
+            { "icon": "document_scanner", "text": "Pengembangan Fitur CV: Membangun alur logika untuk screening CV dari frontend hingga ke modul analitik." },
+            { "icon": "security", "text": "Arsitektur Autentikasi: Merancang & mengimplementasikan login/registrasi role-based menggunakan API Laravel 12." },
+            { "icon": "design_services", "text": "Implementasi UI/UX: Menerjemahkan desain menggunakan React/Next.js & TailwindCSS dengan sistem feedback interaktif." }
+        ],
+        "features": [
+            { "icon": "description", "name_en": "AI CV Screening", "name_id": "AI CV Screening", "status": "current" },
+            { "icon": "admin_panel_settings", "name_en": "Role-Based Auth", "name_id": "Autentikasi Berbasis Role", "status": "current" },
+            { "icon": "devices", "name_en": "Responsive UI", "name_id": "UI Modern & Responsif", "status": "current" },
+            { "icon": "psychology", "name_en": "AI Interview Simulator", "name_id": "Simulator Wawancara AI", "status": "roadmap" },
+            { "icon": "hub", "name_en": "Personality Matching", "name_id": "Pencocokan Kepribadian", "status": "roadmap" },
+            { "icon": "dashboard", "name_en": "Recruiter Dashboard", "name_id": "Dasbor Perekrut", "status": "roadmap" },
+            { "icon": "sports_esports", "name_en": "Gamification System", "name_id": "Sistem Gamifikasi", "status": "roadmap" }
+        ],
+        "team": [
+            {
+                "name": "Marcello Ilham",
+                "role": "Developer",
+                "image": "/assets/images/hireme-team-marcello.png",
+                "github": "https://github.com/Marcelloaja",
+                "linkedin": "https://www.linkedin.com/in/marcelloilham"
+            },
+            {
+                "name": "Ignasius Tio Rahayaan",
+                "role": "Developer",
+                "image": "/assets/images/hireme-team-ignasius.jpg",
+                "github": "https://github.com/ignatio001",
+                "linkedin": "https://www.linkedin.com/in/ignasiustioray"
+            },
+            {
+                "name": "Gilbert Jeremy Nathanael",
+                "role": "Developer",
+                "image": "/assets/images/hireme-team-gilbert.png",
+                "github": "https://github.com/Gilbert-J-Nath",
+                "linkedin": null
+            },
+            {
+                "name": "Muhammad Rafli Nurfathan",
+                "role": "Developer",
+                "image": "/assets/images/hireme-team-rafli.jpg",
+                "github": "https://github.com/mhmmdraflin",
+                "linkedin": "https://www.linkedin.com/in/mhmmdraflin"
+            }
+        ],
+        "techStack": [
+            { "name": "Next.js", "icon": "language", "color": "text-black" },
+            { "name": "TailwindCSS", "icon": "palette", "color": "text-cyan-500" },
+            { "name": "Laravel 12", "icon": "php", "color": "text-red-500" },
+            { "name": "Python AI", "icon": "smart_toy", "color": "text-yellow-500" },
+            { "name": "PostgreSQL", "icon": "database", "color": "text-blue-500" }
+        ],
+        "interfaces": [
+            {
+                "title_en": "Applicant Experience",
+                "title_id": "Pengalaman Pelamar",
+                "description_en": "A dedicated dashboard for job seekers. It features a complete pipeline starting from profile completion and smart job recommendations, to an immersive AI-driven interactive interview simulation. Applicants can also take personality tests to find their ideal cultural fit and complete gamified challenges (e.g., React, SQL, Security) to prove their skills.",
+                "description_id": "Dasbor khusus bagi para pencari kerja. Menampilkan alur lengkap mulai dari penyelesaian profil dan rekomendasi pekerjaan cerdas, hingga simulasi wawancara interaktif berbasis AI. Pelamar juga dapat mengikuti tes kepribadian untuk menemukan kecocokan budaya kerja, serta menyelesaikan tantangan gamifikasi (seperti React, SQL, dan Keamanan Web) untuk membuktikan kemampuan mereka secara nyata.",
+                "screenshots": [
+                    {
+                        "id": 1,
+                        "alt": "Applicant Dashboard Overview",
+                        "url": "/assets/images/hireme-applicant-dashboard.png"
+                    },
+                    {
+                        "id": 2,
+                        "alt": "AI Interview Simulation",
+                        "url": "/assets/images/hireme-applicant-interview.png"
+                    },
+                    {
+                        "id": 3,
+                        "alt": "Personality & Work Style Test",
+                        "url": "/assets/images/hireme-applicant-personality.png"
+                    },
+                    {
+                        "id": 4,
+                        "alt": "Gamified Technical Challenges",
+                        "url": "/assets/images/hireme-applicant-gamification.png"
+                    }
+                ]
+            },
+            {
+                "title_en": "Recruiter Experience",
+                "title_id": "Pengalaman Perekrut",
+                "description_en": "A powerful dashboard tailored for recruiters and companies to streamline their hiring process. This view will provide tools for candidate screening, AI-driven match scoring, and comprehensive talent analytics.",
+                "description_id": "Dasbor canggih yang dirancang khusus untuk perekrut dan perusahaan guna merampingkan proses rekrutmen. Tampilan ini akan menyediakan alat untuk penyaringan kandidat, penilaian kecocokan berbasis AI, dan analitik bakat yang komprehensif.",
+                "screenshots": [
+                    {
+                        "id": 5,
+                        "alt": "Recruiter Dashboard",
+                        "url": "/assets/images/hireme-recruiter-dashboard.png"
+                    },
+                    {
+                        "id": 6,
+                        "alt": "Job Listings Management",
+                        "url": "/assets/images/hireme-recruiter-jobs.png"
+                    },
+                    {
+                        "id": 7,
+                        "alt": "Candidate Tracking (Kanban)",
+                        "url": "/assets/images/hireme-recruiter-candidates.png"
+                    },
+                    {
+                        "id": 8,
+                        "alt": "Recruitment Analytics",
+                        "url": "/assets/images/hireme-recruiter-analytics.png"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 102,
+        "title": "Sistem Informasi & Manajemen UKM Futsal Club UBhinus",
+        "subtitle_en": "Futsal Club Management System",
+        "subtitle_id": "Sistem Manajemen Klub Futsal",
+        "year": "2025",
+        "icon": "sports_soccer",
+        "status": "",
+        "description_en": "A web-based application designed specifically as an information, data collection, and documentation center for the UBhinus Futsal Club. Built using Laravel and Bootstrap 5.",
+        "description_id": "Aplikasi berbasis web yang dirancang khusus sebagai pusat informasi, pendataan, dan dokumentasi untuk UKM Futsal Club Universitas Bina Nusantara (UBhinus). Dibangun menggunakan framework Laravel dengan antarmuka Bootstrap 5, sistem ini memfasilitasi pengurus dalam mendata anggota serta memamerkan rekam jejak kegiatan klub secara interaktif kepada publik.",
+        "display_mode": "single",
+        "image": "futsal-ubhinus-main.png",
+        "liveDemo": "#",
+        "github": "#",
+        "problem_en": "Managing member data and documenting the club's activities was inefficient and lacked transparency for the public.",
+        "problem_id": "Pengurus UKM Futsal kesulitan dalam mengelola data keanggotaan dan mendokumentasikan rekam jejak kegiatan klub (futsal & minisoccer) secara efisien dan transparan kepada publik.",
+        "solution_en": "Built a centralized information system with role-based access control, allowing admins to manage members and activities, while the public can view galleries and organizational structures.",
+        "solution_id": "Membangun sistem informasi terpusat dengan akses multi-role yang memfasilitasi pengurus untuk mendata anggota dan merekap kegiatan, sekaligus memamerkannya secara interaktif di halaman publik.",
+        "roleTitle_en": "Solo Fullstack Developer",
+        "roleTitle_id": "Solo Fullstack Developer",
+        "roleText_en": "As a solo Fullstack Developer, I designed and developed the entire system from scratch, managing both the Laravel backend and the Bootstrap 5 frontend.",
+        "roleText_id": "Sebagai developer tunggal, saya merancang dan mengembangkan seluruh sistem ini dari awal hingga akhir, mulai dari struktur database PostgreSQL, logika backend dengan Laravel, hingga antarmuka responsif menggunakan Bootstrap 5.",
+        "responsibilities_en": [
+            { "icon": "database", "text": "Database Design: Architected relational structure using PostgreSQL via Supabase." },
+            { "icon": "security", "text": "Backend Logic: Built multi-role authentication and CRUD management with Laravel." },
+            { "icon": "design_services", "text": "Frontend Implementation: Created a responsive UI using Bootstrap 5 and Blade." }
+        ],
+        "responsibilities_id": [
+            { "icon": "database", "text": "Desain Database: Merancang struktur data relasional menggunakan PostgreSQL (Supabase)." },
+            { "icon": "security", "text": "Pengembangan Backend: Membangun sistem autentikasi multi-role & CRUD lengkap dengan Laravel." },
+            { "icon": "design_services", "text": "Implementasi Frontend: Mendesain antarmuka responsif menggunakan Blade Templating dan Bootstrap 5." }
+        ],
+        "features": [
+            { "icon": "admin_panel_settings", "name_en": "Role-Based Auth", "name_id": "Autentikasi Multi-Role", "status": "current" },
+            { "icon": "bar_chart", "name_en": "Admin Dashboard", "name_id": "Dashboard Statistik", "status": "current" },
+            { "icon": "group_add", "name_en": "Member Management", "name_id": "CRUD Data Keanggotaan", "status": "current" },
+            { "icon": "event_note", "name_en": "Activity Tracking", "name_id": "CRUD Rekap Kegiatan", "status": "current" },
+            { "icon": "photo_library", "name_en": "Visual Gallery", "name_id": "Beranda & Galeri Visual", "status": "current" },
+            { "icon": "account_tree", "name_en": "Org Structure", "name_id": "Struktur Organisasi", "status": "current" }
+        ],
+        "team": null,
+        "techStack": [
+            { "name": "Laravel", "icon": "php", "color": "text-red-500" },
+            { "name": "Bootstrap 5", "icon": "css", "color": "text-purple-500" },
+            { "name": "Blade", "icon": "code", "color": "text-red-400" },
+            { "name": "PostgreSQL", "icon": "database", "color": "text-blue-500" }
+        ],
+        "interfaces": [
+            {
+                "title_en": "Application Interfaces",
+                "title_id": "Antarmuka Aplikasi",
+                "description_en": "Includes the public homepage & gallery, organizational structure, and the admin dashboard for managing members and activities.",
+                "description_id": "Mencakup beranda publik & galeri, struktur organisasi, hingga dashboard admin untuk mengelola keanggotaan dan merekap kegiatan klub.",
+                "screenshots": [
+                    {
+                        "id": 1,
+                        "alt": "Sistem Informasi & Manajemen Futsal",
+                        "url": "/assets/images/futsal-ubhinus-main.png"
+                    }
+                ]
+            }
+        ]
+    }
+]
