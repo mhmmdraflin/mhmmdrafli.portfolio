@@ -178,8 +178,8 @@ export default function Header() {
 
             {/* Mobile Menu Overlay */}
             {isMenuOpen && (
-                <div className="absolute top-16 left-0 w-full bg-white dark:bg-[#0B1121] border-b border-gray-200 dark:border-white/10 shadow-lg md:hidden">
-                    <nav className="flex flex-col p-4 space-y-2">
+                <div className="absolute top-16 left-0 w-full bg-white/95 dark:bg-[#0B1121]/95 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.5)] md:hidden z-50">
+                    <nav className="flex flex-col p-5 space-y-2">
                         {navKeys.map((item) => (
                             <button
                                 key={item.id}
@@ -187,9 +187,9 @@ export default function Header() {
                                     scrollToSection(item.id);
                                     setIsMenuOpen(false);
                                 }}
-                                className={`px-4 py-3 text-left text-sm font-medium rounded-xl transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007AFF] ${activeNav === item.id
-                                    ? 'bg-[#007AFF]/10 text-[#007AFF]'
-                                    : 'text-[#1D1D1F] hover:bg-gray-50'
+                                className={`px-5 py-3.5 text-left text-[15px] font-bold rounded-xl transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007AFF] ${activeNav === item.id
+                                    ? 'bg-[#007AFF]/10 text-[#007AFF] dark:bg-[#007AFF]/20'
+                                    : 'text-[#1D1D1F] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10'
                                     }`}
                             >
                                 {t.nav[item.key]}

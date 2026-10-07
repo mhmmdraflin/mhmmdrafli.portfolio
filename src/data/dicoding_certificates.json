@@ -1,7 +1,8 @@
 [
     {
         "id": 1,
-        "title": "Memulai Pemrograman dengan Dart",
+        "title_id": "Memulai Pemrograman dengan Dart",
+        "title_en": "Getting Started with Dart Programming",
         "issuer": "Dicoding",
         "date": "28 November 2025",
         "credential_id": "EYX4KMG95PDL",
@@ -9,7 +10,8 @@
     },
     {
         "id": 2,
-        "title": "Prompt Engineering untuk Software Developer",
+        "title_id": "Prompt Engineering untuk Software Developer",
+        "title_en": "Prompt Engineering for Software Developers",
         "issuer": "Dicoding",
         "date": "05 November 2025",
         "credential_id": "6RPNG7E89Z2M",
@@ -17,7 +19,8 @@
     },
     {
         "id": 3,
-        "title": "Memulai Pemrograman dengan Python",
+        "title_id": "Memulai Pemrograman dengan Python",
+        "title_en": "Getting Started with Python Programming",
         "issuer": "Dicoding",
         "date": "23 Mei 2025",
         "credential_id": "53XED6W2VPRN",
@@ -25,7 +28,8 @@
     },
     {
         "id": 4,
-        "title": "Belajar Dasar Cloud dan Gen AI di AWS",
+        "title_id": "Belajar Dasar Cloud dan Gen AI di AWS",
+        "title_en": "Learning Cloud Basics and Gen AI on AWS",
         "issuer": "Dicoding",
         "date": "25 Februari 2025",
         "credential_id": "ERZREVNOOXYV",
@@ -33,7 +37,8 @@
     },
     {
         "id": 5,
-        "title": "Belajar Pengembangan Aplikasi Android Intermediate",
+        "title_id": "Belajar Pengembangan Aplikasi Android Intermediate",
+        "title_en": "Learning Intermediate Android App Development",
         "issuer": "Dicoding",
         "date": "29 Desember 2024",
         "credential_id": "N9ZO93608XG5",
@@ -41,7 +46,8 @@
     },
     {
         "id": 6,
-        "title": "Belajar Penerapan Machine Learning untuk Android",
+        "title_id": "Belajar Penerapan Machine Learning untuk Android",
+        "title_en": "Learning Machine Learning Application for Android",
         "issuer": "Dicoding",
         "date": "11 November 2024",
         "credential_id": "MRZMYJ14NZYQ",
@@ -49,7 +55,8 @@
     },
     {
         "id": 7,
-        "title": "Belajar Membuat Aplikasi Flutter untuk Pemula",
+        "title_id": "Belajar Membuat Aplikasi Flutter untuk Pemula",
+        "title_en": "Learning to Build Flutter Apps for Beginners",
         "issuer": "Dicoding",
         "date": "18 Januari 2026",
         "credential_id": "QLZ96M3GMZ5D",
@@ -57,7 +64,8 @@
     },
     {
         "id": 8,
-        "title": "Belajar Fundamental Aplikasi Android",
+        "title_id": "Belajar Fundamental Aplikasi Android",
+        "title_en": "Learning Fundamental Android Applications",
         "issuer": "Dicoding",
         "date": "31 Oktober 2024",
         "credential_id": "6RPNYRG6QZ2M",
@@ -65,7 +73,8 @@
     },
     {
         "id": 9,
-        "title": "Belajar Dasar AI",
+        "title_id": "Belajar Dasar AI",
+        "title_en": "Learning Basics of AI",
         "issuer": "Dicoding",
         "date": "30 Oktober 2024",
         "credential_id": "2VX34K5KVZYQ",

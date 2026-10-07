@@ -78,7 +78,7 @@ function HeroProfileCard() {
     return (
         <div className="w-full flex justify-center lg:justify-end mx-auto lg:ml-auto lg:mr-0 perspective-1000" style={{ perspective: 1200 }}>
             <motion.div 
-                className="relative w-full max-w-[280px] md:max-w-[340px] aspect-[54/85.6] rounded-2xl overflow-hidden shadow-[20px_20px_40px_rgba(0,0,0,0.15)] dark:shadow-[20px_20px_40px_rgba(0,0,0,0.5)] border border-gray-200 dark:border-white/10 group"
+                className="relative w-full max-w-[280px] md:max-w-[340px] aspect-[54/85.6] rounded-[2rem] overflow-hidden shadow-[16px_24px_50px_rgba(0,0,0,0.2)] dark:shadow-[16px_24px_50px_rgba(0,0,0,0.6)] border-[3px] border-[#1D1D1F] dark:border-white group"
                 style={{ rotateX, rotateY }}
                 onMouseMove={handleMouseMove}
                 onMouseEnter={() => setIsHovered(true)}
@@ -90,8 +90,8 @@ function HeroProfileCard() {
                     style={{
                         opacity: isHovered ? 1 : 0,
                         background: useMotionTemplate`radial-gradient(
-                            400px circle at ${mouseX}px ${mouseY}px,
-                            rgba(255,255,255,0.4),
+                            500px circle at ${mouseX}px ${mouseY}px,
+                            rgba(255,255,255,0.5),
                             transparent 80%
                         )`
                     }}
@@ -99,38 +99,41 @@ function HeroProfileCard() {
 
                 {/* Background Image */}
                 <div 
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110 brightness-[1.02] contrast-[1.05]"
                     style={{ backgroundImage: `url(${getAssetPath(`assets/images/${profile.avatar_url}`)})` }}
                 />
                 
                 {/* Gradient Overlay for Text Readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#1D1D1F]/80 via-transparent to-[#1D1D1F]/90 dark:from-black/80 dark:to-black/90 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1D1D1F] via-[#1D1D1F]/40 to-transparent dark:from-black dark:via-black/50 dark:to-transparent z-10" />
 
-                {/* Top Content: Name & Role */}
-                <div className="absolute top-0 left-0 w-full p-6 md:p-8 text-left z-20">
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight">
-                        {profile.name}
-                    </h3>
-                    <p className="text-sm md:text-base text-gray-300 font-medium mt-1">
-                        {profile.role}
-                    </p>
-                </div>
+                {/* Inner Shadow for Depth */}
+                <div className="absolute inset-0 ring-1 ring-inset ring-white/10 dark:ring-white/20 rounded-[2rem] pointer-events-none z-30" />
 
-                {/* Bottom Content: Status & Contact */}
-                <div className="absolute bottom-5 left-5 right-5 md:bottom-6 md:left-6 md:right-6 flex flex-col gap-3 bg-[#1D1D1F] dark:bg-black/60 border border-white/10 p-3.5 md:p-4 rounded-xl shadow-lg z-20">
-                    <div className="flex items-center gap-3">
-                        <div className="relative flex h-3 w-3">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                {/* Bottom Content Container */}
+                <div className="absolute bottom-4 left-4 right-4 md:bottom-5 md:left-5 md:right-5 flex flex-col z-20">
+                    {/* Status & Contact Card */}
+                    <div className="flex flex-col gap-2.5 bg-white/20 dark:bg-black/50 backdrop-blur-xl border-t border-l border-white/40 dark:border-white/20 p-3.5 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.25)] ring-1 ring-black/5 dark:ring-white/10">
+                        <div className="flex items-start gap-2.5">
+                            <div className="relative flex h-2 w-2 mt-1 shrink-0">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            </div>
+                            <div className="text-left flex-1 flex flex-col">
+                                <h3 className="text-white text-[13px] md:text-[14px] font-bold tracking-tight leading-tight mb-0.5 text-balance">
+                                    {profile.name}
+                                </h3>
+                                <p className="text-gray-300/90 text-[10px] md:text-[11px] font-medium mb-2">
+                                    {profile.role}
+                                </p>
+                                <p className="text-green-400 text-[8.5px] uppercase font-extrabold tracking-[0.15em] leading-none mt-auto">
+                                    Online
+                                </p>
+                            </div>
                         </div>
-                        <div className="text-left flex-1">
-                            <p className="text-white text-xs md:text-sm font-bold leading-none mb-1">@mhmmdraflin</p>
-                            <p className="text-green-400 text-[9px] md:text-[10px] uppercase font-bold tracking-wider leading-none">Online</p>
-                        </div>
+                        <a href="#contact" className="w-full py-2 mt-0.5 text-center bg-white/95 hover:bg-white text-[#1D1D1F] text-[11px] font-extrabold rounded-lg transition-all shadow-sm hover:shadow-md cursor-pointer hover:-translate-y-0.5">
+                            Contact Me
+                        </a>
                     </div>
-                    <a href="#contact" className="w-full py-2 text-center bg-white text-[#1D1D1F] text-xs font-bold rounded-lg hover:bg-gray-200 transition-colors border border-transparent cursor-pointer">
-                        Contact Me
-                    </a>
                 </div>
             </motion.div>
         </div>
@@ -169,13 +172,13 @@ export default function HomePage({ onOpenCV }) {
 
                     {/* Name & Role */}
                     <div className="mb-5 relative z-10 w-full text-left">
-                        <div className="mb-2 relative z-20">
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#1D1D1F] dark:text-white leading-tight">
+                        <div className="mb-3 relative z-20">
+                            <h1 className="text-[38px] sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-[#1D1D1F] dark:text-white leading-[1.15] md:leading-[1.1] text-balance max-w-2xl">
                                 <TypewriterText text={`${t.home.greeting}${profile.name}`} />
                                 <motion.span 
-                                    className="text-[#007AFF] ml-1 inline-block"
+                                    className="text-[#007AFF] inline-block ml-1"
                                     animate={{ opacity: [1, 0, 1] }}
-                                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                                    transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
                                 >
                                     _
                                 </motion.span>
@@ -203,17 +206,17 @@ export default function HomePage({ onOpenCV }) {
                     </div>
 
                     {/* CTA Buttons */}
-                    <div className="flex flex-wrap justify-start gap-4 w-full">
+                    <div className="flex flex-col sm:flex-row justify-start gap-3 w-full">
                         <a
                             href="#projects"
-                            className="px-6 py-3.5 bg-[#1D1D1F] dark:bg-white text-white dark:text-[#1D1D1F] rounded-md font-bold text-sm tracking-wide border border-transparent hover:-translate-y-0.5 transition-all flex items-center justify-center gap-1.5 focus-visible:ring-2 focus-visible:ring-[#007AFF]"
+                            className="w-full sm:w-auto px-7 py-4 bg-[#1D1D1F] dark:bg-white text-white dark:text-[#1D1D1F] rounded-xl font-extrabold text-[15px] tracking-wide border border-transparent hover:-translate-y-0.5 transition-all shadow-[0_8px_20px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_20px_rgba(255,255,255,0.12)] flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-[#007AFF] active:scale-[0.98]"
                         >
                             {t.home.viewProjects}
                             <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                         </a>
                         <button
                             onClick={onOpenCV}
-                            className="px-6 py-3.5 bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 text-[#1D1D1F] dark:text-white rounded-md border border-gray-200 dark:border-white/10 font-bold text-sm tracking-wide transition-all flex items-center justify-center gap-1.5 focus-visible:ring-2 focus-visible:ring-[#007AFF]"
+                            className="w-full sm:w-auto px-7 py-4 bg-gray-100/80 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-[#1D1D1F] dark:text-white rounded-xl border border-gray-200 dark:border-white/10 font-extrabold text-[15px] tracking-wide transition-all flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-[#007AFF] active:scale-[0.98]"
                         >
                             <span className="material-symbols-outlined text-[18px]">visibility</span>
                             {t.home.viewCV}
@@ -222,7 +225,7 @@ export default function HomePage({ onOpenCV }) {
                 </div>
 
                 {/* Right Column: Hero Graphic / Mockups */}
-                <div className="w-full flex items-center justify-center lg:justify-end mt-12 lg:mt-0 relative order-1 lg:order-2 mb-12 lg:mb-0">
+                <div className="w-full flex items-center justify-center lg:justify-end mt-10 md:mt-14 lg:mt-0 relative order-1 lg:order-2 mb-10 md:mb-14 lg:mb-0">
                     <HeroProfileCard />
                 </div>
             </div>
@@ -230,9 +233,10 @@ export default function HomePage({ onOpenCV }) {
 
         {/* About Me Section */}
         <section id="about" className="w-full max-w-7xl mx-auto py-12 md:py-24 px-6 relative z-10">
-            <div className="relative rounded-xl bg-white dark:bg-[#0B1121] border border-gray-200 dark:border-white/10 overflow-hidden">
+            {/* The outer card has overflow-hidden so the lanyard looks like it's attached to the top edge of this card */}
+            <div className="relative rounded-3xl bg-white/70 dark:bg-[#0B1121]/70 backdrop-blur-2xl border border-gray-200 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.05)] overflow-hidden">
                 {/* Inner Card */}
-                <div className="flex flex-col md:flex-row gap-8 md:gap-12 p-8 md:p-14">
+                <div className="flex flex-col md:flex-row gap-10 md:gap-12 p-8 md:p-14">
                     
                     {/* Left Col (Text & Stats) */}
                     <div className="flex-1 flex flex-col justify-center space-y-8 z-20 order-2 md:order-1">
@@ -260,7 +264,8 @@ export default function HomePage({ onOpenCV }) {
                     </div>
 
                     {/* Right Col (Lanyard) */}
-                    <div className="w-full md:w-[300px] h-[350px] md:h-auto relative flex items-start justify-center order-1 md:order-2">
+                    {/* Compact container to prevent huge gaps. Desktop height adapts to the left column. */}
+                    <div className="w-full md:w-[320px] h-[310px] md:h-auto relative flex items-start md:items-center justify-center order-1 md:order-2 mt-2 md:mt-0 mb-4 md:mb-0">
                         <motion.div
                             style={{ 
                                 x: dragX, 
@@ -273,9 +278,9 @@ export default function HomePage({ onOpenCV }) {
                             dragConstraints={{ top: 0, bottom: 0, left: 0, right: 0 }}
                             dragElastic={0.6}
                             whileTap={{ cursor: "grabbing" }}
-                            className="absolute top-0 origin-top z-10"
+                            className="absolute top-10 md:-top-4 lg:top-0 origin-top z-10"
                         >
-                            <div className="scale-[0.6] md:scale-90 origin-top pointer-events-none">
+                            <div className="scale-[0.6] md:scale-[0.8] lg:scale-[0.85] origin-top pointer-events-none">
                                 <LanyardBadge profile={profile} />
                             </div>
                         </motion.div>

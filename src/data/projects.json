@@ -1,13 +1,19 @@
 [
     {
         "id": 5,
-        "title": "SportZone",
+        "title_id": "SportZone",
+        "title_en": "SportZone",
         "subtitle_en": "Sports Venue Booking",
         "subtitle_id": "Pemesanan Tempat Olahraga",
         "year": "2024",
         "icon": "sports_soccer",
-        "description_en": "A dynamic platform for booking sports venues and finding teammates. Features real-time availability checking and social connection for sports enthusiasts.",
-        "description_id": "Platform dinamis untuk memesan tempat olahraga dan mencari teman tim. Dilengkapi fitur pengecekan ketersediaan secara real-time dan koneksi sosial bagi penggemar olahraga.",
+        "description_en": "SPORTZONE is an Android application that makes it easy for users to book sports venues online. With a user-friendly interface and comprehensive features, SPORTZONE allows users to choose schedules, venues, and make digital payments easily.",
+        "description_id": "SPORTZONE adalah aplikasi Android yang memudahkan pengguna untuk melakukan pemesanan lapangan olahraga secara online. Dengan antarmuka yang ramah pengguna dan fitur lengkap, SPORTZONE memungkinkan pengguna memilih jadwal, lapangan, serta melakukan pembayaran digital dengan mudah.",
+        "problem_en": "This project was a Final Semester Exam (UAS) for the Mobile Device Programming 1 course. The challenge was to apply native Android development skills using Android Studio, local databases, and XML-based user interfaces.",
+        "problem_id": "Proyek ini merupakan proyek Ujian Akhir Semester (UAS) dari mata kuliah Pemrograman Perangkat Bergerak 1. Tantangannya adalah untuk menerapkan kemampuan dalam membangun aplikasi Android asli (native) menggunakan Android Studio, database lokal, dan antarmuka pengguna berbasis XML.",
+        "solution_en": "I individually developed the application. The current build serves as a functional simulation where all bookings and user data are managed securely via a local SQLite database without relying on external servers.",
+        "solution_id": "Proyek ini saya kerjakan secara individu. Aplikasi saat ini berstatus simulasi fungsional di mana semua data pemesanan dan pengguna dikelola dengan aman menggunakan database lokal SQLite tanpa bergantung pada server eksternal.",
+        "github": "https://github.com/mhmmdraflin/sportzone",
         "display_mode": "multi",
         "statusBarColor": "#1a1a2e",
         "statusBarTheme": "dark",
@@ -18,7 +24,7 @@
         ],
         "techStack": [
             {
-                "name": "Kotlin",
+                "name": "Java / Kotlin",
                 "color": "bg-purple-500"
             },
             {
@@ -26,22 +32,129 @@
                 "color": "bg-green-500"
             },
             {
-                "name": "Sqlite",
+                "name": "SQLite",
                 "color": "bg-indigo-500"
+            },
+            {
+                "name": "XML Layouts",
+                "color": "bg-blue-500"
+            }
+        ],
+        "features": [
+            {
+                "name_en": "Splash Screen",
+                "name_id": "Splash Screen",
+                "icon": "auto_awesome",
+                "status": "completed"
+            },
+            {
+                "name_en": "Secure Login",
+                "name_id": "Login Pengguna",
+                "icon": "login",
+                "status": "completed"
+            },
+            {
+                "name_en": "Booking Form",
+                "name_id": "Formulir Booking",
+                "icon": "edit_document",
+                "status": "completed"
+            },
+            {
+                "name_en": "Digital Payments",
+                "name_id": "Simulasi Pembayaran",
+                "icon": "payments",
+                "status": "completed"
+            },
+            {
+                "name_en": "Booking History",
+                "name_id": "Riwayat Pemesanan",
+                "icon": "history",
+                "status": "completed"
+            },
+            {
+                "name_en": "Firebase Auth",
+                "name_id": "Integrasi Firebase",
+                "icon": "cloud",
+                "status": "roadmap"
+            },
+            {
+                "name_en": "Booking Cancellation",
+                "name_id": "Pembatalan Pesanan",
+                "icon": "cancel",
+                "status": "roadmap"
+            },
+            {
+                "name_en": "Reminder Notifications",
+                "name_id": "Notifikasi Pengingat",
+                "icon": "notifications_active",
+                "status": "roadmap"
+            },
+            {
+                "name_en": "Backend Sync",
+                "name_id": "Sinkronisasi API",
+                "icon": "sync",
+                "status": "roadmap"
+            },
+            {
+                "name_en": "Material 3 Design",
+                "name_id": "Material Design 3",
+                "icon": "palette",
+                "status": "roadmap"
+            }
+        ],
+        "role_title_en": "Android Developer",
+        "role_title_id": "Pengembang Android",
+        "role_text_en": "As an individual contributor, I was responsible for the end-to-end development of the application from UI design to local database integration.",
+        "role_text_id": "Sebagai kontributor individu, saya bertanggung jawab atas pengembangan aplikasi dari awal hingga akhir, mulai dari perancangan UI hingga integrasi database lokal.",
+        "responsibilities_en": [
+            {
+                "icon": "design_services",
+                "text": "Designed user-friendly interfaces using XML Layouts"
+            },
+            {
+                "icon": "code",
+                "text": "Developed core booking functionality in Java/Kotlin"
+            },
+            {
+                "icon": "database",
+                "text": "Implemented local data storage with SQLite"
+            },
+            {
+                "icon": "payments",
+                "text": "Created interactive digital payment simulations"
+            }
+        ],
+        "responsibilities_id": [
+            {
+                "icon": "design_services",
+                "text": "Merancang antarmuka ramah pengguna dengan XML Layouts"
+            },
+            {
+                "icon": "code",
+                "text": "Mengembangkan fungsionalitas pemesanan inti dengan Java/Kotlin"
+            },
+            {
+                "icon": "database",
+                "text": "Menerapkan penyimpanan data lokal dengan SQLite"
+            },
+            {
+                "icon": "payments",
+                "text": "Membuat simulasi pembayaran digital interaktif"
             }
         ]
     },
     {
         "id": 4,
-        "title": "CatLoris",
+        "title_id": "CatLoris",
+        "title_en": "CatLoris",
         "subtitle_en": "Nutrition Tracker",
         "subtitle_id": "Pelacak Nutrisi",
         "association_en": "Associated with Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
         "association_id": "Terkait dengan Bangkit Academy yang dipimpin oleh Google, Tokopedia, Gojek, & Traveloka",
         "year": "2025",
         "icon": "catloris-logo.jpg",
-        "description_en": "Built CatLoris, a gamified Android app, combining high-fidelity UI slicing with interactive challenges to create an engaging calorie and macro tracking experience.",
-        "description_id": "Membangun CatLoris, sebuah aplikasi Android berbasis gamifikasi, yang menggabungkan slicing UI tingkat tinggi dengan tantangan interaktif untuk menciptakan pengalaman melacak kalori dan makro gizi yang menyenangkan.",
+        "description_en": "Cat Loris is an Android app that makes calorie tracking fun and engaging through gamification. With cat avatars, challenges, and rewards, it helps users stay motivated to achieve their nutrition and health goals.",
+        "description_id": "Cat Loris adalah aplikasi Android yang membuat pelacakan kalori menjadi menyenangkan dan menarik melalui gamifikasi. Dengan avatar kucing, tantangan, dan hadiah, aplikasi ini membantu pengguna tetap termotivasi untuk mencapai tujuan nutrisi dan kesehatan mereka.",
         "display_mode": "multi",
         "statusBarColor": "#2196F3",
         "statusBarTheme": "dark",
@@ -49,6 +162,36 @@
             "catloris-1.png",
             "catloris-2.png",
             "catloris-3.png"
+        ],
+        "team": [
+            {
+                "name": "Muhammad Rangga Ridjali",
+                "role": "Cloud Computing"
+            },
+            {
+                "name": "Diah Ayu Rahma",
+                "role": "Cloud Computing"
+            },
+            {
+                "name": "Rizqi Hasanuddin",
+                "role": "Machine Learning"
+            },
+            {
+                "name": "Mohammad Iqbal Maulana",
+                "role": "Machine Learning"
+            },
+            {
+                "name": "Zalfa Nazhifah Huwaida",
+                "role": "Machine Learning"
+            },
+            {
+                "name": "Ignasius Tio Rahayaan",
+                "role": "Mobile Development"
+            },
+            {
+                "name": "Muhammad Rafli Nurfathan",
+                "role": "Mobile Development"
+            }
         ],
         "techStack": [
             {
@@ -71,20 +214,88 @@
                 "name": "Bangkit Academy",
                 "color": "bg-red-500"
             }
-        ]
+        ],
+        "roleTitle_en": "Mobile Developer",
+        "roleTitle_id": "Pengembang Mobile",
+        "roleText_en": "As a Mobile Developer, I collaborated closely with Ignasius Tio. My main contributions involved creating XML layouts, developing the core mobile system using Kotlin, and integrating the APIs.",
+        "roleText_id": "Sebagai Pengembang Mobile, saya berkolaborasi dengan Ignasius Tio dalam pengerjaannya. Fokus utama saya meliputi pembuatan antarmuka XML, pengembangan sistem mobile pada Kotlin, serta mengintegrasikan API.",
+        "responsibilities_en": [
+            {
+                "icon": "design_services",
+                "text": "Created mobile XML UI layouts"
+            },
+            {
+                "icon": "code",
+                "text": "Developed core mobile system in Kotlin"
+            },
+            {
+                "icon": "api",
+                "text": "Integrated backend APIs"
+            },
+            {
+                "icon": "group",
+                "text": "Collaborated with the Mobile Development team"
+            }
+        ],
+        "responsibilities_id": [
+            {
+                "icon": "design_services",
+                "text": "Membuat tampilan antarmuka XML mobile"
+            },
+            {
+                "icon": "code",
+                "text": "Mengembangkan sistem mobile menggunakan Kotlin"
+            },
+            {
+                "icon": "api",
+                "text": "Menyambungkan dan mengintegrasikan API"
+            },
+            {
+                "icon": "group",
+                "text": "Berkolaborasi dengan tim Pengembang Mobile"
+            }
+        ],
+        "github": "https://github.com/C242-PS149#additional"
     },
     {
         "id": 3,
-        "title": "Story App",
-        "subtitle_en": "Social Sharing",
-        "subtitle_id": "Berbagi Sosial",
-        "year": "2025",
-        "icon": "auto_stories",
-        "description_en": "An application where users can share their stories with images and location data. Includes authentication and smooth animation transitions.",
-        "description_id": "Aplikasi di mana pengguna dapat membagikan cerita mereka lengkap dengan gambar dan data lokasi. Termasuk fitur autentikasi dan transisi animasi yang halus.",
+        "title_id": "Dicoding Event App",
+        "title_en": "Dicoding Event App",
+        "subtitle_en": "Event & Theme",
+        "subtitle_id": "Event & Tema",
+        "year": "2024",
+        "icon": "event",
+        "description_en": "An advanced development of the initial Android submission app, featuring a Favorite system using Room Database and Theme Settings with DataStore, preserving all core functionalities.",
+        "description_id": "Pengembangan lanjutan dari aplikasi submission awal Android, menghadirkan sistem Favorite menggunakan Room Database dan Pengaturan Tema dengan DataStore, tanpa mengubah fungsionalitas utama.",
+        "problem_en": "The goal was to enhance Android component skills, specifically utilizing local databases (Room) and managing user preferences (DataStore) for themes, while maintaining the original app's architecture and features.",
+        "problem_id": "Tujuan utamanya adalah mengembangkan keterampilan komponen Android, khususnya penggunaan database lokal (Room) dan pengelolaan preferensi tema (DataStore), sambil mempertahankan arsitektur dan fitur aplikasi asli.",
+        "solution_en": "Successfully integrated a Favorite feature with Room Database and a Theme Switcher (Dark/Light Mode) via DataStore/SharedPreferences that persists across app sessions.",
+        "solution_id": "Berhasil mengintegrasikan fitur Favorite dengan Room Database serta Pengaturan Tema (Dark/Light Mode) menggunakan DataStore/SharedPreferences yang tetap tersimpan meski aplikasi ditutup.",
+        "features": [
+            {
+                "name_en": "Favorite Feature",
+                "name_id": "Fitur Favorite",
+                "icon": "favorite"
+            },
+            {
+                "name_en": "Theme Settings",
+                "name_id": "Pengaturan Tema",
+                "icon": "dark_mode"
+            },
+            {
+                "name_en": "Local Database",
+                "name_id": "Database Lokal",
+                "icon": "database"
+            },
+            {
+                "name_en": "API Consumption",
+                "name_id": "Konsumsi API",
+                "icon": "api"
+            }
+        ],
         "display_mode": "multi",
-        "statusBarColor": "#f5f5f7",
-        "statusBarTheme": "light",
+        "statusBarColor": "#212121",
+        "statusBarTheme": "dark",
         "images": [
             "story-app-1.png",
             "story-app-2.png",
@@ -100,38 +311,64 @@
                 "color": "bg-green-500"
             },
             {
-                "name": "API Integration",
-                "color": "bg-indigo-600"
-            },
-            {
-                "name": "Retrofit",
-                "color": "bg-yellow-600"
-            },
-            {
                 "name": "MVVM",
                 "color": "bg-blue-400"
             },
             {
-                "name": "View Model",
-                "color": "bg-blue-500"
+                "name": "Room (SQLite)",
+                "color": "bg-emerald-500"
             },
             {
-                "name": "LiveData",
-                "color": "bg-cyan-500"
-            },
-            {
-                "name": "Datastore Preferences",
+                "name": "DataStore",
                 "color": "bg-teal-500"
             },
             {
-                "name": "Bangkit Academy",
-                "color": "bg-red-500"
+                "name": "XML",
+                "color": "bg-orange-500"
+            },
+            {
+                "name": "ViewModel & LiveData",
+                "color": "bg-cyan-500"
             }
-        ]
+        ],
+        "roleTitle_en": "Android Developer",
+        "roleTitle_id": "Pengembang Android",
+        "roleText_en": "Responsible for upgrading the existing application by implementing local data persistence and user preference management without breaking core functionalities.",
+        "roleText_id": "Bertanggung jawab untuk meningkatkan aplikasi yang sudah ada dengan mengimplementasikan penyimpanan data lokal dan manajemen preferensi pengguna tanpa merusak fungsionalitas utama.",
+        "responsibilities_en": [
+            {
+                "icon": "database",
+                "text": "Implemented Room Database for Favorites"
+            },
+            {
+                "icon": "dark_mode",
+                "text": "Integrated DataStore for Theme preferences"
+            },
+            {
+                "icon": "architecture",
+                "text": "Maintained MVVM Architecture"
+            }
+        ],
+        "responsibilities_id": [
+            {
+                "icon": "database",
+                "text": "Mengimplementasikan Room Database untuk fitur Favorite"
+            },
+            {
+                "icon": "dark_mode",
+                "text": "Mengintegrasikan DataStore untuk preferensi Tema"
+            },
+            {
+                "icon": "architecture",
+                "text": "Mempertahankan Arsitektur MVVM"
+            }
+        ],
+        "github": "https://github.com/mhmmdraflin/Dicoding-Event"
     },
     {
         "id": 2,
-        "title": "Wisata Bandung",
+        "title_id": "Wisata Bandung",
+        "title_en": "Bandung Tourism",
         "subtitle_en": "Travel Guide",
         "subtitle_id": "Panduan Wisata",
         "year": "2025",
@@ -167,7 +404,8 @@
     },
     {
         "id": 1,
-        "title": "MyTravel",
+        "title_id": "MyTravel",
+        "title_en": "MyTravel",
         "subtitle_en": "Travel Companion",
         "subtitle_id": "Teman Perjalanan",
         "year": "2025",
@@ -205,13 +443,50 @@
     },
     {
         "id": 6,
-        "title": "Tiket Pendakian",
-        "subtitle_en": "Featured App",
-        "subtitle_id": "Aplikasi Unggulan",
+        "title_id": "Tiket Pendakian",
+        "title_en": "Mountain Event Organizer",
+        "subtitle_en": "Mountain Expedition Booking App",
+        "subtitle_id": "Aplikasi Pemesanan Ekspedisi Gunung",
         "year": "2025",
         "icon": "hiking",
-        "description_en": "A comprehensive mountain hiking ticketing system built with Android Studio during my Dicoding course. Simplifies booking and management for climbers.",
-        "description_id": "Sistem pemesanan tiket pendakian gunung komprehensif yang dibangun menggunakan Android Studio selama kursus Dicoding saya. Menyederhanakan pemesanan dan manajemen bagi para pendaki.",
+        "description_en": "Mountain Event Organizer is a mobile app designed to help users discover, book, and manage mountain hiking packages like Open Trips, Private Tours, and Special Expeditions. Built with Flutter using a modern, responsive Material Design 3 approach.",
+        "description_id": "Mountain Event Organizer adalah aplikasi mobile yang dirancang untuk membantu pengguna menemukan, memesan, dan mengelola paket pendakian gunung seperti Open Trip, Private Tour, dan Ekspedisi Khusus. Dibangun dengan Flutter menggunakan pendekatan Material Design 3 yang modern dan responsif.",
+        "problem_en": "Climbers often face difficulties in finding reliable mountain expeditions, comparing ticket types, and securely booking their trips through scattered and traditional methods.",
+        "problem_id": "Para pendaki sering kesulitan menemukan jadwal ekspedisi gunung yang terpercaya, membandingkan tipe tiket, dan melakukan pemesanan dengan aman karena informasi yang masih tersebar dan tradisional.",
+        "solution_en": "Developed a centralized mobile platform where users can seamlessly browse upcoming events, search dynamically, save favorites, and easily book different categories of hiking tickets.",
+        "solution_id": "Mengembangkan platform mobile terpusat di mana pengguna dapat menelusuri daftar event pendakian, melakukan pencarian real-time, menyimpan favorit, dan memesan tiket dengan mudah berdasarkan berbagai kategori.",
+        "features": [
+            {
+                "name_en": "User Authentication",
+                "name_id": "Autentikasi Pengguna",
+                "icon": "lock"
+            },
+            {
+                "name_en": "Interactive Dashboard",
+                "name_id": "Dashboard Interaktif",
+                "icon": "dashboard"
+            },
+            {
+                "name_en": "Booking System",
+                "name_id": "Sistem Booking",
+                "icon": "confirmation_number"
+            },
+            {
+                "name_en": "Real-time Search",
+                "name_id": "Pencarian Real-time",
+                "icon": "search"
+            },
+            {
+                "name_en": "Interactive Gallery",
+                "name_id": "Galeri Interaktif",
+                "icon": "gallery_thumbnail"
+            },
+            {
+                "name_en": "Wishlist / Bookmark",
+                "name_id": "Wishlist / Bookmark",
+                "icon": "favorite"
+            }
+        ],
         "display_mode": "multi",
         "statusBarColor": "#f5f5f7",
         "statusBarTheme": "light",
@@ -222,7 +497,7 @@
         ],
         "techStack": [
             {
-                "name": "Flutter",
+                "name": "Flutter (SDK ≥ 3.0)",
                 "color": "bg-blue-500"
             },
             {
@@ -230,24 +505,106 @@
                 "color": "bg-cyan-500"
             },
             {
-                "name": "Android Studio",
-                "color": "bg-green-500"
+                "name": "Material Design 3",
+                "color": "bg-purple-500"
             },
             {
-                "name": "Dicoding",
-                "color": "bg-gray-800"
+                "name": "Navigator (Native)",
+                "color": "bg-orange-500"
+            },
+            {
+                "name": "Network Image (Unsplash)",
+                "color": "bg-green-500"
             }
-        ]
+        ],
+        "roleTitle_en": "Mobile App Developer",
+        "roleTitle_id": "Pengembang Aplikasi Mobile",
+        "roleText_en": "I led the development of this Flutter mobile application, focusing on implementing a smooth user experience, structuring clean navigation, and building interactive, data-driven interfaces.",
+        "roleText_id": "Saya mengembangkan aplikasi mobile Flutter ini, dengan fokus pada penerapan pengalaman pengguna yang mulus, menstrukturkan navigasi yang rapi, dan membangun antarmuka interaktif yang dinamis.",
+        "responsibilities_en": [
+            {
+                "icon": "smartphone",
+                "text": "Developed responsive UIs with Material Design 3"
+            },
+            {
+                "icon": "route",
+                "text": "Implemented seamless Native Flutter Navigation"
+            },
+            {
+                "icon": "search",
+                "text": "Created dynamic real-time search and filtering"
+            },
+            {
+                "icon": "image",
+                "text": "Integrated interactive galleries and state management"
+            }
+        ],
+        "responsibilities_id": [
+            {
+                "icon": "smartphone",
+                "text": "Mengembangkan antarmuka responsif dengan Material Design 3"
+            },
+            {
+                "icon": "route",
+                "text": "Mengimplementasikan navigasi Native Flutter yang mulus"
+            },
+            {
+                "icon": "search",
+                "text": "Membuat pencarian dan penyaringan data secara real-time"
+            },
+            {
+                "icon": "image",
+                "text": "Mengintegrasikan galeri interaktif dan manajemen state"
+            }
+        ],
+        "github": "https://github.com/mhmmdraflin/Tiket_Pendakian"
     },
     {
         "id": 7,
-        "title": "Sehatin",
-        "subtitle_en": "Featured App",
-        "subtitle_id": "Aplikasi Unggulan",
+        "title_id": "Sehatin",
+        "title_en": "Sehatin",
+        "subtitle_en": "Gamified Health & Fitness App",
+        "subtitle_id": "Aplikasi Pelacak Kesehatan Gamifikasi",
         "year": "2025",
         "icon": "health_and_safety",
-        "description_en": "Built for my 8th-semester Final Year Project, Sehatin is an Android-based gamified app that motivates teenagers to maintain a healthy lifestyle by transforming exercise and diet into exciting game challenges.",
-        "description_id": "Dibangun untuk Tugas Akhir semester 8 saya, Sehatin adalah aplikasi gamifikasi berbasis Android yang memotivasi remaja untuk mempertahankan gaya hidup sehat dengan mengubah rutinitas olahraga dan diet menjadi tantangan permainan yang menyenangkan.",
+        "description_en": "SEHATIN is an Android application designed with strong gamification elements to motivate users to maintain a healthy lifestyle. Built entirely offline, it ensures privacy and speed.",
+        "description_id": "SEHATIN adalah aplikasi Android yang dirancang dengan elemen gamifikasi yang kuat untuk memotivasi pengguna agar lebih disiplin dalam menerapkan gaya hidup sehat. Berjalan sepenuhnya secara offline untuk menjamin privasi dan kecepatan.",
+        "problem_en": "Many teenagers struggle with maintaining consistent health and fitness routines due to lack of motivation, while existing fitness apps often feel monotonous and require constant internet connectivity.",
+        "problem_id": "Banyak remaja kesulitan mempertahankan rutinitas kebugaran yang konsisten karena kurangnya motivasi. Selain itu, aplikasi kebugaran yang ada seringkali monoton dan sangat bergantung pada koneksi internet.",
+        "solution_en": "Developed a gamified local-first Android app where users can complete missions, earn points, and customize avatars, making the fitness journey engaging without requiring an API.",
+        "solution_id": "Mengembangkan aplikasi Android offline dengan pendekatan gamifikasi, di mana pengguna dapat menyelesaikan misi harian, mengumpulkan poin, dan mengkustomisasi avatar, sehingga rutinitas kebugaran menjadi menyenangkan tanpa perlu akses internet.",
+        "features": [
+            {
+                "name_en": "Smart BMI Calculator",
+                "name_id": "Kalkulator BMI Pintar",
+                "icon": "calculate"
+            },
+            {
+                "name_en": "Gamification & Leaderboard",
+                "name_id": "Sistem Gamifikasi & Papan Skor",
+                "icon": "sports_esports"
+            },
+            {
+                "name_en": "Store & Customization Inventory",
+                "name_id": "Toko & Inventaris Kustomisasi",
+                "icon": "storefront"
+            },
+            {
+                "name_en": "Integrated Fitness Challenges",
+                "name_id": "Tantangan Kebugaran Terintegrasi",
+                "icon": "fitness_center"
+            },
+            {
+                "name_en": "Nutrition Education Quiz",
+                "name_id": "Kuis Edukasi Nutrisi",
+                "icon": "quiz"
+            },
+            {
+                "name_en": "Dynamic Audio & Reminders",
+                "name_id": "Audio Dinamis & Pengingat",
+                "icon": "notifications_active"
+            }
+        ],
         "display_mode": "multi",
         "statusBarColor": "#29B6F6",
         "statusBarTheme": "dark",
@@ -266,13 +623,62 @@
                 "color": "bg-green-500"
             },
             {
-                "name": "UI/UX",
-                "color": "bg-pink-500"
+                "name": "MVVM (Model-View-ViewModel)",
+                "color": "bg-blue-400"
             },
             {
-                "name": "Gamification",
+                "name": "DataStore & SharedPreferences",
+                "color": "bg-teal-500"
+            },
+            {
+                "name": "XML Layouts & Material Design",
                 "color": "bg-orange-500"
+            },
+            {
+                "name": "MediaPlayer (BGM) & SoundPool (SFX)",
+                "color": "bg-cyan-500"
             }
-        ]
+        ],
+        "roleTitle_en": "Android Developer",
+        "roleTitle_id": "Pengembang Android",
+        "roleText_en": "As the sole developer for this Final Year Project, I handled end-to-end development, from designing local data persistence and gamification logic to building the interactive UI and integrating zero-delay audio.",
+        "roleText_id": "Sebagai pengembang tunggal untuk proyek Tugas Akhir (Skripsi) ini, saya menangani keseluruhan pengembangan secara penuh. Mulai dari merancang penyimpanan data lokal, logika gamifikasi, membangun antarmuka interaktif, hingga mengintegrasikan audio interaktif.",
+        "responsibilities_en": [
+            {
+                "icon": "database",
+                "text": "Designed robust local storage with DataStore"
+            },
+            {
+                "icon": "sports_esports",
+                "text": "Developed gamification logic (EXP, missions, avatars)"
+            },
+            {
+                "icon": "architecture",
+                "text": "Implemented MVVM architecture patterns"
+            },
+            {
+                "icon": "music_note",
+                "text": "Integrated zero-delay SoundPool SFX"
+            }
+        ],
+        "responsibilities_id": [
+            {
+                "icon": "database",
+                "text": "Merancang penyimpanan data lokal (Offline) yang andal"
+            },
+            {
+                "icon": "sports_esports",
+                "text": "Mengembangkan logika Gamifikasi (EXP, Misi, Poin, Kustomisasi Avatar)"
+            },
+            {
+                "icon": "architecture",
+                "text": "Mengimplementasikan pola arsitektur MVVM (Model-View-ViewModel)"
+            },
+            {
+                "icon": "music_note",
+                "text": "Mengintegrasikan BGM dan SFX interaktif dengan SoundPool (Zero-Delay)"
+            }
+        ],
+        "github": "https://github.com/mhmmdraflin/Sehatin"
     }
 ]

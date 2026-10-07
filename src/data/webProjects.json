@@ -1,7 +1,8 @@
 [
     {
         "id": 101,
-        "title": "HireMe.AI",
+        "title_id": "HireMe.AI",
+        "title_en": "HireMe.AI",
         "subtitle_en": "AI-Powered Recruitment (MVP)",
         "subtitle_id": "Platform Rekrutmen Cerdas Berbasis AI (MVP)",
         "year": "2025",
@@ -138,7 +139,8 @@
     },
     {
         "id": 102,
-        "title": "Sistem Informasi & Manajemen UKM Futsal Club UBhinus",
+        "title_id": "Sistem Informasi & Manajemen UKM Futsal Club UBhinus",
+        "title_en": "UBhinus Futsal Club Information & Management System",
         "subtitle_en": "Futsal Club Management System",
         "subtitle_id": "Sistem Manajemen Klub Futsal",
         "year": "2025",

@@ -51,8 +51,8 @@ export default function LanyardBadge({ profile }) {
                     rotateY,
                     transformStyle: 'preserve-3d',
                 }}
-                animate={{ rotateZ: [-1.5, 1.5, -1.5] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                animate={{ rotateZ: [-2.5, 2.5, -2.5] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
             >

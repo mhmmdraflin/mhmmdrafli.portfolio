@@ -1,7 +1,8 @@
 [
     {
         "id": 1,
-        "title": "Bangkit Academy 2024 Batch 2",
+        "title_id": "Bangkit Academy 2024 Batch 2",
+        "title_en": "Bangkit Academy 2024 Batch 2",
         "issuer_lines": [
             "Google",
             "GoTo",
@@ -15,7 +16,8 @@
     },
     {
         "id": 2,
-        "title": "Sertifikat Kompetensi BNSP",
+        "title_id": "Sertifikat Kompetensi BNSP",
+        "title_en": "BNSP Competence Certificate",
         "issuer_lines": [
             "BNSP",
             "LSP STIKI",
@@ -29,7 +31,8 @@
     },
     {
         "id": 3,
-        "title": "Ethical Hacking Essentials (EHE)",
+        "title_id": "Ethical Hacking Essentials (EHE)",
+        "title_en": "Ethical Hacking Essentials (EHE)",
         "issuer_lines": [
             "EC-Council",
             "Cyber Security",

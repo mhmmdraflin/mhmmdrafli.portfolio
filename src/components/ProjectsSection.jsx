@@ -20,7 +20,7 @@ const getRightPhoneClasses = () => {
     return `${base} ${desktopHover}`;
 };
 
-const ProjectItem = ({ project, index, t, lang }) => {
+const ProjectItem = ({ project, index, t, lang, onViewCaseStudy }) => {
     const isEven = index % 2 === 0;
 
     // Swipe refs
@@ -131,7 +131,7 @@ const ProjectItem = ({ project, index, t, lang }) => {
                     {project.icon && project.icon.includes('.') ? (
                         <img
                             src={getAssetPath(`assets/images/${project.icon}`)}
-                            alt={project.title}
+                            alt={lang === 'id' ? (project.title_id || project.title) : (project.title_en || project.title)}
                             className="w-8 h-8 object-contain"
                         />
                     ) : (
@@ -162,7 +162,7 @@ const ProjectItem = ({ project, index, t, lang }) => {
 
                 <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
                     <h3 className="text-3xl md:text-4xl font-extrabold text-[#1D1D1F] dark:text-white transition-colors duration-300">
-                        {project.title}
+                        {lang === 'id' ? (project.title_id || project.title) : (project.title_en || project.title)}
                     </h3>
                 </div>
                 <p className="text-[#007AFF] font-semibold text-lg mb-4">{lang === 'id' ? project.subtitle_id : project.subtitle_en}</p>
@@ -184,6 +184,18 @@ const ProjectItem = ({ project, index, t, lang }) => {
                             </span>
                         );
                     })}
+                </div>
+
+                {/* Actions */}
+                <div className="flex items-center justify-center md:justify-start gap-4">
+                    {onViewCaseStudy && (
+                        <button
+                            onClick={() => onViewCaseStudy(project)}
+                            className="px-6 py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full font-semibold text-sm hover:scale-105 transition-transform"
+                        >
+                            {lang === 'id' ? 'Detail Proyek' : 'Project Details'}
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
@@ -222,7 +234,7 @@ const WebProjectItem = ({ project, index, t, lang, onViewCaseStudy }) => {
 
                 <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
                     <h3 className="text-3xl md:text-4xl font-extrabold text-[#1D1D1F] dark:text-white transition-colors duration-300">
-                        {project.title}
+                        {lang === 'id' ? (project.title_id || project.title) : (project.title_en || project.title)}
                     </h3>
                 </div>
                 <p className="text-[#007AFF] font-semibold text-lg mb-4">{lang === 'id' ? project.subtitle_id : project.subtitle_en}</p>
@@ -334,7 +346,7 @@ export default function ProjectsSection({ onViewCaseStudy }) {
                 {activeTab === 'phone' ? (
                     <div className="space-y-16 md:space-y-32">
                         {projects.map((project, index) => (
-                            <ProjectItem key={project.id} project={project} index={index} t={t} lang={lang} />
+                            <ProjectItem key={project.id} project={project} index={index} t={t} lang={lang} onViewCaseStudy={onViewCaseStudy} />
                         ))}
                     </div>
                 ) : (

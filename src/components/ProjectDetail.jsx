@@ -7,7 +7,7 @@ export default function ProjectDetail({ onBack, project }) {
     const t = translations[lang];
 
     // Fallbacks to default text if project data doesn't provide it
-    const title = project?.title || "Sehatin";
+    const title = lang === 'id' ? (project?.title_id || project?.title || "Sehatin") : (project?.title_en || project?.title || "Sehatin");
     const description = project ? (lang === 'id' ? project.description_id : project.description_en) : t.projectDetail.description;
     
     // Check if it's a web project (using display_mode)
@@ -15,12 +15,12 @@ export default function ProjectDetail({ onBack, project }) {
     const projectType = isWeb ? (lang === 'id' ? 'Aplikasi Web' : 'Web Application') : t.projectDetail.mobileApp;
 
     // Use project specific data, or fallback to default
-    const problem = project ? (lang === 'id' ? project.problem_id : project.problem_en) : t.projectDetail.problemText;
-    const solution = project ? (lang === 'id' ? project.solution_id : project.solution_en) : t.projectDetail.solutionText;
-    const roleTitle = project ? (lang === 'id' ? project.roleTitle_id : project.roleTitle_en) : t.projectDetail.roleTitle;
-    const roleText = project ? (lang === 'id' ? project.roleText_id : project.roleText_en) : t.projectDetail.roleText;
+    const problem = (lang === 'id' ? project?.problem_id : project?.problem_en) || t.projectDetail.problemText;
+    const solution = (lang === 'id' ? project?.solution_id : project?.solution_en) || t.projectDetail.solutionText;
+    const roleTitle = (lang === 'id' ? project?.roleTitle_id : project?.roleTitle_en) || t.projectDetail.roleTitle;
+    const roleText = (lang === 'id' ? project?.roleText_id : project?.roleText_en) || t.projectDetail.roleText;
     
-    const responsibilities = project ? (lang === 'id' ? project.responsibilities_id : project.responsibilities_en) : [
+    const responsibilities = (lang === 'id' ? project?.responsibilities_id : project?.responsibilities_en) || [
         { icon: 'terminal', text: t.projectDetail.resp1 },
         { icon: 'api', text: t.projectDetail.resp2 },
         { icon: 'lock', text: t.projectDetail.resp3 },
@@ -33,7 +33,11 @@ export default function ProjectDetail({ onBack, project }) {
         { name: 'REST API', icon: 'cloud_sync', color: 'text-emerald-500' },
     ];
 
-    const screenshots = project?.screenshots || [
+    const screenshots = project?.screenshots || project?.images?.map((img, i) => ({
+        id: i + 1,
+        alt: `${title} screenshot ${i + 1}`,
+        url: img.startsWith('http') ? img : `/assets/images/${img.replace(/^(\/?assets\/images\/)/, '')}`
+    })) || [
         { id: 1, alt: 'Mobile app dashboard', url: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=1200&fit=crop' },
         { id: 2, alt: 'Mobile app schedule view', url: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&h=1200&fit=crop' },
         { id: 3, alt: 'Mobile app profile settings', url: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&h=1200&fit=crop' },
@@ -172,7 +176,20 @@ export default function ProjectDetail({ onBack, project }) {
                             ))}
                         </div>
                     ) : (
-                        <section className="relative -mx-6 px-6 lg:mx-0 lg:px-0">
+                        <section className="relative flex flex-col gap-8">
+                            <div className="max-w-4xl mx-auto px-6 lg:px-0 text-center flex flex-col items-center">
+                                <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-blue-50/50 border border-blue-100/50">
+                                    <span className="material-symbols-outlined text-blue-500 text-sm">smartphone</span>
+                                    <span className="text-xs font-bold text-blue-600 tracking-wider uppercase">{lang === 'id' ? 'Antarmuka Aplikasi' : 'App Interface'}</span>
+                                </div>
+                                <h3 className="text-3xl font-bold text-[#1D1D1F] dark:text-white mb-4">
+                                    {lang === 'id' ? 'Tampilan Aplikasi Mobile' : 'Mobile App Views'}
+                                </h3>
+                                <p className="text-[#86868B] dark:text-gray-400 text-lg leading-relaxed font-medium">
+                                    {lang === 'id' ? 'Beberapa tangkapan layar dari antarmuka aplikasi' : 'A few screenshots of the application interface'}
+                                </p>
+                            </div>
+                            <div className="relative -mx-6 px-6 lg:mx-0 lg:px-0">
                             <div className="flex gap-8 overflow-x-auto custom-scrollbar snap-x snap-mandatory pb-12 pt-4 items-center">
                                 {screenshots.map((screenshot, index) => (
                                     <div
@@ -186,40 +203,47 @@ export default function ProjectDetail({ onBack, project }) {
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     </div>
                                 ))}
+                                </div>
                             </div>
                         </section>
                     )}
 
                     {/* Problem & Solution */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        {/* Problem */}
-                        <div className="bg-white dark:bg-[#1A2133] p-8 lg:p-12 rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_48px_-12px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_12px_48px_-12px_rgba(255,255,255,0.02)] transition-shadow duration-300 flex flex-col gap-5 relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-red-50 dark:bg-red-500/10 rounded-bl-full -mr-16 -mt-16 transition-transform duration-500 group-hover:scale-150 ease-out"></div>
-                            <div className="flex items-center gap-4 mb-2 relative z-10">
-                                <div className="p-3 rounded-2xl bg-red-50 dark:bg-red-500/10 text-red-500 shadow-inner">
-                                    <span className="material-symbols-outlined text-2xl">error_outline</span>
+                    {(problem || solution) && (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                            {/* Problem */}
+                            {problem && (
+                                <div className="bg-white dark:bg-[#1A2133] p-8 lg:p-12 rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_48px_-12px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_12px_48px_-12px_rgba(255,255,255,0.02)] transition-shadow duration-300 flex flex-col gap-5 relative overflow-hidden group">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-red-50 dark:bg-red-500/10 rounded-bl-full -mr-16 -mt-16 transition-transform duration-500 group-hover:scale-150 ease-out"></div>
+                                    <div className="flex items-center gap-4 mb-2 relative z-10">
+                                        <div className="p-3 rounded-2xl bg-red-50 dark:bg-red-500/10 text-red-500 shadow-inner">
+                                            <span className="material-symbols-outlined text-2xl">error_outline</span>
+                                        </div>
+                                        <h3 className="text-sm font-extrabold tracking-widest text-[#86868B] uppercase">{t.projectDetail.theProblem}</h3>
+                                    </div>
+                                    <p className="text-lg text-[#1D1D1F]/90 dark:text-gray-300 leading-relaxed font-medium relative z-10">
+                                        {problem}
+                                    </p>
                                 </div>
-                                <h3 className="text-sm font-extrabold tracking-widest text-[#86868B] uppercase">{t.projectDetail.theProblem}</h3>
-                            </div>
-                            <p className="text-lg text-[#1D1D1F]/90 dark:text-gray-300 leading-relaxed font-medium relative z-10">
-                                {problem}
-                            </p>
-                        </div>
+                            )}
 
-                        {/* Solution */}
-                        <div className="bg-white dark:bg-[#1A2133] p-8 lg:p-12 rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_48px_-12px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_12px_48px_-12px_rgba(255,255,255,0.02)] transition-shadow duration-300 flex flex-col gap-5 relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 dark:bg-emerald-500/10 rounded-bl-full -mr-16 -mt-16 transition-transform duration-500 group-hover:scale-150 ease-out"></div>
-                            <div className="flex items-center gap-4 mb-2 relative z-10">
-                                <div className="p-3 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-500 shadow-inner">
-                                    <span className="material-symbols-outlined text-2xl">check_circle</span>
+                            {/* Solution */}
+                            {solution && (
+                                <div className="bg-white dark:bg-[#1A2133] p-8 lg:p-12 rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_48px_-12px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_12px_48px_-12px_rgba(255,255,255,0.02)] transition-shadow duration-300 flex flex-col gap-5 relative overflow-hidden group">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 dark:bg-emerald-500/10 rounded-bl-full -mr-16 -mt-16 transition-transform duration-500 group-hover:scale-150 ease-out"></div>
+                                    <div className="flex items-center gap-4 mb-2 relative z-10">
+                                        <div className="p-3 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-500 shadow-inner">
+                                            <span className="material-symbols-outlined text-2xl">check_circle</span>
+                                        </div>
+                                        <h3 className="text-sm font-extrabold tracking-widest text-[#86868B] uppercase">{t.projectDetail.theSolution}</h3>
+                                    </div>
+                                    <p className="text-lg text-[#1D1D1F]/90 dark:text-gray-300 leading-relaxed font-medium relative z-10">
+                                        {solution}
+                                    </p>
                                 </div>
-                                <h3 className="text-sm font-extrabold tracking-widest text-[#86868B] uppercase">{t.projectDetail.theSolution}</h3>
-                            </div>
-                            <p className="text-lg text-[#1D1D1F]/90 dark:text-gray-300 leading-relaxed font-medium relative z-10">
-                                {solution}
-                            </p>
+                            )}
                         </div>
-                    </div>
+                    )}
 
                     {/* Features (if available) */}
                     {features && (
@@ -256,31 +280,35 @@ export default function ProjectDetail({ onBack, project }) {
                     {/* Role & Tech Stack */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
                         {/* My Role */}
-                        <div className="lg:col-span-7 bg-white dark:bg-[#1A2133] p-8 lg:p-12 rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.05)] flex flex-col justify-between group">
-                            <div>
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="p-3 rounded-2xl bg-purple-50 dark:bg-purple-500/10 text-purple-500 shadow-inner group-hover:scale-110 transition-transform duration-300">
-                                        <span className="material-symbols-outlined text-2xl">person</span>
+                        {roleTitle && (
+                            <div className="lg:col-span-7 bg-white dark:bg-[#1A2133] p-8 lg:p-12 rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.05)] flex flex-col justify-start group">
+                                <div>
+                                    <div className="flex items-center gap-4 mb-8">
+                                        <div className="p-3 rounded-2xl bg-purple-50 dark:bg-purple-500/10 text-purple-500 shadow-inner group-hover:scale-110 transition-transform duration-300">
+                                            <span className="material-symbols-outlined text-2xl">person</span>
+                                        </div>
+                                        <h3 className="text-sm font-extrabold tracking-widest text-[#86868B] uppercase">{t.projectDetail.myRole}</h3>
                                     </div>
-                                    <h3 className="text-sm font-extrabold tracking-widest text-[#86868B] uppercase">{t.projectDetail.myRole}</h3>
+                                    <h4 className="text-3xl font-bold text-[#1D1D1F] dark:text-white mb-5">{roleTitle}</h4>
+                                    <p className="text-[#1D1D1F]/80 dark:text-gray-300 leading-relaxed font-medium mb-8 text-lg">
+                                        {roleText}
+                                    </p>
                                 </div>
-                                <h4 className="text-3xl font-bold text-[#1D1D1F] dark:text-white mb-5">{roleTitle}</h4>
-                                <p className="text-[#1D1D1F]/80 dark:text-gray-300 leading-relaxed font-medium mb-8 text-lg">
-                                    {roleText}
-                                </p>
+                                {responsibilities && responsibilities.length > 0 && (
+                                    <ul className="flex flex-col gap-4">
+                                        {responsibilities.map((item, index) => (
+                                            <li key={index} className="flex items-start gap-4 text-base font-medium text-[#1D1D1F]/80 dark:text-gray-300">
+                                                <span className="material-symbols-outlined text-[#007AFF] text-xl mt-0.5">{item.icon}</span>
+                                                <span className="flex-1">{item.text}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
                             </div>
-                            <ul className="flex flex-col gap-4">
-                                {responsibilities.map((item, index) => (
-                                    <li key={index} className="flex items-start gap-4 text-base font-medium text-[#1D1D1F]/80 dark:text-gray-300">
-                                        <span className="material-symbols-outlined text-[#007AFF] text-xl mt-0.5">{item.icon}</span>
-                                        <span className="flex-1">{item.text}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        )}
 
                         {/* Tech Stack */}
-                        <div className="lg:col-span-5 flex flex-col">
+                        <div className={`flex flex-col ${roleTitle ? 'lg:col-span-5' : 'lg:col-span-12'}`}>
                             <div className="bg-white dark:bg-[#1A2133] p-8 lg:p-12 rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.05)] h-full">
                                 <div className="flex items-center gap-4 mb-8">
                                     <div className="p-3 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-500 shadow-inner">
@@ -288,18 +316,34 @@ export default function ProjectDetail({ onBack, project }) {
                                     </div>
                                     <h3 className="text-sm font-extrabold tracking-widest text-[#86868B] uppercase">{t.projectDetail.techStack}</h3>
                                 </div>
-                                <div className="grid grid-cols-2 gap-4 lg:gap-5">
-                                    {techStack.map((tech) => (
+                                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-4 lg:gap-5">
+                                    {techStack.map((tech) => {
+                                        const iconName = tech.icon || (() => {
+                                            const n = tech.name.toLowerCase();
+                                            if (n.includes('kotlin') || n.includes('android')) return 'android';
+                                            if (n.includes('flutter') || n.includes('dart')) return 'devices';
+                                            if (n.includes('sqlite') || n.includes('database') || n.includes('sql') || n.includes('datastore')) return 'database';
+                                            if (n.includes('api') || n.includes('retrofit')) return 'api';
+                                            if (n.includes('ui') || n.includes('design')) return 'design_services';
+                                            if (n.includes('gamification')) return 'sports_esports';
+                                            if (n.includes('view') || n.includes('data') || n.includes('mvvm')) return 'account_tree';
+                                            if (n.includes('dicoding') || n.includes('bangkit')) return 'school';
+                                            return 'code';
+                                        })();
+                                        
+                                        const textColor = tech.color ? tech.color.replace('bg-', 'text-') : 'text-blue-500';
+
+                                        return (
                                         <div
                                             key={tech.name}
-                                            className="flex flex-col items-center justify-center p-6 bg-[#FAFAFC] dark:bg-[#111827] rounded-[1.5rem] border border-gray-100 dark:border-white/5 hover:border-indigo-100 dark:hover:border-indigo-500/30 hover:bg-indigo-50/30 dark:hover:bg-indigo-500/10 transition-all duration-300 group shadow-sm hover:shadow-md"
+                                            className="flex flex-col items-center justify-center p-6 bg-white dark:bg-[#111827] rounded-[1.5rem] border border-gray-100 dark:border-white/5 hover:border-indigo-100 dark:hover:border-indigo-500/30 hover:bg-indigo-50/30 dark:hover:bg-indigo-500/10 transition-all duration-300 group shadow-sm hover:shadow-md"
                                         >
-                                            <span className={`material-symbols-outlined text-4xl mb-3 ${tech.color} group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-300`}>
-                                                {tech.icon}
+                                            <span className={`material-symbols-outlined text-4xl mb-3 ${textColor} group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-300`}>
+                                                {iconName}
                                             </span>
-                                            <span className="font-semibold text-[#1D1D1F] dark:text-white">{tech.name}</span>
+                                            <span className="font-semibold text-sm text-center text-[#1D1D1F] dark:text-white leading-tight">{tech.name}</span>
                                         </div>
-                                    ))}
+                                    )})}
                                 </div>
                             </div>
                         </div>
@@ -355,15 +399,17 @@ export default function ProjectDetail({ onBack, project }) {
                             <span className="material-symbols-outlined group-hover:rotate-12 group-hover:text-black dark:group-hover:text-white transition-transform duration-300 text-[#86868B] dark:text-gray-400">code</span>
                             {t.projectDetail.viewSourceCode}
                         </a>
-                        <a
-                            href={project?.liveDemo || "#"}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-full md:w-auto px-10 py-4 rounded-2xl bg-[#007AFF] hover:bg-blue-600 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-[0_8px_20px_-6px_rgba(0,118,255,0.5)] hover:shadow-[0_12px_24px_-8px_rgba(0,118,255,0.6)] transition-all transform hover:-translate-y-1 duration-300"
-                        >
-                            {t.projectDetail.tryDemo}
-                            <span className="material-symbols-outlined group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300">arrow_outward</span>
-                        </a>
+                        {project?.liveDemo && project.liveDemo !== "#" && (
+                            <a
+                                href={project.liveDemo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full md:w-auto px-10 py-4 rounded-2xl bg-[#007AFF] hover:bg-blue-600 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-[0_8px_20px_-6px_rgba(0,118,255,0.5)] hover:shadow-[0_12px_24px_-8px_rgba(0,118,255,0.6)] transition-all transform hover:-translate-y-1 duration-300"
+                            >
+                                {t.projectDetail.tryDemo}
+                                <span className="material-symbols-outlined group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300">arrow_outward</span>
+                            </a>
+                        )}
                     </div>
 
                 </div>

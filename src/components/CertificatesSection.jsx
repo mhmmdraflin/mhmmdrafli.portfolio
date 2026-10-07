@@ -89,7 +89,7 @@ function CertificateCard({ certificate, onSelect, lang }) {
                 <div className="relative overflow-hidden rounded-md bg-[#0F172A]/[0.03] dark:bg-[#000000]/20 aspect-[1.38/1] flex items-center justify-center p-2 border border-gray-100 dark:border-white/10">
                     <img
                         src={getAssetPath(`assets/images/${certificate.image_url}`)}
-                        alt={certificate.title}
+                        alt={lang === 'id' ? certificate.title_id : certificate.title_en}
                         className="w-full h-full object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.02]"
                     />
 
@@ -100,7 +100,7 @@ function CertificateCard({ certificate, onSelect, lang }) {
                         }`}
                     >
                         <span className="material-symbols-outlined text-3xl mb-1 text-[#007AFF]">verified</span>
-                        <h3 className="text-base md:text-lg font-bold mb-1 line-clamp-2">{certificate.title}</h3>
+                        <h3 className="text-base md:text-lg font-bold mb-1 line-clamp-2">{lang === 'id' ? certificate.title_id : certificate.title_en}</h3>
                         <p className="text-xs md:text-sm font-medium text-white/90">{lang === 'id' ? certificate.path_name_id : certificate.path_name_en}</p>
                         <p className="text-[11px] md:text-xs text-white/70 mt-1 line-clamp-2">{lang === 'id' ? certificate.specialization_id : certificate.specialization_en}</p>
                         <div className="mt-3 flex flex-wrap gap-1.5 justify-center">
@@ -124,8 +124,8 @@ function CertificateCard({ certificate, onSelect, lang }) {
                 {/* Bottom Card Summary */}
                 <div className="px-2 pt-3 pb-1">
                     <div className="flex items-center justify-between gap-2 mb-1">
-                        <h4 className="text-sm font-bold text-[#1D1D1F] dark:text-white truncate" title={certificate.title}>
-                            {certificate.title}
+                        <h4 className="text-sm font-bold text-[#1D1D1F] dark:text-white truncate" title={lang === 'id' ? certificate.title_id : certificate.title_en}>
+                            {lang === 'id' ? certificate.title_id : certificate.title_en}
                         </h4>
                         <span className="text-[10px] text-[#007AFF] dark:text-[#47A1FF] font-semibold shrink-0 bg-[#007AFF]/10 dark:bg-[#007AFF]/20 px-2 py-0.5 rounded-full">
                             Verified
@@ -223,8 +223,8 @@ export default function CertificatesSection() {
                                 <div className="w-12 h-12 rounded-full bg-[#0F172A]/[0.03] dark:bg-black/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                                     <span className="material-symbols-outlined text-[#007AFF] text-2xl">workspace_premium</span>
                                 </div>
-                                <h4 className="text-sm font-bold text-[#1D1D1F] dark:text-white line-clamp-2 mb-1" title={cert.title}>
-                                    {cert.title}
+                                <h4 className="text-sm font-bold text-[#1D1D1F] dark:text-white line-clamp-2 mb-1" title={lang === 'id' ? cert.title_id : cert.title_en}>
+                                    {lang === 'id' ? cert.title_id : cert.title_en}
                                 </h4>
                                 <p className="text-xs text-[#86868B] font-medium">{cert.issuer}</p>
                                 <p className="text-[10px] text-[#007AFF] mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Verifikasi ↗</p>
@@ -248,7 +248,7 @@ export default function CertificatesSection() {
                         <div className="flex items-center justify-between pb-4 border-b border-gray-100 dark:border-white/10">
                             <div>
                                 <h3 className="text-lg md:text-xl font-bold text-[#1D1D1F] dark:text-white">
-                                    {selectedCert.title}
+                                    {lang === 'id' ? selectedCert.title_id : selectedCert.title_en}
                                 </h3>
                                 <p className="text-xs md:text-sm text-[#007AFF] dark:text-[#47A1FF] font-medium">
                                     {lang === 'id' ? selectedCert.path_name_id : selectedCert.path_name_en} — {lang === 'id' ? selectedCert.specialization_id : selectedCert.specialization_en}
@@ -267,7 +267,7 @@ export default function CertificatesSection() {
                         <div className="relative flex-1 min-h-[300px] max-h-[68vh] overflow-auto flex items-center justify-center py-4 bg-gray-50/70 dark:bg-white/5 rounded-2xl my-4">
                             <img
                                 src={getAssetPath(`assets/images/${selectedCert.image_url}`)}
-                                alt={selectedCert.title}
+                                alt={lang === 'id' ? selectedCert.title_id : selectedCert.title_en}
                                 className="max-w-full max-h-[64vh] object-contain rounded-lg shadow-md"
                             />
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import './index.css';
 import { LanguageProvider } from './context/LanguageContext';
 import AmbientBackground from './components/AmbientBackground';
@@ -19,6 +19,8 @@ function App() {
   const [showCV, setShowCV] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
+  const [justReturned, setJustReturned] = useState(false);
+
   const handleViewCaseStudy = (project) => {
     setSelectedProject(project);
     setShowDetail(true);
@@ -28,10 +30,21 @@ function App() {
   const handleBackToMain = () => {
     setShowDetail(false);
     setSelectedProject(null);
-    setTimeout(() => {
-      document.getElementById('projects')?.scrollIntoView();
-    }, 100);
+    setJustReturned(true);
   };
+
+  useLayoutEffect(() => {
+    if (justReturned && !showDetail) {
+      const el = document.getElementById('projects');
+      if (el) {
+        // Scroll to projects immediately before browser paints
+        const yOffset = -80; // Optional offset for header
+        const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: 'instant' });
+      }
+      setJustReturned(false);
+    }
+  }, [justReturned, showDetail]);
 
   if (showDetail) {
     return (
