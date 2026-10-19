@@ -329,6 +329,10 @@
             {
                 "name": "ViewModel & LiveData",
                 "color": "bg-cyan-500"
+            },
+            {
+                "name": "Dicoding Academy",
+                "color": "bg-gray-800"
             }
         ],
         "roleTitle_en": "Android Developer",
@@ -373,8 +377,74 @@
         "subtitle_id": "Panduan Wisata",
         "year": "2025",
         "icon": "travel_explore",
-        "description_en": "A tourism guide application for exploring Bandung with integrated maps, local recommendations, and user reviews.",
-        "description_id": "Aplikasi panduan pariwisata untuk menjelajahi Bandung dengan peta terintegrasi, rekomendasi lokal, dan ulasan pengguna.",
+        "description_en": "Wisata Bandung is a mobile application for discovering tourist destinations, cultural sites, and natural landscapes in Bandung. Built with Flutter, it runs natively on both Android and iOS devices.",
+        "description_id": "Wisata Bandung adalah aplikasi mobile untuk menelusuri destinasi wisata, budaya, dan alam di kota Bandung. Dibangun dengan Flutter, aplikasi ini dapat berjalan pada perangkat Android dan iOS.",
+        "problem_en": "Tourists often struggle to find accurate information and navigation for cultural and natural attractions in Bandung within a single platform.",
+        "problem_id": "Wisatawan sering kesulitan menemukan informasi yang akurat dan panduan arah untuk tempat wisata budaya maupun alam di Bandung dalam satu wadah.",
+        "solution_en": "Developed a comprehensive mobile guide using Flutter that centralizes destination information, interactive galleries, and user bookmarks in a single interface.",
+        "solution_id": "Membangun panduan mobile terpadu dengan Flutter yang memusatkan informasi destinasi, galeri interaktif, dan markah pengguna ke dalam satu antarmuka yang terstruktur.",
+        "roleTitle_en": "Mobile App Developer",
+        "roleTitle_id": "Pengembang Aplikasi Mobile",
+        "roleText_en": "I was responsible for designing the mobile application using Flutter, focusing on crafting a responsive Material Design interface, implementing native navigation, and organizing destination data.",
+        "roleText_id": "Saya bertanggung jawab membangun aplikasi mobile menggunakan Flutter, dengan fokus pada perancangan antarmuka Material Design, implementasi navigasi bawaan, serta penyusunan data destinasi.",
+        "responsibilities_en": [
+            {
+                "icon": "design_services",
+                "text": "Designed responsive interfaces using Material Design"
+            },
+            {
+                "icon": "route",
+                "text": "Implemented screen transitions using Native Navigator"
+            },
+            {
+                "icon": "folder",
+                "text": "Structured local destination data for quick access"
+            },
+            {
+                "icon": "gallery_thumbnail",
+                "text": "Integrated interactive galleries and bookmarking functionality"
+            }
+        ],
+        "responsibilities_id": [
+            {
+                "icon": "design_services",
+                "text": "Merancang antarmuka responsif menggunakan Material Design"
+            },
+            {
+                "icon": "route",
+                "text": "Mengimplementasikan transisi layar dengan Navigator bawaan"
+            },
+            {
+                "icon": "folder",
+                "text": "Menyusun data destinasi lokal untuk akses yang cepat"
+            },
+            {
+                "icon": "gallery_thumbnail",
+                "text": "Mengintegrasikan galeri interaktif dan fitur markah (bookmark)"
+            }
+        ],
+        "features": [
+            {
+                "name_en": "Tourism Destination List",
+                "name_id": "Daftar Destinasi Wisata",
+                "icon": "list_alt"
+            },
+            {
+                "name_en": "Detailed Information",
+                "name_id": "Detail Informasi",
+                "icon": "info"
+            },
+            {
+                "name_en": "Interactive Gallery",
+                "name_id": "Galeri Interaktif",
+                "icon": "gallery_thumbnail"
+            },
+            {
+                "name_en": "Favorite / Bookmark",
+                "name_id": "Favorite / Bookmark",
+                "icon": "favorite"
+            }
+        ],
         "display_mode": "multi",
         "statusBarColor": "#f5f5f7",
         "statusBarTheme": "light",
@@ -393,14 +463,19 @@
                 "color": "bg-cyan-500"
             },
             {
-                "name": "Android Studio",
-                "color": "bg-green-500"
+                "name": "Material Design",
+                "color": "bg-purple-500"
             },
             {
-                "name": "Dicoding",
+                "name": "Navigator (Native)",
+                "color": "bg-orange-500"
+            },
+            {
+                "name": "Dicoding Academy",
                 "color": "bg-gray-800"
             }
-        ]
+        ],
+        "github": "https://github.com/mhmmdraflin/wisatabandung"
     },
     {
         "id": 1,
@@ -412,6 +487,67 @@
         "icon": "flight_takeoff",
         "description_en": "A simple and elegant travel destination app, helping users discover new places and plan their trips efficiently.",
         "description_id": "Aplikasi destinasi perjalanan yang sederhana dan elegan, membantu pengguna menemukan tempat-tempat baru dan merencanakan perjalanan mereka secara efisien.",
+        "problem_en": "Users often struggle to find a seamless platform to plan their trips and discover new tourist destinations efficiently.",
+        "problem_id": "Pengguna sering kesulitan menemukan platform yang mulus untuk merencanakan perjalanan dan menemukan destinasi wisata baru secara efisien.",
+        "solution_en": "Developed a modern and interactive mobile application with Flutter that simplifies discovering places and managing travel plans in one unified interface.",
+        "solution_id": "Mengembangkan aplikasi mobile interaktif dan modern dengan Flutter yang mempermudah penjelajahan destinasi dan pengelolaan rencana perjalanan dalam satu antarmuka terpadu.",
+        "roleTitle_en": "Mobile App Developer",
+        "roleTitle_id": "Pengembang Aplikasi Mobile",
+        "roleText_en": "I independently developed this mobile application using Flutter, focusing on building a modern, responsive UI and integrating seamless navigation for a smooth user experience.",
+        "roleText_id": "Saya mengembangkan aplikasi mobile ini secara individu menggunakan Flutter, dengan fokus pada pembuatan UI yang modern dan responsif serta navigasi yang mulus untuk pengalaman pengguna yang baik.",
+        "responsibilities_en": [
+            {
+                "icon": "design_services",
+                "text": "Designed a modern and responsive user interface"
+            },
+            {
+                "icon": "explore",
+                "text": "Built destination exploration features with detailed views"
+            },
+            {
+                "icon": "event_note",
+                "text": "Implemented travel planning functionalities"
+            },
+            {
+                "icon": "code",
+                "text": "Developed the application entirely using Dart and Flutter"
+            }
+        ],
+        "responsibilities_id": [
+            {
+                "icon": "design_services",
+                "text": "Merancang antarmuka pengguna yang modern dan responsif"
+            },
+            {
+                "icon": "explore",
+                "text": "Membangun fitur eksplorasi destinasi dengan tampilan detail"
+            },
+            {
+                "icon": "event_note",
+                "text": "Mengimplementasikan fungsionalitas perencanaan perjalanan"
+            },
+            {
+                "icon": "code",
+                "text": "Mengembangkan aplikasi sepenuhnya menggunakan Dart dan Flutter"
+            }
+        ],
+        "features": [
+            {
+                "name_en": "Destination Exploration",
+                "name_id": "Eksplorasi Destinasi",
+                "icon": "explore"
+            },
+            {
+                "name_en": "Modern UI/UX",
+                "name_id": "Antarmuka Modern (UI/UX)",
+                "icon": "design_services"
+            },
+            {
+                "name_en": "Trip Planning",
+                "name_id": "Perencanaan Perjalanan",
+                "icon": "event_note"
+            }
+        ],
         "display_mode": "multi",
         "statusBarColor": "#f5f5f7",
         "statusBarTheme": "light",
@@ -432,14 +568,19 @@
                 "color": "bg-cyan-500"
             },
             {
-                "name": "Android Studio",
+                "name": "Flutter Material",
+                "color": "bg-purple-500"
+            },
+            {
+                "name": "VS Code / Android Studio",
                 "color": "bg-green-500"
             },
             {
-                "name": "Dicoding",
+                "name": "Dicoding Academy",
                 "color": "bg-gray-800"
             }
-        ]
+        ],
+        "github": "https://github.com/mhmmdraflin/MyTravelApp"
     },
     {
         "id": 6,
@@ -515,6 +656,10 @@
             {
                 "name": "Network Image (Unsplash)",
                 "color": "bg-green-500"
+            },
+            {
+                "name": "Dicoding Academy",
+                "color": "bg-gray-800"
             }
         ],
         "roleTitle_en": "Mobile App Developer",

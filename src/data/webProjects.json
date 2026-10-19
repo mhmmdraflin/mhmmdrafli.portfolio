@@ -149,33 +149,36 @@
         "description_en": "A web-based application designed specifically as an information, data collection, and documentation center for the UBhinus Futsal Club. Built using Laravel and Bootstrap 5.",
         "description_id": "Aplikasi berbasis web yang dirancang khusus sebagai pusat informasi, pendataan, dan dokumentasi untuk UKM Futsal Club Universitas Bina Nusantara (UBhinus). Dibangun menggunakan framework Laravel dengan antarmuka Bootstrap 5, sistem ini memfasilitasi pengurus dalam mendata anggota serta memamerkan rekam jejak kegiatan klub secara interaktif kepada publik.",
         "display_mode": "single",
-        "image": "futsal-ubhinus-main.png",
+        "image": "fcu-ubhinus.png",
         "liveDemo": "#",
-        "github": "#",
+        "github": "https://github.com/mhmmdraflin/Website-Futsal-Stiki",
         "problem_en": "Managing member data and documenting the club's activities was inefficient and lacked transparency for the public.",
         "problem_id": "Pengurus UKM Futsal kesulitan dalam mengelola data keanggotaan dan mendokumentasikan rekam jejak kegiatan klub (futsal & minisoccer) secara efisien dan transparan kepada publik.",
         "solution_en": "Built a centralized information system with role-based access control, allowing admins to manage members and activities, while the public can view galleries and organizational structures.",
         "solution_id": "Membangun sistem informasi terpusat dengan akses multi-role yang memfasilitasi pengurus untuk mendata anggota dan merekap kegiatan, sekaligus memamerkannya secara interaktif di halaman publik.",
         "roleTitle_en": "Solo Fullstack Developer",
         "roleTitle_id": "Solo Fullstack Developer",
-        "roleText_en": "As a solo Fullstack Developer, I designed and developed the entire system from scratch, managing both the Laravel backend and the Bootstrap 5 frontend.",
-        "roleText_id": "Sebagai developer tunggal, saya merancang dan mengembangkan seluruh sistem ini dari awal hingga akhir, mulai dari struktur database PostgreSQL, logika backend dengan Laravel, hingga antarmuka responsif menggunakan Bootstrap 5.",
+        "roleText_en": "As a solo Fullstack Developer, I was responsible for the end-to-end development lifecycle, from architecting the database and implementing multi-role backend logic, to building an interactive frontend. I specifically focused on digitalizing club management processes like meeting notes, attendance, and evaluation using Laravel & Bootstrap 5.",
+        "roleText_id": "Sebagai developer tunggal, saya bertanggung jawab atas seluruh siklus pengembangan (end-to-end), mulai dari perancangan arsitektur database, implementasi logika backend multi-role, hingga penyajian antarmuka interaktif. Saya secara khusus memfokuskan sistem pada digitalisasi manajemen UKM (notulensi, absensi, dan evaluasi) menggunakan Laravel & Bootstrap 5.",
         "responsibilities_en": [
-            { "icon": "database", "text": "Database Design: Architected relational structure using PostgreSQL via Supabase." },
-            { "icon": "security", "text": "Backend Logic: Built multi-role authentication and CRUD management with Laravel." },
-            { "icon": "design_services", "text": "Frontend Implementation: Created a responsive UI using Bootstrap 5 and Blade." }
+            { "icon": "architecture", "text": "System & Database Architecture: Designed the relational data flow for the club management system using PostgreSQL (Supabase)." },
+            { "icon": "admin_panel_settings", "text": "Multi-Role Logic: Developed secure access control and separated functional dashboards for Admins and Members using Laravel." },
+            { "icon": "view_quilt", "text": "Dynamic Feature Development: Implemented attendance management, meeting notes tracking, and responsive live info boards using Bootstrap 5." }
         ],
         "responsibilities_id": [
-            { "icon": "database", "text": "Desain Database: Merancang struktur data relasional menggunakan PostgreSQL (Supabase)." },
-            { "icon": "security", "text": "Pengembangan Backend: Membangun sistem autentikasi multi-role & CRUD lengkap dengan Laravel." },
-            { "icon": "design_services", "text": "Implementasi Frontend: Mendesain antarmuka responsif menggunakan Blade Templating dan Bootstrap 5." }
+            { "icon": "architecture", "text": "Arsitektur Sistem & Database: Merancang alur data relasional untuk sistem manajemen UKM menggunakan PostgreSQL (Supabase)." },
+            { "icon": "admin_panel_settings", "text": "Autentikasi & Logika Multi-Role: Mengembangkan pemisahan hak akses dan dashboard fungsional antara Pengurus dan Anggota dengan Laravel." },
+            { "icon": "view_quilt", "text": "Pengembangan Fitur Dinamis: Mengimplementasikan sistem manajemen absensi, pencatatan notulensi, dan papan informasi live yang responsif." }
         ],
         "features": [
-            { "icon": "admin_panel_settings", "name_en": "Role-Based Auth", "name_id": "Autentikasi Multi-Role", "status": "current" },
-            { "icon": "bar_chart", "name_en": "Admin Dashboard", "name_id": "Dashboard Statistik", "status": "current" },
-            { "icon": "group_add", "name_en": "Member Management", "name_id": "CRUD Data Keanggotaan", "status": "current" },
-            { "icon": "event_note", "name_en": "Activity Tracking", "name_id": "CRUD Rekap Kegiatan", "status": "current" },
-            { "icon": "photo_library", "name_en": "Visual Gallery", "name_id": "Beranda & Galeri Visual", "status": "current" },
+            { "icon": "admin_panel_settings", "name_en": "Multi-Role Auth", "name_id": "Autentikasi Multi-Role", "status": "current" },
+            { "icon": "dashboard_customize", "name_en": "Separate Dashboards", "name_id": "Dashboard Terpisah", "status": "current" },
+            { "icon": "assignment", "name_en": "Meeting Notes", "name_id": "Pencatatan Notulensi", "status": "current" },
+            { "icon": "calendar_month", "name_en": "Schedule & Attendance", "name_id": "Jadwal & Absensi Latihan", "status": "current" },
+            { "icon": "assessment", "name_en": "Training Evaluation", "name_id": "Evaluasi Latihan", "status": "current" },
+            { "icon": "campaign", "name_en": "Live Info Board", "name_id": "Papan Informasi Live", "status": "current" },
+            { "icon": "history_edu", "name_en": "Club Profile", "name_id": "Profil & Sejarah UKM", "status": "current" },
+            { "icon": "photo_library", "name_en": "Gallery & Documentation", "name_id": "Galeri & Dokumentasi", "status": "current" },
             { "icon": "account_tree", "name_en": "Org Structure", "name_id": "Struktur Organisasi", "status": "current" }
         ],
         "team": null,
@@ -195,7 +198,17 @@
                     {
                         "id": 1,
                         "alt": "Sistem Informasi & Manajemen Futsal",
-                        "url": "/assets/images/futsal-ubhinus-main.png"
+                        "url": "/assets/images/fcu-ubhinus.png"
+                    },
+                    {
+                        "id": 2,
+                        "alt": "Dashboard Anggota",
+                        "url": "/assets/images/fcu-ubhinus-dashboard-anggota.png"
+                    },
+                    {
+                        "id": 3,
+                        "alt": "Dashboard Admin",
+                        "url": "/assets/images/fcu-ubhinus-dashboard-admin.png"
                     }
                 ]
             }
