@@ -82,3 +82,19 @@
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.2);
 }
+
+/* Cybersecurity / Computer Science Dot Grid Pattern (Anti-Slop compliant, R-07) */
+.cyber-dot-grid {
+    background-image: radial-gradient(rgba(100, 116, 139, 0.20) 1.25px, transparent 1.25px);
+    background-size: 28px 28px;
+    background-position: 0 0;
+}
+
+:where(.dark, .dark *) .cyber-dot-grid {
+    background-image: radial-gradient(rgba(56, 189, 248, 0.14) 1.25px, transparent 1.25px);
+}
+
+.cyber-dot-mask {
+    -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 20%, black 25%, transparent 85%);
+    mask-image: radial-gradient(ellipse 85% 65% at 50% 20%, black 25%, transparent 85%);
+}

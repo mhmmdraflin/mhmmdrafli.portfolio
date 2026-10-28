@@ -49,6 +49,7 @@ function App() {
   if (showDetail) {
     return (
       <LanguageProvider>
+        <AmbientBackground />
         <ProjectDetail onBack={handleBackToMain} project={selectedProject} />
       </LanguageProvider>
     );

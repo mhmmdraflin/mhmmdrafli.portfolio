@@ -43,5 +43,20 @@
         "specialization_en": "EC-Council Certified • No. ECC6078932451",
         "specialization_id": "Sertifikasi EC-Council • No. ECC6078932451",
         "image_url": "certificate-eccouncil.png"
+    },
+    {
+        "id": 4,
+        "title_id": "Data Analyst (Persiapan Sertifikasi BNSP)",
+        "title_en": "Data Analyst (BNSP Certification Prep)",
+        "issuer_lines": [
+            "YEC.CO.ID",
+            "Data Analyst",
+            "BNSP Prep"
+        ],
+        "path_name_en": "Data Analytics",
+        "path_name_id": "Analisis Data",
+        "specialization_en": "YEC Certified • No. 00174738",
+        "specialization_id": "Sertifikasi YEC • No. 00174738",
+        "image_url": "certificate-yec-data-analyst.png"
     }
 ]

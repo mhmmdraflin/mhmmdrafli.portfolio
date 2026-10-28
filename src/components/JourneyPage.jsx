@@ -1,3 +1,5 @@
+import AmbientBackground from './AmbientBackground';
+
 const timelineData = {
     education: [
         {
@@ -162,9 +164,7 @@ function TimelineSection({ title, items }) {
 export default function JourneyPage({ onBack }) {
     return (
         <div className="bg-[#F5F5F7] font-display text-[#1D1D1F] overflow-hidden h-screen flex flex-col relative">
-            {/* Ambient Blobs */}
-            <div className="fixed top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-blue-400/20 rounded-full blur-[100px] pointer-events-none opacity-60 z-0 mix-blend-multiply"></div>
-            <div className="fixed bottom-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-indigo-300/20 rounded-full blur-[120px] pointer-events-none opacity-50 z-0 mix-blend-multiply"></div>
+            <AmbientBackground />
 
             {/* Header */}
             <header className="z-50 sticky top-0 w-full px-8 py-4 flex items-center justify-between bg-white border-b border-black/[0.06]">

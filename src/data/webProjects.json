@@ -150,7 +150,7 @@
         "description_id": "Aplikasi berbasis web yang dirancang khusus sebagai pusat informasi, pendataan, dan dokumentasi untuk UKM Futsal Club Universitas Bina Nusantara (UBhinus). Dibangun menggunakan framework Laravel dengan antarmuka Bootstrap 5, sistem ini memfasilitasi pengurus dalam mendata anggota serta memamerkan rekam jejak kegiatan klub secara interaktif kepada publik.",
         "display_mode": "single",
         "image": "fcu-ubhinus.png",
-        "liveDemo": "#",
+        "liveDemo": "https://website-futsal-stiki.vercel.app",
         "github": "https://github.com/mhmmdraflin/Website-Futsal-Stiki",
         "problem_en": "Managing member data and documenting the club's activities was inefficient and lacked transparency for the public.",
         "problem_id": "Pengurus UKM Futsal kesulitan dalam mengelola data keanggotaan dan mendokumentasikan rekam jejak kegiatan klub (futsal & minisoccer) secara efisien dan transparan kepada publik.",
