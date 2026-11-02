@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect } from 'react';
 import './index.css';
 import { LanguageProvider } from './context/LanguageContext';
-import AmbientBackground from './components/AmbientBackground';
+import CyberBackground from './components/CyberBackground';
 import Header from './components/Header';
 import HomePage from './components/HomePage';
 import JourneySection from './components/JourneySection';
@@ -49,7 +49,7 @@ function App() {
   if (showDetail) {
     return (
       <LanguageProvider>
-        <AmbientBackground />
+        <CyberBackground />
         <ProjectDetail onBack={handleBackToMain} project={selectedProject} />
       </LanguageProvider>
     );
@@ -57,8 +57,8 @@ function App() {
 
   return (
     <LanguageProvider>
-      <div className="bg-[#F5F5F7] dark:bg-[#0B1121] text-[#1D1D1F] dark:text-[#F5F5F7] font-display min-h-screen relative overflow-x-hidden transition-colors duration-300">
-        <AmbientBackground />
+      <div className="bg-transparent text-[#1D1D1F] dark:text-[#F5F5F7] font-display min-h-screen relative overflow-x-hidden transition-colors duration-300">
+        <CyberBackground />
         <Header />
 
         {/* Screen 1: Home */}
