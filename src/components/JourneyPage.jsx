@@ -8,8 +8,8 @@ const timelineData = {
             organization: 'UBHINUS dh.STIKI',
             icon: 'school',
             period: '2022 — 2026',
-            isCurrent: true,
-            description: 'Graduated with a Bachelor\'s degree in Informatics, focusing on Web and Mobile Application Development.',
+            isCurrent: false,
+            description: 'Lulusan S1 Informatika (IPK 3.71) dengan fokus pada pengembangan web dan mobile serta dukungan teknis IT, dan penerima Beasiswa Kukar Idaman 2024.',
             dotColor: 'border-[#007AFF]',
             periodStyle: 'bg-[#007AFF]/5 border-[#007AFF]/20 text-[#007AFF]',
         },
@@ -22,7 +22,7 @@ const timelineData = {
             icon: 'school',
             period: 'Aug 2025 — Jan 2026',
             isCurrent: false,
-            description: 'Laboratory Teaching Assistant for Advanced Database course.',
+            description: '• Mendampingi 15 mahasiswa praktikum Basis Data Lanjut dalam menulis query SQL kompleks (CTE dan Window Functions) untuk mengelola data berskala besar.\n• Membimbing mahasiswa menerapkan best practices optimasi performa database agar query berjalan lebih cepat dan efisien.',
             dotColor: 'border-[#007AFF]',
             periodStyle: 'bg-[#007AFF]/5 border-[#007AFF]/20 text-[#007AFF]',
             tags: ['Database', 'Teaching', 'Part-time'],
@@ -34,7 +34,7 @@ const timelineData = {
             icon: 'school',
             period: 'Mar 2025 — Jul 2025',
             isCurrent: false,
-            description: 'Assisted in teaching Advanced Web Programming, a course focused on mastering Laravel and Livewire to build transactional web applications. Provided technical guidance from installation and configuration to developing interactive components without JavaScript, while also supporting students in backend integration, performance optimization, and building scalable, component-based web systems.',
+            description: '• Membimbing 4 mahasiswa D3 secara intensif dalam proyek aplikasi web transaksional menggunakan Laravel dan Livewire.\n• Melatih pembuatan komponen dinamis dan integrasi backend hingga mahasiswa mampu merancang sistem yang fungsional, stabil, dan scalable.',
             dotColor: 'border-gray-400',
             periodStyle: 'bg-white border-gray-200/80 text-[#86868B]',
             tags: ['Laravel', 'Livewire', 'Web Development'],
@@ -46,7 +46,7 @@ const timelineData = {
             icon: 'school',
             period: 'Sep 2024 — Feb 2025',
             isCurrent: false,
-            description: 'Assisted in teaching Web Programming I, a course covering the fundamentals of web development including HTML, CSS, and PHP. Supported students during lectures and lab sessions by troubleshooting coding issues, guiding them in understanding core concepts, and helping improve their problem-solving skills in web development.',
+            description: '• Memfasilitasi 26 mahasiswa pada sesi praktikum Pemrograman Web I dengan mengajarkan fundamental HTML, CSS, dan PHP.\n• Membimbing mahasiswa merancang dan membangun halaman website dasar yang fungsional secara mandiri.',
             dotColor: 'border-gray-400',
             periodStyle: 'bg-white border-gray-200/80 text-[#86868B]',
             tags: ['HTML', 'CSS', 'PHP', 'Teaching'],
@@ -57,7 +57,7 @@ const timelineData = {
             organization: 'Sehatin',
             icon: 'apartment',
             period: '2023 — Pres',
-            isCurrent: true,
+            isCurrent: false,
             description: 'Leading a team of 5 developers to build a comprehensive telemedicine platform. Architected the mobile app using Flutter and implemented clean architecture principles. Improved app performance by 40%.',
             dotColor: 'border-[#007AFF]',
             periodStyle: 'bg-[#007AFF]/5 border-[#007AFF]/20 text-[#007AFF]',
@@ -128,7 +128,7 @@ function TimelineItem({ item }) {
                     )}
                 </div>
 
-                <p className="text-sm leading-relaxed text-[#86868B] max-w-xl">
+                <p className="text-sm leading-relaxed text-[#86868B] max-w-xl whitespace-pre-line">
                     {item.description}
                 </p>
 

@@ -8,9 +8,9 @@
             "organization": "UBHINUS dh.STIKI",
             "period_en": "2022 — 2026",
             "period_id": "2022 — 2026",
-            "is_current": true,
-            "description_en": "Graduated with a Bachelor's degree in Informatics, focusing on Web and Mobile Application Development.",
-            "description_id": "Lulus dengan gelar Sarjana Informatika, fokus pada Pengembangan Aplikasi Web dan Mobile.",
+            "is_current": false,
+            "description_en": "Informatics Bachelor graduate (GPA 3.71) with a focus on web and mobile development as well as IT technical support, and recipient of the 2024 Kukar Idaman Scholarship.",
+            "description_id": "Lulusan S1 Informatika (IPK 3.71) dengan fokus pada pengembangan web dan mobile serta dukungan teknis IT, dan penerima Beasiswa Kukar Idaman 2024.",
             "logo_url": "ubhinus-logo.jpg"
         },
         {
@@ -50,8 +50,8 @@
             "period_en": "Aug 2025 — Jan 2026",
             "period_id": "Agu 2025 — Jan 2026",
             "is_current": false,
-            "description_en": "Teaching advanced data management techniques including complex query structures (CTE/Window Functions) as well as best practices in SQL database optimization and performance analysis.",
-            "description_id": "Mengajarkan teknik manajemen data tingkat lanjut termasuk struktur kueri kompleks (CTE/Window Functions) serta praktik terbaik dalam optimasi database SQL dan analisis kinerja.",
+            "description_en": "• Guided 15 Advanced Database practicum students in writing complex SQL queries (CTE and Window Functions) to manage large-scale data.\n• Mentored students in implementing database performance optimization best practices to ensure faster and more efficient queries.",
+            "description_id": "• Mendampingi 15 mahasiswa praktikum Basis Data Lanjut dalam menulis query SQL kompleks (CTE dan Window Functions) untuk mengelola data berskala besar.\n• Membimbing mahasiswa menerapkan best practices optimasi performa database agar query berjalan lebih cepat dan efisien.",
             "logo_url": "ubhinus-dh-stiki-logo.jpg",
             "tags": [
                 "Database",
@@ -68,8 +68,8 @@
             "period_en": "Mar 2025 — Jul 2025",
             "period_id": "Mar 2025 — Jul 2025",
             "is_current": false,
-            "description_en": "Mentored students in building scalable Laravel/Livewire applications, covering setup, development, and optimization.",
-            "description_id": "Membimbing mahasiswa dalam membangun aplikasi Laravel/Livewire yang scalable, mencakup konfigurasi, pengembangan, dan optimasi.",
+            "description_en": "• Intensively mentored 4 associate degree (D3) students on transactional web application projects using Laravel and Livewire.\n• Trained students in creating dynamic components and backend integration to build functional, stable, and scalable systems.",
+            "description_id": "• Membimbing 4 mahasiswa D3 secara intensif dalam proyek aplikasi web transaksional menggunakan Laravel dan Livewire.\n• Melatih pembuatan komponen dinamis dan integrasi backend hingga mahasiswa mampu merancang sistem yang fungsional, stabil, dan scalable.",
             "logo_url": "ubhinus-dh-stiki-logo.jpg",
             "tags": [
                 "Laravel",
@@ -86,8 +86,8 @@
             "period_en": "Sep 2024 — Feb 2025",
             "period_id": "Sep 2024 — Feb 2025",
             "is_current": false,
-            "description_en": "Guided students in web development basics (HTML, CSS, PHP) and hands-on code troubleshooting.",
-            "description_id": "Memandu mahasiswa dalam dasar-dasar pengembangan web (HTML, CSS, PHP) dan pemecahan masalah kode secara langsung.",
+            "description_en": "• Facilitated 26 students in Web Programming I practicum sessions by teaching fundamentals of HTML, CSS, and PHP.\n• Mentored students in independently designing and building functional basic web pages.",
+            "description_id": "• Memfasilitasi 26 mahasiswa pada sesi praktikum Pemrograman Web I dengan mengajarkan fundamental HTML, CSS, dan PHP.\n• Membimbing mahasiswa merancang dan membangun halaman website dasar yang fungsional secara mandiri.",
             "logo_url": "ubhinus-dh-stiki-logo.jpg",
             "tags": [
                 "HTML",
@@ -119,6 +119,25 @@
         }
     ],
     "achievements": [
+        {
+            "id": 9,
+            "type": "achievement",
+            "title_en": "Kampus Merdeka",
+            "title_id": "Kampus Merdeka",
+            "organization": "Studi Independen Bersertifikat (SIB) Angkatan 7",
+            "period_en": "Sep 2024 — Jan 2025",
+            "period_id": "Sep 2024 — Jan 2025",
+            "is_current": false,
+            "description_en": "Selected for the Certified Independent Study (SIB) Kampus Merdeka Batch 7 in the Bangkit Academy 2024 program (led by Google, Tokopedia, Gojek, & Traveloka) for the Mobile Development path. Completed 900 hours of intensive training specializing in Android development (Kotlin) and Clean Architecture, and collaborated with Machine Learning and Cloud Computing teams on the CatLoris Capstone Project.",
+            "description_id": "Lolos seleksi Studi Independen Bersertifikat (SIB) Kampus Merdeka Angkatan 7 pada program Bangkit Academy 2024 (Google, Tokopedia, Gojek, & Traveloka) jalur Mobile Development. Menyelesaikan 900 jam pelatihan dengan spesialisasi pengembangan Android (Kotlin) dan Clean Architecture, serta berkolaborasi dengan tim Machine Learning dan Cloud Computing pada Capstone Project CatLoris.",
+            "logo_url": "kampus-merdeka.png",
+            "tags": [
+                "Kampus Merdeka",
+                "Bangkit Academy",
+                "Mobile Development",
+                "Android"
+            ]
+        },
         {
             "id": 8,
             "type": "achievement",

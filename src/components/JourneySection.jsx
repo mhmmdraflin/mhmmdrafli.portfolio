@@ -84,7 +84,7 @@ function JourneyModal({ item, isOpen, onClose, t, lang }) {
                 {/* Scrollable Content */}
                 <div className="p-6 md:p-8 overflow-y-auto overscroll-contain">
                     <h3 className="text-sm font-bold text-[#86868B] uppercase tracking-wider mb-3">{t.journey.description}</h3>
-                    <p className="text-[#1D1D1F] leading-relaxed text-[15px] font-normal mb-8 text-left">
+                    <p className="text-[#1D1D1F] leading-relaxed text-[15px] font-normal mb-8 text-left whitespace-pre-line">
                         {lang === 'id' ? item.description_id : item.description_en}
                     </p>
 
@@ -163,7 +163,7 @@ function TimelineItem({ item, onClick, t, lang }) {
                             </h4>
                         )}
 
-                        <p className="text-xs md:text-sm leading-relaxed text-[#86868B] dark:text-white text-left line-clamp-3">{lang === 'id' ? item.description_id : item.description_en}</p>
+                        <p className="text-xs md:text-sm leading-relaxed text-[#86868B] dark:text-white text-left line-clamp-3 whitespace-pre-line">{lang === 'id' ? item.description_id : item.description_en}</p>
                         <div className="md:hidden mt-2 flex items-center gap-1 text-[#007AFF] dark:text-[#47A1FF] text-xs font-medium">
                             <span>{t.journey.viewDetails}</span>
                             <span className="material-symbols-outlined text-[14px]">arrow_forward</span>

@@ -290,6 +290,8 @@ export default function ProjectsSection({ onViewCaseStudy }) {
     const { lang } = useLang();
     const t = translations[lang];
 
+    const [showAllMobile, setShowAllMobile] = useState(false);
+
     const [activeTab, setActiveTab] = useState(() => {
         if (typeof sessionStorage !== 'undefined') {
             return sessionStorage.getItem('projectsActiveTab') || 'phone';
@@ -344,10 +346,38 @@ export default function ProjectsSection({ onViewCaseStudy }) {
 
                 {/* Projects Content */}
                 {activeTab === 'phone' ? (
-                    <div className="space-y-16 md:space-y-32">
-                        {projects.map((project, index) => (
-                            <ProjectItem key={project.id} project={project} index={index} t={t} lang={lang} onViewCaseStudy={onViewCaseStudy} />
-                        ))}
+                    <div>
+                        <div className="space-y-16 md:space-y-32">
+                            {(showAllMobile ? projects : projects.slice(0, 2)).map((project, index) => (
+                                <ProjectItem key={project.id} project={project} index={index} t={t} lang={lang} onViewCaseStudy={onViewCaseStudy} />
+                            ))}
+                        </div>
+
+                        {projects.length > 2 && (
+                            <div className="flex justify-center pt-12 md:pt-20">
+                                <button
+                                    onClick={() => {
+                                        if (showAllMobile) {
+                                            setShowAllMobile(false);
+                                            const el = document.getElementById('projects');
+                                            if (el) el.scrollIntoView({ behavior: 'smooth' });
+                                        } else {
+                                            setShowAllMobile(true);
+                                        }
+                                    }}
+                                    className="group px-7 py-3.5 bg-white dark:bg-white/10 hover:bg-gray-100 dark:hover:bg-white/15 text-[#1D1D1F] dark:text-white rounded-full border border-gray-200 dark:border-white/15 font-bold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2.5 active:scale-[0.98] cursor-pointer"
+                                >
+                                    <span>
+                                        {showAllMobile
+                                            ? t.projects.showLess
+                                            : t.projects.viewMore}
+                                    </span>
+                                    <span className={`material-symbols-outlined text-[20px] text-[#007AFF] transition-transform duration-300 ${showAllMobile ? 'rotate-180' : 'group-hover:translate-y-0.5'}`}>
+                                        expand_more
+                                    </span>
+                                </button>
+                            </div>
+                        )}
                     </div>
                 ) : (
                     <div className="space-y-16 md:space-y-32">
